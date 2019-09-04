@@ -12,7 +12,7 @@ public class AltarguildApplication {
 	@RequestMapping("/")
 	public String gethomepage()
 	{
-		return "redirect:/guildmems/list";
+		return "redirect:/guild/list";
 	}
 
 	public static void main(String[] args) {

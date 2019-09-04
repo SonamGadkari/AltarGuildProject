@@ -11,33 +11,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.springboot.thymeprj.model.Student;
-import com.springboot.thymeprj.service.StudentService;
+import com.springboot.altarguild.model.Guild;
+import com.springboot.altarguild.service.GuildService;
 
 @Controller
-@RequestMapping("/students")
+@RequestMapping("/guild")
 public class GuildController {
 
-private StudentService studentService;
+private GuildService guildService;
 	
 	@Autowired
-	public StudentController(StudentService studentService)
+	public GuildController(GuildService guildService)
 	{
-		this.studentService=studentService;
+		this.guildService=guildService;
 	}	
 	
 @GetMapping("/list")
 public String allStudents(Model themodel)
 {	
-	List<Student> stuList=studentService.findAll();
-	themodel.addAttribute("students",stuList);
+	List<Guild> stuList=guildService.findAll();
+	themodel.addAttribute("members",stuList);
 	return "list-students";
 }
 
 @GetMapping("/showFormForAdd")
 public String showForm(Model themodel)
 {
-	themodel.addAttribute("student",new Student());	
+	themodel.addAttribute("member",new Guild());	
 	return "showForm";
 }
 
@@ -48,25 +48,25 @@ public String showAboutme(Model themodel)
 }
 
 @PostMapping("/save")
-public String saveForm(@ModelAttribute("student") Student theStudent)
+public String saveForm(@ModelAttribute("student") Guild theStudent)
 {
-	studentService.save(theStudent);
-	return "redirect:/students/list";	
+	guildService.save(theStudent);
+	return "redirect:/guild/list";	
 }
 
 @GetMapping("/showFormForUpdate")
 public String showFormforUpdate(@RequestParam("studentId") int id,Model themodel)
 {
-	Student stu=studentService.findById(id);
-	themodel.addAttribute("student",stu);
+	Guild stu=guildService.findById(id);
+	themodel.addAttribute("member",stu);
 	return "showForm";
 }
 
 @GetMapping("/delete")
 public String deleteStudent(@RequestParam("studentId") int id, Model themodel)
 {
-	Student stu=studentService.findById(id);
-	studentService.deleteById(id);
-	return "redirect:/students/list";
+	Guild stu=guildService.findById(id);
+	guildService.deleteById(id);
+	return "redirect:/guild/list";
 }
 }
