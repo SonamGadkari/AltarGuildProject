@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springboot.altarguild.model.Guild;
 import com.springboot.altarguild.service.GuildService;
+import com.springboot.altarguild.service.GuildServiceImpl;
 
 @Controller
 @RequestMapping("/guild")
 public class GuildController {
-
-private GuildService guildService;
+	private GuildService guildService;
 	
 	@Autowired
 	public GuildController(GuildService guildService)
@@ -48,7 +48,7 @@ public String showAboutme(Model themodel)
 }
 
 @PostMapping("/save")
-public String saveForm(@ModelAttribute("student") Guild theStudent)
+public String saveForm(@ModelAttribute("member") Guild theStudent)
 {
 	guildService.save(theStudent);
 	return "redirect:/guild/list";	

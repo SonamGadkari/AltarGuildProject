@@ -4,10 +4,12 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.springboot.altarguild.model.Guild;
 import com.springboot.altarguild.repository.GuildRepository;
 
+@Service
 public class GuildServiceImpl implements GuildService{
 	
 private GuildRepository guildRepository;
@@ -21,7 +23,8 @@ private GuildRepository guildRepository;
 	@Override
 	public List<Guild> findAll() {
 		// TODO Auto-generated method stub
-		List<Guild> guildmems=guildRepository.findAllByOrderByLastNameAsc();
+		//List<Guild> guildmems=guildRepository.findAllByOrderByLastNameAsc();
+		List<Guild> guildmems=guildRepository.findAllByOrderByPhoneAsc();
 		return guildmems;
 	}
 
