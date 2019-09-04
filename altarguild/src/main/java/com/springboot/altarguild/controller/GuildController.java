@@ -55,7 +55,7 @@ public String saveForm(@ModelAttribute("student") Guild theStudent)
 }
 
 @GetMapping("/showFormForUpdate")
-public String showFormforUpdate(@RequestParam("studentId") int id,Model themodel)
+public String showFormforUpdate(@RequestParam("guildId") int id,Model themodel)
 {
 	Guild stu=guildService.findById(id);
 	themodel.addAttribute("member",stu);
@@ -63,7 +63,7 @@ public String showFormforUpdate(@RequestParam("studentId") int id,Model themodel
 }
 
 @GetMapping("/delete")
-public String deleteStudent(@RequestParam("studentId") int id, Model themodel)
+public String deleteStudent(@RequestParam("guildId") int id, Model themodel)
 {
 	Guild stu=guildService.findById(id);
 	guildService.deleteById(id);
