@@ -1,6 +1,7 @@
 package com.springboot.altarguild.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,24 +13,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springboot.altarguild.model.Guild;
-import com.springboot.altarguild.service.GuildService;
-import com.springboot.altarguild.service.GuildServiceImpl;
+import com.springboot.altarguild.repository.GuildRepository;
+//import com.springboot.altarguild.service.GuildRepositoryImpl;
 
 @Controller
 @RequestMapping("/guild")
 public class GuildController {
-	private GuildService guildService;
+	private GuildRepository guildRepository;
 	
 	@Autowired
-	public GuildController(GuildService guildService)
+	public GuildController(GuildRepository guildRepository)
 	{
-		this.guildService=guildService;
+		this.guildRepository=guildRepository;
 	}	
 	
 @GetMapping("/list")
 public String allStudents(Model themodel)
 {	
-	List<Guild> stuList=guildService.findAll();
+	List<Guild> stuList=guildRepository.findAll();
 	themodel.addAttribute("members",stuList);
 	return "list-students";
 }
@@ -50,14 +51,14 @@ public String showAboutme(Model themodel)
 @PostMapping("/save")
 public String saveForm(@ModelAttribute("member") Guild theStudent)
 {
-	guildService.save(theStudent);
+	guildRepository.save(theStudent);
 	return "redirect:/guild/list";	
 }
 
 @GetMapping("/showFormForUpdate")
 public String showFormforUpdate(@RequestParam("guildId") int id,Model themodel)
 {
-	Guild stu=guildService.findById(id);
+	Optional<Guild> stu=guildRepository.findById(id);
 	themodel.addAttribute("member",stu);
 	return "showForm";
 }
@@ -65,8 +66,8 @@ public String showFormforUpdate(@RequestParam("guildId") int id,Model themodel)
 @GetMapping("/delete")
 public String deleteStudent(@RequestParam("guildId") int id, Model themodel)
 {
-	Guild stu=guildService.findById(id);
-	guildService.deleteById(id);
+	Optional<Guild> stu=guildRepository.findById(id);
+	guildRepository.deleteById(id);
 	return "redirect:/guild/list";
 }
 }
