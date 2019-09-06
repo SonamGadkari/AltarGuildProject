@@ -1,24 +1,27 @@
 package com.springboot.altarguild.model;
 
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Table;
+import javax.persistence.Id;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
 
-@Getter
-@Setter
-@ToString
-@Document(collection="guild")
+@Entity
+@Table(name="guild")
 public class Guild {
 	@Id	
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	public int Id;	
+	@Column(name="name")
 	public String name;	
+	@Column(name="phone")
 	public String phone;
+	@Column(name="email")
 	public String email;
 	public Guild() {
-		//super();
 	}
 	public int getId() {
 		return Id;
