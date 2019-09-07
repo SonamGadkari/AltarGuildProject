@@ -1,12 +1,14 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleave.org">
 <head>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 </head>
 <body>
     <div>         
             <input type="text" class="textbox email_address_field" name="" placeholder="Enter Your Username" required=""><br><br>
-            <input type="password" class="textbox email_address_field" name="" placeholder="Enter Your Password" required=""><br><br>
-            <input type="button" th:action="@{/events}"  name="Submit" value="submit" required="">                           
+            <input type="password" class="textbox email_address_field" name="" placeholder="Enter Your Password" required=""><br><br>            
+            <a class="btn btn-success" th:href="@{/events}" 
+			onclick="if(!(confirm('Login successfull'))) return true">Login</a>                           
     </div>
 </body>
 
