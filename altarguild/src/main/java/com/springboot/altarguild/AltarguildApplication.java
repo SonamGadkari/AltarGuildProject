@@ -10,12 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @SpringBootApplication
 public class AltarguildApplication {
 	
-	@RequestMapping("/")
+	/*@RequestMapping("/")
 	public String gethomepage()
 	{
 		return "redirect:/guild/list";
 	}
-
+	*/
 	public static void main(String[] args) {
 		SpringApplication.run(AltarguildApplication.class, args);
 	}
