@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Viewing template 5 - Universal</title>
+<!doctype html>
+<html xmlns:th="http://www.thymeleave.org">
+<head>
 </head>
 <body>
     <div>         
             <input type="text" class="textbox email_address_field" name="" placeholder="Enter Your Username" required=""><br><br>
             <input type="password" class="textbox email_address_field" name="" placeholder="Enter Your Password" required=""><br><br>
-            <input type="button" name="Submit" value="submit" required="">                           
+            <input type="button" th:action="@{/events}"  name="Submit" value="submit" required="">                           
     </div>
 </body>
 
