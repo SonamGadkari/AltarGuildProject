@@ -97,6 +97,10 @@ public class Banner {
 		return pairIDs;
 	}
 
+	/*public void setPairIDs(int[] pairIDs) {
+		this.pairIDs = pairIDs;
+	}
+	*/
 	public void setPairIDs(String pairIDs) {
 		this.pairIDs = pairIDs;
 	}
