@@ -1,0 +1,40 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleave.org">
+<head>
+<title>Spring Boot Thyme App</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="row">
+<div class="col-sm-2">
+</div>
+<div class="col-sm-4">
+<form th:action="@{save}"
+th:object="${member}" method="POST">
+<div class="form-group">
+<p> Enter the Guild member information below</p>
+<label>Name</label>
+<input type="hidden" th:field="*{id}" />
+<input type="text" class="form-control"  th:field="*{name}" placeholder="First Name" />
+<input type="text" class="form-control"  th:field="*{phone}" placeholder="pHONE" />
+<label>Email</label>
+<input type="text" class="form-control"  th:field="*{email}" placeholder="Email" />
+<br />
+<button type="submit" class="btn btn-success">Save</button>
+</div>
+</form>
+</div>
+</div>
+
+<!-- 
+First Name:
+<input type="text" value="Enter your name" name="firstName" />
+Last Name:
+<input type="text" value="Enter your name" name="lastName" />
+Email:
+<input type="text" value="Enter your email" name="email" />
+<input type="submit" value="Submit" />
+ -->
+
+</body>
+</html>
