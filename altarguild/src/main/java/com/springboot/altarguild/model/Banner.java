@@ -1,10 +1,17 @@
 package com.springboot.altarguild.model;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -29,19 +36,23 @@ public class Banner {
 	public String scriptur;
 	
 	@Column(name="pairIDs")
-	public int[] pairIDs;
+	//public int[] pairIDs;
+	public String pairIDs;
 	
 	@Column(name="image")
 	public String image;
-
+	
+	@ManyToMany(fetch=FetchType.LAZY,
+			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+			 CascadeType.DETACH, CascadeType.REFRESH})
+	@JoinTable(name="seasonbanner",joinColumns=@JoinColumn(name="banner_id"),
+	inverseJoinColumns=@JoinColumn(name="season_id"))	
+	private List<Season> seasons;
 	
 	public Banner() {
 		
 	}
 
-
-
-	
 	public int getId() {
 		return Id;
 	}
@@ -82,11 +93,11 @@ public class Banner {
 		this.scriptur = scriptur;
 	}
 
-	public int[] getPairIDs() {
+	public String getPairIDs() {
 		return pairIDs;
 	}
 
-	public void setPairIDs(int[] pairIDs) {
+	public void setPairIDs(String pairIDs) {
 		this.pairIDs = pairIDs;
 	}
 	
@@ -97,6 +108,5 @@ public class Banner {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	
 	
 }
