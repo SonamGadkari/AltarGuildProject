@@ -14,4 +14,17 @@
 <img src="p.jpg" style="width:500px;height:300px;"/>"
 <h1>Banner History:</h1>
 <h1>Where to Find</h1 >
+<button>Delete</button>
+<button>Edit</button>
+
+    <script type="text/javascript">
+        var clicks = 0;
+        function onClick() {
+            clicks += 1;
+            document.getElementById("clicks").innerHTML = clicks;
+        };
+        </script>
+        <button type="button" onClick="onClick()">Click me when you use this banner</button>
+        <p>You have used this banner for: <a id="clicks">0</a> times</p>
+    
 </body>
