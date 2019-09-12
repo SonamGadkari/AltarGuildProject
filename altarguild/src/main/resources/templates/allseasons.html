@@ -48,32 +48,19 @@ h3 {
       <li data-target="#myCarousel" data-slide-to="1"></li>
       <li data-target="#myCarousel" data-slide-to="2"></li>
     </ol>
-
+	
     <!-- Wrapper for slides -->
     <div class="carousel-inner" id="bg">
+    <p th:each="season : ${seasons}">
       <div class="item active">
         <a href="https://sites.google.com/s/1rD3WvZ0DhShHScMeXJgmxrSE56IPn_bt/p/1UhJZEznsNrktQdrMh0HvCyYA94OhWxBo/edit"><img src="https://cdn.pixabay.com/photo/2017/12/06/09/43/advent-3001341_960_720.jpg" alt="Los Angeles" style="width:50%; height:150%;"></a>
 		<div class="carousel-caption">
+		<p th:text="${season.name}"></p>
         <h3>Advent</h3>
         <p class="classfont">Dec 2 to Dec23</p>
       </div>
-      </div>
-
-      <div class="item">
-       <img src="https://images.unsplash.com/photo-1480719598364-fe3123242a9d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1000&q=80" alt="Chicago" style="width:50%; height:150%;">
-        <div class="carousel-caption">
-            <h3>Christmas</h3>
-            <p class="classfont">Dec 25 to Dec30</p>
-          </div>
-      </div>
-    
-      <div class="item">
-            <img src="https://allsaintsfrindsbury.org.uk/wp-content/uploads/2017/01/300px-epiphany.png" alt="Chicago" style="width:50%; height:150%;">
-        <div class="carousel-caption">
-            <h3>Epiphany</h3>
-            <p class="classfont">Jan 6 to Mar 3</p>
-          </div>
-      </div>
+      </div>  
+      </p>    
     </div>
     <a class="left carousel-control" href="#myCarousel" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>

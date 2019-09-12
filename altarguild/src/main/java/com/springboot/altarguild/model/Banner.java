@@ -16,7 +16,6 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="banner")
-
 public class Banner {
 	@Id	
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

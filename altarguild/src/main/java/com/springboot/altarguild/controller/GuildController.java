@@ -32,7 +32,7 @@ public String allStudents(Model themodel)
 {	
 	List<Guild> stuList=guildRepository.findAll();
 	themodel.addAttribute("members",stuList);
-	return "list-students";
+	return "list-members";
 }
 
 @GetMapping("/showFormForAdd")

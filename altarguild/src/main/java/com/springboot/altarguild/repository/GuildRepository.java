@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.springboot.altarguild.model.Guild;
 
-@Repository
+@Repository()
 public interface GuildRepository extends JpaRepository<Guild,Integer> {
 		
 		public List<Guild> findAllByOrderByPhoneAsc();

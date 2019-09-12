@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +21,7 @@ import com.springboot.altarguild.repository.GuildRepository;
 
 @Controller
 @RequestMapping("/banner")
+@ComponentScan(basePackages = "com.springboot.altarguild") 
 public class BannerController {
 
 	private BannerRepository bannerRepository;
@@ -27,10 +30,19 @@ public class BannerController {
 	public BannerController(BannerRepository bannerRepository)
 	{
 		this.bannerRepository=bannerRepository;
-	}	
-
+	}
+	/*
 	
+	@GetMapping("/all")
 	
+	public String allBanner(Model themodel)
+	{	
+		List<Banner> bannerList = bannerRepository.findAll();
+		themodel.addAttribute("Banners",bannerList);
+		return "list-banners";
+	}
+	
+	*/
 //@GetMapping("/all")
 //public String allBanner(Model themodel)
 //{	
