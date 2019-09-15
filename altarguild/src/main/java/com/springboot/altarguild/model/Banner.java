@@ -96,20 +96,24 @@ public class Banner {
 		return pairIDs;
 	}
 
-	/*public void setPairIDs(int[] pairIDs) {
-		this.pairIDs = pairIDs;
-	}
-	*/
 	public void setPairIDs(String pairIDs) {
 		this.pairIDs = pairIDs;
 	}
-	
+
 	public String getImage() {
 		return image;
 	}
 
 	public void setImage(String image) {
 		this.image = image;
+	}
+
+	public List<Season> getSeasons() {
+		return seasons;
+	}
+
+	public void setSeasons(List<Season> seasons) {
+		this.seasons = seasons;
 	}
 	
 }

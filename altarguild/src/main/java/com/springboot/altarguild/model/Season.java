@@ -49,5 +49,11 @@ public class Season {
 		}
 		public void setStartDate(String startDate) {
 			this.startDate = startDate;
+		}
+		public List<Banner> getBanners() {
+			return banners;
+		}
+		public void setBanners(List<Banner> banners) {
+			this.banners = banners;
 		}		
 }

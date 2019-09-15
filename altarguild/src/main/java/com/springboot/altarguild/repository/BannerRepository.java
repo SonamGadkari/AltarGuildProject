@@ -11,5 +11,5 @@ import com.springboot.altarguild.model.Banner;
 @Repository()
 public interface BannerRepository extends JpaRepository<Banner,Integer> {
 		
-		public List<Banner> findAll();
+	
 }

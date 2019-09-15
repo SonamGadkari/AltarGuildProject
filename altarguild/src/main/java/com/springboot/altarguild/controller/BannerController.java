@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
+//import org.springframework.boot.Banner;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.springboot.altarguild.model.Banner;
 import com.springboot.altarguild.model.Guild;
 import com.springboot.altarguild.repository.BannerRepository;
 import com.springboot.altarguild.repository.GuildRepository;
@@ -21,7 +22,7 @@ import com.springboot.altarguild.repository.GuildRepository;
 
 @Controller
 @RequestMapping("/banner")
-@ComponentScan(basePackages = "com.springboot.altarguild") 
+//@ComponentScan(basePackages = "com.springboot.altarguild") 
 public class BannerController {
 
 	private BannerRepository bannerRepository;
@@ -30,6 +31,13 @@ public class BannerController {
 	public BannerController(BannerRepository bannerRepository)
 	{
 		this.bannerRepository=bannerRepository;
+	}
+	
+	@GetMapping("/AddBanner")
+	public String showForm(Model themodel)
+	{
+		themodel.addAttribute("member",new Banner());	
+		return "showForm";
 	}
 	/*
 	
