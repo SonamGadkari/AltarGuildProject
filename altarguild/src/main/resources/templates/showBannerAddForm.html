@@ -1,0 +1,41 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleave.org">
+<head>
+<title>Add Banner</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="row">
+<div class="col-sm-2">
+</div>
+<div class="col-sm-4">
+<form th:action="@{save}" th:object="${banner}" method="POST">
+<div class="form-group">
+<p> Enter the Guild member information below</p>
+<label>Name</label>
+<input type="hidden" th:field="*{id}" />
+<input type="text" class="form-control"  th:field="*{type}" placeholder="Type" />
+<input type="text" class="form-control"  th:field="*{storage}" placeholder="Storage" />
+<label>Special Instructions</label>
+<input type="text" class="form-control"  th:field="*{specialInstructions}" placeholder="specialInstructions" />
+<label>Scripture</label>
+<input type="text" class="form-control"  th:field="*{scripture}" placeholder="scripture" />
+<label>PairID (if any)</label>
+<input type="text" class="form-control"  th:field="*{pairID}" placeholder="pairID" />
+<label>ImageUrl</label>
+<input type="text" class="form-control"  th:field="*{imageUrl}" placeholder="imageUrl" />
+<select th:field="*{seasons}">
+ 	<option th:value="'Advent'" th:text="Advent"></option>
+    <option th:value="'Christmas'" th:text="Christmas"></option>
+    <option th:value="'Epiphany'" th:text="Epiphany"></option>
+    <option th:value="'Lenten'" th:text="Lenten"></option>
+    <option th:value="'Easter'" th:text="Easter"></option>    
+</select>
+<br />
+<button type="submit" class="btn btn-success">Save</button>
+</div>
+</form>
+</div>
+</div>
+</body>
+</html>

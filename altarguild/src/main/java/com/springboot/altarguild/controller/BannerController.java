@@ -1,24 +1,23 @@
 package com.springboot.altarguild.controller;
 
+
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.boot.Banner;
-import org.springframework.context.annotation.ComponentScan;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springboot.altarguild.model.Banner;
 import com.springboot.altarguild.model.Guild;
 import com.springboot.altarguild.repository.BannerRepository;
-import com.springboot.altarguild.repository.GuildRepository;
-//import com.springboot.altarguild.service.GuildRepositoryImpl;
+
 
 @Controller
 @RequestMapping("/banner")
@@ -36,10 +35,24 @@ public class BannerController {
 	@GetMapping("/addBanner")
 	public String showForm(Model themodel)
 	{
-		themodel.addAttribute("member",new Banner());	
+		themodel.addAttribute("banner",new Banner());	
 		return "showBannerAddForm";
+	}	
+	
+	@GetMapping("/list/{id}")
+	public String allStudents(Model themodel,@PathVariable(value = "id") int id)
+	{	
+		Optional<Banner> banner1=bannerRepository.findById(id);
+		themodel.addAttribute("banner1",banner1);
+		return "show-banner";
 	}
 	
+	@PostMapping("/save")
+	public String saveForm(@ModelAttribute("banner") Banner theBanner)
+	{
+		bannerRepository.save(theBanner);
+		return "redirect:/banner/list/"+theBanner.getId();	
+	}
 	/*
 	
 	@GetMapping("/all")

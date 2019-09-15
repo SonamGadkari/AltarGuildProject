@@ -42,12 +42,6 @@ public String showForm(Model themodel)
 	return "showForm";
 }
 
-@GetMapping("/aboutme")
-public String showAboutme(Model themodel)
-{
-	return "aboutme";
-}
-
 @PostMapping("/save")
 public String saveForm(@ModelAttribute("member") Guild theStudent)
 {
