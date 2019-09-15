@@ -17,7 +17,7 @@
   </div>
 </nav>
 <div class="container">
-<a th:href="@{/banner/showBannerAddForm}" class="btn btn-success">Add Banner</a>
+<a th:href="@{/banner/addBanner}" class="btn btn-success">Add Banner</a>
 <br />
 <br />
 <table class="table table-bordered  table-striped">
@@ -38,17 +38,15 @@
 <td th:text="${banner1.storage}">
 <td th:text="${banner1.specialInstructions}">
 <td th:text="${banner1.scripture}">
-<td th:each="season : ${seasons}">
-<p th:text="${season}">
 </td>
-<td>
-<a class="btn btn-info" th:href="@{/banner/showFormUpdateBanner(bannerId=${banner1.id})}">Update Banner</a>
-<a class="btn btn-danger" th:href="@{/banner/delete(bannerId=${banner1.id})}" 
-onclick="if(!(confirm('Confirm to delete'))) return true">Delete Banner</a>
-</td>
+<tr th:each="season : ${seasons}">
+<td th:text="${season}">
 </tr>
 </tbody>
 </table>
+<a class="btn btn-info" th:href="@{/banner/showFormUpdateBanner(bannerId=${banner1.id})}">Update Banner</a>
+<a class="btn btn-danger" th:href="@{/banner/delete(bannerId=${banner1.id})}" 
+onclick="if(!(confirm('Confirm to delete'))) return true">Delete Banner</a>
 </div>
 </body>
 </html>

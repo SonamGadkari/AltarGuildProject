@@ -10,7 +10,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,13 +34,14 @@ public class BannerController {
 	@GetMapping("/addBanner")
 	public String showForm(Model themodel)
 	{
-		themodel.addAttribute("banner",new Banner());	
+		themodel.addAttribute("banner1",new Banner());	
 		return "showBannerAddForm";
 	}	
 	
 	@GetMapping("/list/{id}")
 	//@RequestParam("id")
-	public String allStudents(Model themodel,@PathVariable(value = "id") int id)
+	public String allStudents(Model themodel,@RequestParam("id") int id)
+			//@PathVariable(value = "id") int id)
 	{	
 		Optional<Banner> banner1=bannerRepository.findById(id);
 		themodel.addAttribute("banner1",banner1);
