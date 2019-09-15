@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springboot.altarguild.model.Banner;
-import com.springboot.altarguild.model.Guild;
 import com.springboot.altarguild.repository.BannerRepository;
 
 
@@ -40,6 +40,7 @@ public class BannerController {
 	}	
 	
 	@GetMapping("/list/{id}")
+	//@RequestParam("id")
 	public String allStudents(Model themodel,@PathVariable(value = "id") int id)
 	{	
 		Optional<Banner> banner1=bannerRepository.findById(id);
@@ -53,59 +54,21 @@ public class BannerController {
 		bannerRepository.save(theBanner);
 		return "redirect:/banner/list/"+theBanner.getId();	
 	}
-	/*
 	
-	@GetMapping("/all")
-	
-	public String allBanner(Model themodel)
-	{	
-		List<Banner> bannerList = bannerRepository.findAll();
-		themodel.addAttribute("Banners",bannerList);
-		return "list-banners";
+	@GetMapping("/showFormUpdateBanner")
+	public String showFormforUpdate(@RequestParam("bannerId") int id,Model themodel)
+	{
+		Optional<Banner> banner1=bannerRepository.findById(id);
+		themodel.addAttribute("banner1",banner1);
+		return "show-banner";
 	}
-	
-	*/
-//@GetMapping("/all")
-//public String allBanner(Model themodel)
-//{	
-//	List<Banner> stuList = bannerRepository.findAll();
-//	themodel.addAttribute("Banners",stuList);
-//	return "list-banners";
-//}
-//
-//@GetMapping("/AddBanner")
-//public String showForm(Model themodel)
-//{
-//	themodel.addAttribute("member",new Guild());	
-//	return "showForm";
-//}
-//
-//@GetMapping("/aboutme")
-//public String showAboutme(Model themodel)
-//{
-//	return "aboutme";
-//}
-//
-//@PostMapping("/save")
-//public String saveForm(@ModelAttribute("member") Guild theStudent)
-//{
-//	guildRepository.save(theStudent);
-//	return "redirect:/guild/list";	
-//}
-//
-//@GetMapping("/showFormForUpdate")
-//public String showFormforUpdate(@RequestParam("guildId") int id,Model themodel)
-//{
-//	Optional<Guild> stu=guildRepository.findById(id);
-//	themodel.addAttribute("member",stu);
-//	return "showForm";
-//}
-//
-//@GetMapping("/delete")
-//public String deleteStudent(@RequestParam("guildId") int id, Model themodel)
-//{
-//	Optional<Guild> stu=guildRepository.findById(id);
-//	guildRepository.deleteById(id);
-//	return "redirect:/guild/list";
-//}
+
+	@GetMapping("/delete")
+	public String deleteStudent(@RequestParam("bannerId") int id, Model themodel)
+	{
+		Optional<Banner> banner1=bannerRepository.findById(id);
+		bannerRepository.deleteById(id);
+		//here you have to go to the seasons page 
+		return "redirect:/guild/list";
+	}
 }
