@@ -1,7 +1,7 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleave.org">
 <head>
-<title>Spring Boot Thyme App</title>
+<title>Add Form</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 </head>
 <body>
@@ -16,7 +16,7 @@ th:object="${member}" method="POST">
 <label>Name</label>
 <input type="hidden" th:field="*{id}" />
 <input type="text" class="form-control"  th:field="*{name}" placeholder="First Name" />
-<input type="text" class="form-control"  th:field="*{phone}" placeholder="pHONE" />
+<input type="text" class="form-control"  th:field="*{phone}" placeholder="Phone" />
 <label>Email</label>
 <input type="text" class="form-control"  th:field="*{email}" placeholder="Email" />
 <br />

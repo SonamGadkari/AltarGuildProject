@@ -1,13 +1,13 @@
 <!Doctype html>
 <html xmlns:th="http://www.thymeleave.org">
 <head>
-<title>Spring Boot Thyme App </title>
-<link rel="stylesheet" th:href="@{/css/student.css}" />
+<title>Guild Members page</title>
+<link rel="stylesheet" th:href="@{/css/member.css}" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Student info</a>
+  <a class="navbar-brand" href="#">Member info</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -30,13 +30,13 @@
 <th>Action</th>
 </tr>
 </thead>
-<tr th:each="stu : ${members}">
-<td th:text="${stu.name}">
-<td th:text="${stu.phone}">
-<td th:text="${stu.email}">
+<tr th:each="mem : ${members}">
+<td th:text="${mem.name}">
+<td th:text="${mem.phone}">
+<td th:text="${mem.email}">
 <td>
-<a class="btn btn-info" th:href="@{/guild/showFormForUpdate(guildId=${stu.id})}">Update</a>
-<a class="btn btn-danger" th:href="@{/guild/delete(guildId=${stu.id})}" 
+<a class="btn btn-info" th:href="@{/guild/showFormForUpdate(guildId=${mem.id})}">Update</a>
+<a class="btn btn-danger" th:href="@{/guild/delete(guildId=${mem.id})}" 
 onclick="if(!(confirm('Confirm to delete'))) return true">Delete</a>
 </td>
 </tbody>

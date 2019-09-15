@@ -30,8 +30,8 @@ public class GuildController {
 @GetMapping("/list")
 public String allStudents(Model themodel)
 {	
-	List<Guild> stuList=guildRepository.findAll();
-	themodel.addAttribute("members",stuList);
+	List<Guild> memList=guildRepository.findAll();
+	themodel.addAttribute("members",memList);
 	return "list-members";
 }
 
@@ -43,17 +43,17 @@ public String showForm(Model themodel)
 }
 
 @PostMapping("/save")
-public String saveForm(@ModelAttribute("member") Guild theStudent)
+public String saveForm(@ModelAttribute("member") Guild theMember)
 {
-	guildRepository.save(theStudent);
+	guildRepository.save(theMember);
 	return "redirect:/guild/list";	
 }
 
 @GetMapping("/showFormForUpdate")
 public String showFormforUpdate(@RequestParam("guildId") int id,Model themodel)
 {
-	Optional<Guild> stu=guildRepository.findById(id);
-	themodel.addAttribute("member",stu);
+	Optional<Guild> member=guildRepository.findById(id);
+	themodel.addAttribute("member",member);
 	return "showForm";
 }
 
