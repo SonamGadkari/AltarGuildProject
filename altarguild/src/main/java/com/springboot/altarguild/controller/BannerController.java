@@ -33,12 +33,13 @@ public class BannerController {
 		this.bannerRepository=bannerRepository;
 	}
 	
-	@GetMapping("/AddBanner")
+	@GetMapping("/addBanner")
 	public String showForm(Model themodel)
 	{
 		themodel.addAttribute("member",new Banner());	
-		return "showForm";
+		return "showBannerAddForm";
 	}
+	
 	/*
 	
 	@GetMapping("/all")
