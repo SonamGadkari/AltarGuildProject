@@ -49,13 +49,15 @@ public class BannerController {
 	}
 	
 	@PostMapping("/save")
-	public String saveForm(@ModelAttribute("banner") Banner theBanner)
+	public String saveForm(@ModelAttribute("banner") Banner theBanner,Model themodel)
 	//,Model themodel)
 	{
 		bannerRepository.save(theBanner);
-	//	themodel.addAttribute("banner1",theBanner);
-		//return "show-banner";
-		return "redirect:/banner/list/"+theBanner.getId();	
+		themodel.addAttribute("banner1",theBanner);
+		return "show-banner";
+		//System.out.println(theBanner.getId());
+		//int id = theBanner.getId();
+		//return "redirect:/banner/list/"+id;	
 	}
 	
 	@GetMapping("/showFormUpdateBanner")
