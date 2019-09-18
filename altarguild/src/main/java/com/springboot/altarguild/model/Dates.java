@@ -15,7 +15,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 @Entity
 @Table(name="season")
-public class Season {
+public class Dates {
 		@Id	
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		@Column(name="id")
@@ -30,7 +30,7 @@ public class Season {
 		joinColumns=@JoinColumn(name="season_id"),
 		inverseJoinColumns=@JoinColumn(name="banner_id"))		
 		private List<Banner> banners;
-		public Season() {
+		public Dates() {
 		}
 		public int getId() {
 			return Id;

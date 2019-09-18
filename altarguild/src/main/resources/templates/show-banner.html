@@ -1,0 +1,48 @@
+<!Doctype html>
+<html xmlns:th="http://www.thymeleave.org">
+<head>
+<title>Spring Boot Thyme App </title>
+<link rel="stylesheet" th:href="@{/css/student.css}" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<style>
+.highlight{
+font-weight:bold
+}
+</style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Banner info</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">    
+    </div>
+  </div>
+</nav>
+<div class="container">
+<a th:href="@{/banner/addBanner}" class="btn btn-success">Add Banner</a>
+<br />
+<br />
+<p class='highlight'>Type</p>
+<p th:text="${banner1.type}"></p>
+<p class='highlight'>Storage</p>
+<p th:text="${banner1.storage}"></p>
+<p class='highlight'>Special Instructions</p>
+<p th:text="${banner1.specialInstructions}"></p>
+<p class='highlight'>Scripture</p>
+<p th:text="${banner1.scripture}"></p>
+<p class='highlight'>pairID</p>
+<p th:text="${banner1.pairID}"></p>
+<p th:each="season : ${seasons}"></p>
+<p class='highlight'>imageUrl</p>
+<img th:src="@{${banner1.imageUrl}}" />
+<p class='highlight'>seasons</p>
+<p th:text="${season}"></p>
+<a class="btn btn-info" th:href="@{/banner/showFormUpdateBanner(bannerId=${banner1.id})}">Update Banner</a>
+<a class="btn btn-danger" th:href="@{/banner/delete(bannerId=${banner1.id})}" 
+onclick="if(!(confirm('Confirm to delete'))) return true">Delete Banner</a>
+</div>
+</body>
+</html>
