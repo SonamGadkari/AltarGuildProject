@@ -26,38 +26,14 @@
 <tbody>
 <thead th:text="${key}" >
 </thead>
-<tr th:each = "image :${map[${key}]}">
-<td ><img src = "${image}"></img></td>
+<tr th:each = "banner :${map[${key}]}">
+<td th:href = "@{/banner/list} + ${banner.id}"><img src = "${banner.getImage()}"  ></img></td>
 <td>
-<a class="btn btn-info" th:href="@{/guild/showFormForUpdate(guildId=${mem.id})}">Update</a>
-<a class="btn btn-danger" th:href="@{/guild/delete(guildId=${mem.id})}" 
-onclick="if(!(confirm('Confirm to delete'))) return true">Delete</a>
 </td>
 </tbody>
 </table>
 
 
-
-
-
 </div>
-<script>
-function myFunction() {
-  var password = prompt("Please enter valid password");
-  if (password == "12345") {
- window.location = "/guild/showFormForAdd";
-  }
-  else{
-  alert("please enter correct password");
-  }
-  }
-  function deleteFunction(){
-  var password = prompt("Please enter valid password");
-  
-  if (password == "12345") {
-  window.location = "/guild/delete(guildId=${mem.id})";
-  }
-  }
-</script>
 </body>
 </html>
