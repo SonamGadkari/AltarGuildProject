@@ -1,7 +1,64 @@
 <!Doctype html>
+<html xmlns:th="http://www.thymeleave.org">
 <head>
+<title>All Seasons</title>
+<link rel="stylesheet" th:href="@{/css/member.css}" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 </head>
 <body>
-<p>Under Construction</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Member info</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">    
+    </div>
+  </div>
+</nav>
+<div class="container">
+<a  class="btn btn-success" onclick="myFunction()">Add Guild Member</a>
+<br />
+<br />
+
+
+
+<table th:each="key: ${map.keySet()}" class="table table-bordered  table-striped">
+<tbody>
+<thead th:text="${key}" >
+</thead>
+<tr th:each = array :map.key>
+<ti th:text="${mem.email}">
+<td>
+<a class="btn btn-info" th:href="@{/guild/showFormForUpdate(guildId=${mem.id})}">Update</a>
+<a class="btn btn-danger" th:href="@{/guild/delete(guildId=${mem.id})}" 
+onclick="if(!(confirm('Confirm to delete'))) return true">Delete</a>
+</td>
+</tbody>
+</table>
+
+
+
+
+
+</div>
+<script>
+function myFunction() {
+  var password = prompt("Please enter valid password");
+  if (password == "12345") {
+ window.location = "/guild/showFormForAdd";
+  }
+  else{
+  alert("please enter correct password");
+  }
+  }
+  function deleteFunction(){
+  var password = prompt("Please enter valid password");
+  
+  if (password == "12345") {
+  window.location = "/guild/delete(guildId=${mem.id})";
+  }
+  }
+</script>
 </body>
 </html>

@@ -1,7 +1,9 @@
 package com.springboot.altarguild.controller;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +16,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
+import com.springboot.altarguild.model.Season;
 import com.springboot.altarguild.model.Banner;
 import com.springboot.altarguild.repository.BannerRepository;
-
+import com.springboot.altarguild.repository.SeasonRepository;
 
 @Controller
 @RequestMapping("/banner")
@@ -24,6 +28,7 @@ import com.springboot.altarguild.repository.BannerRepository;
 public class BannerController {
 
 	private BannerRepository bannerRepository;
+	private SeasonRepository seasonRepository;
 	
 	@Autowired
 	public BannerController(BannerRepository bannerRepository)
@@ -76,4 +81,23 @@ public class BannerController {
 		//here you have to go to the seasons page 
 		return "redirect:/guild/list";
 	}
+	
+	
+	@GetMapping("/allbanners")
+	public String allBanners(Model themodel) {
+		//String[][] bannerImages = {};
+		//String[] seasonNames = {};
+		Map <String, String[]> map= new HashMap< String,String[]>();
+		for (Season season : seasonRepository.findAll()){
+			map.put(season.getName(), new String[] {});
+			for (Banner id: season.getBanners()) { 
+				map.get(season.getName())[map.get(season.getName()).length -1]= id.getImageUrl(); 
+			}
+		}
+		themodel.addAttribute("NAMES",map);	
+		return "allseasons";
+	
+	}
+	
+	
 }
