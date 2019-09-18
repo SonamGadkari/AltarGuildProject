@@ -17,7 +17,6 @@
   </div>
 </nav>
 <div class="container">
-<a  class="btn btn-success" onclick="myFunction()">Add Guild Member</a>
 <br />
 <br />
 
@@ -27,8 +26,8 @@
 <tbody>
 <thead th:text="${key}" >
 </thead>
-<tr th:each = array :map.key>
-<ti th:text="${mem.email}">
+<tr th:each = "image :${map[${key}]}">
+<td ><img src = "${image}"></img></td>
 <td>
 <a class="btn btn-info" th:href="@{/guild/showFormForUpdate(guildId=${mem.id})}">Update</a>
 <a class="btn btn-danger" th:href="@{/guild/delete(guildId=${mem.id})}" 
