@@ -10,5 +10,5 @@ import com.springboot.altarguild.model.Season;
 @Repository()
 public interface SeasonRepository extends JpaRepository<Season,Integer> {
 	
-	//public List<Guild> findAllByOrderByPhoneAsc();
+	public List<Season> findAllByOrderByName();
 }

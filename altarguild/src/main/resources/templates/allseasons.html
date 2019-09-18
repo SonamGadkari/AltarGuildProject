@@ -1,7 +1,39 @@
 <!Doctype html>
+<html xmlns:th="http://www.thymeleave.org">
 <head>
+<title>All Seasons</title>
+<link rel="stylesheet" th:href="@{/css/member.css}" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 </head>
 <body>
-<p>Under Construction</p>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Member info</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">    
+    </div>
+  </div>
+</nav>
+<div class="container">
+<br />
+<br />
+
+
+
+<table th:each="key: ${map.keySet()}" class="table table-bordered  table-striped">
+<tbody>
+<thead th:text="${key}" >
+</thead>
+<tr th:each = "banner :${map[${key}]}">
+<td th:href = "@{/banner/list} + ${banner.id}"><img src = "${banner.getImage()}"  ></img></td>
+<td>
+</td>
+</tbody>
+</table>
+
+
+</div>
 </body>
 </html>
