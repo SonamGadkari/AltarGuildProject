@@ -85,13 +85,11 @@ public class BannerController {
 	
 	@GetMapping("/allbanners")
 	public String allBanners(Model themodel) {
-		//String[][] bannerImages = {};
-		//String[] seasonNames = {};
-		Map <String, String[]> map= new HashMap< String,String[]>();
+		Map <String, Banner[]> map= new HashMap< String,Banner[]>();
 		for (Season season : seasonRepository.findAll()){
-			map.put(season.getName(), new String[] {});
+			map.put(season.getName(), new Banner[] {});
 			for (Banner id: season.getBanners()) { 
-				map.get(season.getName())[map.get(season.getName()).length -1]= id.getImageUrl(); 
+				map.get(season.getName())[map.get(season.getName()).length -1]= id; 
 			}
 		}
 		themodel.addAttribute("NAMES",map);	
