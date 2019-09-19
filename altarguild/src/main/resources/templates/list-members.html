@@ -35,14 +35,17 @@
 <td th:text="${mem.phone}">
 <td th:text="${mem.email}">
 <td>
-<a class="btn btn-info" th:href="@{/guild/showFormForUpdate(guildId=${mem.id})}">Update</a>
+<a class="btn btn-info" th:href="@{/guild/showFormForUpdate(guildId=${mem.id})}" onclick="deleteFunction()">Update</a>
 <a class="btn btn-danger" th:href="@{/guild/delete(guildId=${mem.id})}" 
-onclick="if(!(confirm('Confirm to delete'))) return true">Delete</a>
+onclick="if(!(deleteFunction())) return true">Delete</a>
+<!--
+<a class="btn btn-danger" th:onclick="deleteFunction() " method = "post"  >Delete</a>
+-->
 </td>
 </tbody>
 </table>
 </div>
-<script>
+<script th:inline="javascript">
 function myFunction() {
   var password = prompt("Please enter valid password");
   if (password == "12345") {
@@ -56,7 +59,13 @@ function myFunction() {
   var password = prompt("Please enter valid password");
   
   if (password == "12345") {
-  window.location = "/guild/delete(guildId=${mem.id})";
+  alert("Right!");
+ return true;
+  }
+  else{
+  
+  alert("please enter correct password");
+  return false;
   }
   }
 </script>

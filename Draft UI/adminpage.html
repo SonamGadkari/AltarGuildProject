@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<html xmlns:th="http://www.thymeleave.org">
 <head>
   <title>admin Page</title>
   <meta charset="utf-8">
@@ -21,8 +22,12 @@
       <li><a href="#">Member Information</a></li>
       <li><a href="#">Admin Page</a></li>
     </ul>
+    
   </div>
 </nav>
+<a th:href="@{/guild/showFormForAdd}" class="btn btn-success">Add Guild Member</a>
+<a th:href="@{/guild/showFormForAdd}" class="btn btn-success">Add Banner</a>
+
   
 
 
