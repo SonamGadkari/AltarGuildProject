@@ -1,6 +1,8 @@
 <!Doctype html>
 <head>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/index.css}" />
+
 </head>
 <html xmlns:th="http://www.thymeleave.org">
 <body>
@@ -9,13 +11,53 @@
         <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     
         
-<p>I am Home page</p>
+<!--<p>I am Home page</p>
 <p>Church image</p>
-<a th:href="@{/login/showLoginForm}" class="btn btn-success"><img src="church.png" /></a>
-<button>Click Me!</button>
+<a th:href="@{/login/showLoginForm}" class="btn btn-success">"Login" /></a>
+<a th:href="@{/login/showLoginForm}" class="btn btn-success">"cancel</a> 
+<button>Click Me!</button> -->
 
-
-
+<div class="harish">
+    <!-- Button to open the modal login form -->
+    <button onclick="document.getElementById('id01').style.display='block'"><img th:src="@{/resources/images/church.png}" /></button>
+    <button onclick="document.getElementById('id01').style.display='block'"><img src="C:\Users\s534119\Desktop\AltarGuildProject\altarguild\src\main\resources\static\images\church.png" /></button>
+    <button onclick="document.getElementById('id01').style.display='block'"><img src="C:\Users\s534119\Desktop\AltarGuildProject\altarguild\src\main\resources\static\images\church.png" /></button>   
+</div>
+    
+    <!-- The Modal -->
+    <div id="id01" class="modal">
+      <span onclick="document.getElementById('id01').style.display='none'" 
+    class="close" title="Close Modal">&times;</span>
+    
+      <!-- Modal Content -->
+      <form class="modal-content animate" action="/action_page.php"></form>
+        <div class="imgcontainer">
+          <img src="C:\Users\s534119\Desktop\AltarGuildProject\altarguild\src\main\resources\static\images\church.png" alt="Avatar" class="avatar">
+        </div>
+    
+        <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+          <br>
+    
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+    
+          <br>
+          <button type="submit">Login</button>
+          <br>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+          <br>
+        </div>
+    
+        <div class="container" style="background-color:#f1f1f1">
+          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+    </div>
 
 </body>
 
