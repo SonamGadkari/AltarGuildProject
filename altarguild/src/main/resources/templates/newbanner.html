@@ -22,7 +22,9 @@ th:object="${member}" method="POST">
 <input type="text" class="form-control"  th:field="*{Special Instructions}" placeholder="Special Instructions" />
 <label>Banner History</label>
 <input type="text" class="form-control"  th:field="*{name}" placeholder="Banner History" />
-<br/>
+<label>Upload Image:</label><br/>
+<input type="file" name="pic" accept="image/*">
+<br/></br>
 <button type="submit" class="btn btn-success">Add Banner</button>
 </div>
 </form>
