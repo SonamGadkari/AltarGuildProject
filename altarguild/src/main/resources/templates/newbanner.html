@@ -1,7 +1,7 @@
 <!doctype html>
 <html xmlns:th="http://www.thymeleave.org">
 <head>
-<title>Spring Boot Thyme App</title>
+<title>New Banner</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 </head>
 <body>
@@ -23,21 +23,10 @@ th:object="${member}" method="POST">
 <label>Banner History</label>
 <input type="text" class="form-control"  th:field="*{name}" placeholder="Banner History" />
 <br/>
-<button type="submit" class="btn btn-success">Save</button>
+<button type="submit" class="btn btn-success">Add Banner</button>
 </div>
 </form>
 </div>
 </div>
-
-<!-- 
-name:
-<input type="text" value="Enter your name" name="Name" />
-Last Name:
-<input type="text" value="Where is this banner?="location" />
-Email:
-<input type="text" value="What scripture is associated with this banner?" name="Scripture" />
-<input type="submit" value="Submit" />
- -->
-
 </body>
 </html>
