@@ -1,5 +1,6 @@
 
 <!Doctype html>
+<script src = "/js/showLoginForm.js" ></script>
 <html xmlns:th="http://www.thymeleave.org">
 <head>
         <meta charset="utf-8">
@@ -32,8 +33,10 @@
 <form id="AdminPage" th:action="@{/hot-deal-step-1}">
     <div class="col-xs-12 col-sm-6 col-md-6">
     
-        <input type="button" value="Add Guild Member" class="btn btn-red"/>
-        <input type="button" value="Add Banner" class="btn btn-red"/>
+
+        
+         <input type="button" value="Add Guild Member" id="submit" onclick="location.href='showLoginForm.html'"/> 
+         <input type="button" value="Add Banner" id="submit" onclick="location.href='showLoginForm.html'"/> 
         
     </div>
 
