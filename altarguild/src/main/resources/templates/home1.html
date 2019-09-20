@@ -13,21 +13,46 @@
 <!--Navbar-->
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
-    <div class="navbar-header"> 
-      <a class="navbar-brand" href="#">Altar Guild</a>
-    </div>
+    
     <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">All Seasons</a></li>
-      <li><a href="#">Member Information</a></li>
-      <li><a href="#">Admin Page</a></li>
+            <div class="navbar-header"> 
+                    <a class="navbar-brand" href="#">Altar Guild</a>
+                  </div>
+      <li class="active"><a href="#">HOME</a></li>
+      <li><a th:href="#">ALL SEASONS</a></li>
+      <li><a th:href="#">MEMBER INFORMATION</a></li>
+      <li><a th:href="#">ADMIN PAGE</a></li>
     </ul>
   </div>
 </nav>
   <!-- Nav Bar Ends-->
 <body>
     <h3>CURRENT FESTIVAL :</h3>
+    
+
+    <div class="flex-container">
+
+            <div style="flex-grow: 2"> @festival id </div>
+            <div style="flex-grow: 1"> @date </div>
+            <div style="flex-grow: 1">@Paramentcolor</div>
+             
+          </div>
+
     <h3>NEXT FESTIVALS :</h3>
+    <div class="flex-container">
+            <div style="flex-grow: 2"> @festival id </div>
+            <div style="flex-grow: 1"> @date </div>
+            <div style="flex-grow: 1">@Paramentcolor</div>
+             
+          </div>
+
+          <div class="flex-container">
+                <div style="flex-grow: 2"> @festival id </div>
+                <div style="flex-grow: 1"> @date </div>
+                <div style="flex-grow: 1">@Paramentcolor</div>
+                 
+              </div>
+    
     <h3>FESTIVALS :</h3>
         <div class="scrolling-wrapper">
 
