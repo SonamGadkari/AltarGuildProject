@@ -18,15 +18,23 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">All Seasons</a></li>
-      <li><a href="#">Member Information</a></li>
-      <li><a href="#">Admin Page</a></li>
+      <li><a th:href="#">All Seasons</a></li>
+      <li><a th:href="#">Member Information</a></li>
+      <li><a th:href="#">Admin Page</a></li>
     </ul>
   </div>
 </nav>
   <!-- Nav Bar Ends-->
 <body>
     <h3>CURRENT FESTIVAL :</h3>
+    <div class="flex-container">
+            <div style="flex-grow: 2"> @festival id </div>
+            <div style="flex-grow: 1"> @date </div>
+            <div style="flex-grow: 1">@Paramentcolor</div>
+            
+            
+          </div>
+
     <h3>NEXT FESTIVALS :</h3>
     <h3>FESTIVALS :</h3>
         <div class="scrolling-wrapper">
