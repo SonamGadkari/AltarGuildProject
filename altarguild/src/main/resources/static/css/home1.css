@@ -3,6 +3,9 @@
     overflow-y: hidden;
     white-space: nowrap;
   }
+  .card {
+    display: inline-block;
+  }
 
   .nav{
     overflow: hidden;
