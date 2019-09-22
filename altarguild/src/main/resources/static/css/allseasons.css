@@ -1,0 +1,21 @@
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+  }
+  .card {
+    display: inline-block;
+  }
+
+  .card {
+    width: 250px;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+    text-align: center;
+  }
+
+  .nav{
+    overflow: hidden;
+    background-color: #333;
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+  }
