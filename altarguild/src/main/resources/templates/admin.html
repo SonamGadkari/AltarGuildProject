@@ -33,34 +33,30 @@
     <div class="col-xs-12 col-sm-6 col-md-6">
     
 
-        <a  class="btn btn-success" onclick="myFunction()">Add Guild Member</a>
-         <a  class="btn btn-success" onclick="myFunction()">Add Banner</a>
+        <a  class="btn btn-success" onclick="addGuildMember()">Add Guild Member</a>
+         <a  class="btn btn-success" onclick="AddBanner()">Add Banner</a>
     </div>
 
 
 </form>
 <script th:inline="javascript">
-  function myFunction() {
+  function addGuildMember() {
     var password = prompt("Please enter valid password");
     if (password == "12345") {
    window.location = "/guild/showFormForAdd";
     }
     else{
     alert("please enter correct password");
+    }     
     }
-    }
-    function deleteFunction(){
+    function addBanner() {
     var password = prompt("Please enter valid password");
-    
     if (password == "12345") {
-    alert("Right!");
-   return true;
+   window.location = "/guild/showFormForAdd";
     }
     else{
-    
     alert("please enter correct password");
-    return false;
-    }
+    }     
     }
   </script>
 </body>

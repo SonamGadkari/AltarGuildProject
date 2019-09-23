@@ -1,35 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<html xmlns:th="http://www.thymeleave.org">
-<head>
-  <title>admin Page</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-</head>
-<body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header"> 
-      <a class="navbar-brand" href="#">Altar Guild</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="#">Home</a></li>
-      <li><a href="#">All Seasons</a></li>
-      <li><a href="#">Member Information</a></li>
-      <li><a href="#">Admin Page</a></li>
-    </ul>
+<form id="AdminPage" th:action="@{/hot-deal-step-1}">
+    <div class="col-xs-12 col-sm-6 col-md-6">
     
-  </div>
-</nav>
-<a th:href="@{/guild/showFormForAdd}" class="btn btn-success">Add Guild Member</a>
-<a th:href="@{/guild/showFormForAdd}" class="btn btn-success">Add Banner</a>
-
-  
-
-
-</body>
-</html>
+        <input type="button" value="Add Guild Member" class="btn btn-red"/>
+        <input type="button" value="Add Banner" class="btn btn-red"/>
+        
+    </div>
+</form>
