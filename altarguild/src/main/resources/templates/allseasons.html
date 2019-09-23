@@ -1,28 +1,36 @@
-<!Doctype html>
 <html xmlns:th="http://www.thymeleave.org">
+
 <head>
-<title>All Seasons</title>
-<link rel="stylesheet" th:href="@{/css/member.css}" />
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" th:href="@{/css/allseasons.css}"/>
+  <link rel="stylesheet" href="C:\Users\s534119\Desktop\AltarGuildProject\altarguild\src\main\resources\static\css\allseasons.css" />
+  
+
 </head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Member info</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">    
-    </div>
+<!--Navbar-->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+            <div class="navbar-header"> 
+                    <a class="navbar-brand" href="#">Altar Guild</a>
+                  </div>
+      <li ><a href="#">HOME</a></li>
+      <li class="active"><a href="#">ALL SEASONS</a></li>
+      <li><a href="#">MEMBER INFORMATION</a></li>
+      <li><a href="#">ADMIN PAGE</a></li>
+    </ul>
   </div>
 </nav>
-<div class="container">
-<br />
-<br />
+  <!-- Nav Bar Ends-->
 
 
 
-<table th:each="key: ${map.keySet()}" class="table table-bordered  table-striped">
+<!--<table th:each="key: ${map.keySet()}" class="table table-bordered  table-striped">
 <tbody>
 <thead th:text="${key}" >
 </thead>
@@ -34,6 +42,99 @@
 </table>
 
 
+-->
+
+<body>
+  <h3>ADVENT:</h3>
+  <div class="scrolling-wrapper">
+    <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+    <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
 </div>
+
+<h3>CHRISTMAS:</h3>
+<div class="scrolling-wrapper">
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+</div>
+
+
+<h3>EPIPHANY:</h3>
+<div class="scrolling-wrapper">
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+</div>
+
+<h3>ASH WEDNESDAY:</h3>
+<div class="scrolling-wrapper">
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+</div>
+
+<h3>LENT:</h3>
+<div class="scrolling-wrapper">
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+</div>
+
+<h3>PALM SUNDAY:</h3>
+<div class="scrolling-wrapper">
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+</div>
+
+<h3>HOLY THURSDAY:</h3>
+<div class="scrolling-wrapper">
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+</div>
+
+<h3>GOOD FRIDAY:</h3>
+<div class="scrolling-wrapper">
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+</div>
+
+<h3>EASTER:</h3>
+<div class="scrolling-wrapper">
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+</div>
+
+<h3>PENTECOST:</h3>
+<div class="scrolling-wrapper">
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+</div>
+
+<h3>TRINITY:</h3>
+<div class="scrolling-wrapper">
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+</div>
+
+<h3>ST. MICHAEL:</h3>
+<div class="scrolling-wrapper">
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+</div>
+
+<h3>REFORMATION:</h3>
+<div class="scrolling-wrapper">
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+</div>
+
+<h3>ALL SAINTS'S DAY:</h3>
+<div class="scrolling-wrapper">
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+</div>
+
+<h3>THANKSGIVING:</h3>
+<div class="scrolling-wrapper">
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+  <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+</div>
+
 </body>
 </html>
