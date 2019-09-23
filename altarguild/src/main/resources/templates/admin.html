@@ -33,8 +33,8 @@
     <div class="col-xs-12 col-sm-6 col-md-6">
     
 
-        <a  class="btn btn-success" onclick="addGuildMember()">Add Guild Member</a>
-         <a  class="btn btn-success" onclick="AddBanner()">Add Banner</a>
+        <a  class="btn btn-success" onClick="addGuildMember()">Add Guild Member</a>
+         <a  class="btn btn-success" onClick="addBanner()">Add Banner</a>
     </div>
 
 
@@ -52,7 +52,7 @@
     function addBanner() {
     var password = prompt("Please enter valid password");
     if (password == "12345") {
-   window.location = "/guild/showFormForAdd";
+   window.location = "/banner/addBanner";
     }
     else{
     alert("please enter correct password");
