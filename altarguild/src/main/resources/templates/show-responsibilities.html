@@ -7,7 +7,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="C:\Users\s534119\Desktop\AltarGuildProject\altarguild\src\main\resources\static\css\responsibilities.css">
-        <!--<link rel="stylesheet" th:href="@{../css/showfestival.css}" />-->
+        <link th:href="@{/css/responsibilities.css}" rel="stylesheet"/>
 <!-- Nav bar -->
 <nav class="navbar navbar-inverse">
         <div class="container-fluid">
@@ -26,5 +26,27 @@
 
     <body>
         <h3>@MONTHNAME:</h3>
-        
+        <div class="h">
+        <button type="button" class="btn btn-dark">EDIT INFO</button>
+        </div>
+        <br>
+        <br>
+        <div>
+            <button type="button" class="btn btn-secondary btn-lg">@FESTIVALNAME</button>
+            <button type="button" class="btn btn-secondary btn-lg">@FESTIVALNAME</button>
+        </div>
+        <h3>ASSIGNED MEMBERS:</h3>
+        <div class="flex-container">
+            <div style="flex-grow: 1"> @MEMBERSINFO </div>            
+          </div>
+          <div class="flex-container">
+            <div style="flex-grow: 1"> @MEMBERSINFO </div>            
+          </div>
+          <h3>RESPONSIBILITIES:</h3>
+        <div class="flex-container">
+            <div style="flex-grow: 1"> @TASKS TO DO </div>            
+          </div>
+
+    
     </body>
+    </html>
