@@ -6,7 +6,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" th:href="@{../css/home1.css}" />
+  <link th:href="@{/css/home1.css}" rel="stylesheet"/>
 
 </head>
 <!--Navbar-->
@@ -54,13 +54,13 @@
     
     <h3>FESTIVALS :</h3>
         <div class="scrolling-wrapper">
-                <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
-                <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+                <div class="card"><a th:href="@{/resources/templates/show-festival.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+                <div class="card"><a th:href="@{/resources/templates/show-festival.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
         </div>
     <h3>RESPONSIBILITIES :</h3>
         <div class="scrolling-wrapper">
             
-                <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/resources/static/images/church.png}" style="width:200px;height:200px;"/></a></div>
+          <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
         </div>
 
 
