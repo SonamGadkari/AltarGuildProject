@@ -4,10 +4,8 @@
     <script src="https://cdn.bootcss.com/jquery/2.1.1/jquery.min.js"></script>
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <!--link rel="stylesheet" th:href="@{/css/home.css}" /-->
-    <link rel="stylesheet" href="C:\Users\s534119\Desktop\AltarGuildProject\altarguild\src\main\resources\static\css\home.css">
     
-    
-    
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" /> 
 </head>
        
 <body>
@@ -21,8 +19,8 @@
 <div class="harish">
     <!-- Button to open the modal login form -->
     <!--button onclick="document.getElementById('id01').style.display='block'"><img th:src="@{/resources/images/church.png}" /></button-->
-    <button onclick="document.getElementById('id01').style.display='block'"><img src="C:\Users\s534119\Desktop\AltarGuildProject\altarguild\src\main\resources\static\images\church.png" /></button>
-    <button onclick="document.getElementById('id01').style.display='block'"><img src="C:\Users\s534119\Desktop\AltarGuildProject\altarguild\src\main\resources\static\images\church.png" /></button>   
+    <button onclick="document.getElementById('id01').style.display='block'"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></button>
+    <button onclick="document.getElementById('id01').style.display='block'"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></button>   
 </div>
     
     <!-- The Modal -->
@@ -33,7 +31,7 @@
       <!-- Modal Content -->
       <form class="modal-content animate" action="/action_page.php"></form>
         <div class="imgcontainer">
-          <img src="C:\Users\s534119\Desktop\AltarGuildProject\altarguild\src\main\resources\static\images\church.png" alt="Avatar" class="avatar">
+          <img th:src="@{/images/church.png}" style="width:200px;height:200px;" alt="Avatar" class="avatar">
         </div>
     
         <div class="container">
@@ -45,8 +43,7 @@
           <input type="password" placeholder="Enter Password" name="psw" required>
     
           <br>
-          <button type="submit" onclick="validate()">Login</button
-
+          <button type="submit">Login</button>
           <br>
           <label>
             <input type="checkbox" checked="checked" name="remember"> Remember me
