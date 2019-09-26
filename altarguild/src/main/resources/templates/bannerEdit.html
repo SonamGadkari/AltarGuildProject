@@ -6,26 +6,28 @@
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
-<div class="row">
-<div class="col-sm-2">
-</div>
-<div class="col-sm-4">
-<form th:action="@{save}"
-th:object="${member}" method="POST">
-<div class="form-group">
-<p> Enter the Banner information below</p>
-<label>Name</label>
-<input type="hidden" th:field="*{id}" />
-<input type="text" class="form-control"  th:field="*{name}" placeholder="Banner Name" />
-<input type="text" class="form-control"  th:field="*{location}" placeholder="Location" />
-<label>Email</label>
-<input type="text" class="form-control"  th:field="*{scripture}" placeholder="Scriptures" />
-<br/>
-<button type="submit" class="btn btn-success">Save</button>
-</div>
-</form>
-</div>
-</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-2"></div>
+                <form th:action="@{save}"
+                th:object="${member}" method="POST">
+                <div class="form-group" class="col-sm-8">
+                <p> Enter the Banner information below</p>
+                <label>Name</label>
+                <input type="hidden" th:field="*{id}" />
+                <input type="text" class="form-control"  th:field="*{name}" placeholder="Banner Name" />
+                <input type="text" class="form-control"  th:field="*{location}" placeholder="Location" />
+                <label>Email</label>
+                <input type="text" class="form-control"  th:field="*{scripture}" placeholder="Scriptures" />
+                <br/>
+                <button type="submit" class="btn btn-success">Save</button>
+                </div>
+                </form>
+                <div class="col-sm-2"></div>
+        </div>
+
+    </div>
+
 
 <!-- 
 name:
