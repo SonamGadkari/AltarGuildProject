@@ -46,7 +46,7 @@ public class Banner {
 	//Every banner is associated with multiple seasons 
 	@ManyToMany(fetch=FetchType.LAZY,
 			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-			 CascadeType.DETACH, CascadeType.REFRESH})
+			CascadeType.DETACH, CascadeType.REFRESH})
 	@JoinTable(name="seasonbanner",joinColumns=@JoinColumn(name="banner_id"),
 	inverseJoinColumns=@JoinColumn(name="season_id"))	
 	private List<Season> seasons;

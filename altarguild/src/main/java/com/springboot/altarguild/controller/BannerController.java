@@ -1,6 +1,12 @@
 package com.springboot.altarguild.controller;
 
 
+import java.nio.file.Files;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,11 +21,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.multipart.MultipartFile;
 
 import com.springboot.altarguild.model.Season;
+import com.springboot.altarguild.model.SeasonBanner;
 import com.springboot.altarguild.model.Banner;
 import com.springboot.altarguild.repository.BannerRepository;
+import com.springboot.altarguild.repository.SeasonBannerRepository;
 import com.springboot.altarguild.repository.SeasonRepository;
 
 @Controller
@@ -27,26 +35,38 @@ import com.springboot.altarguild.repository.SeasonRepository;
 //@ComponentScan(basePackages = "com.springboot.altarguild") 
 public class BannerController {
 
-	private BannerRepository bannerRepository;
-	private SeasonRepository seasonRepository;
-	
 	@Autowired
-	public BannerController(BannerRepository bannerRepository)
+	private BannerRepository bannerRepository;
+	@Autowired
+	private SeasonRepository seasonRepository;	
+	@Autowired
+	private SeasonBannerRepository seasonbannerRepository;
+	
+	@RequestMapping("/listall")
+	public String listAll(Model themodel)
 	{
-		this.bannerRepository=bannerRepository;
+		List<Banner> banners=bannerRepository.findAll();
+		themodel.addAttribute("banners", banners);
+		return "banner";
 	}
 	
 	@GetMapping("/addBanner")
 	public String showForm(Model themodel)
-	{
-		themodel.addAttribute("banner1",new Banner());	
+	{		
+		Banner banner1= new Banner();
+		//get all the seasons from the table 
+		List<Season> seasons = seasonRepository.findAll();		
+		banner1.setSeasons(seasons);
+		System.out.println(banner1.toString());
+		//Show it in the screen
+		themodel.addAttribute("banner1",banner1);			
+		//themodel.addAttribute("banner1",new Banner());
+		//themodel.addAttribute("banner2",new Banner)
 		return "showBannerAddForm";
 	}	
 	
 	@GetMapping("/list/{id}")
-	//@RequestParam("id")
 	public String allStudents(Model themodel,@RequestParam("id") int id)
-			//@PathVariable(value = "id") int id)
 	{	
 		Optional<Banner> banner1=bannerRepository.findById(id);
 		themodel.addAttribute("banner1",banner1);
@@ -55,10 +75,16 @@ public class BannerController {
 	
 	@PostMapping("/save")
 	public String saveForm(@ModelAttribute("banner") Banner theBanner,Model themodel)
-	//,Model themodel)
 	{
+		
 		bannerRepository.save(theBanner);
+		//seasonbannerRespository.save()
 		themodel.addAttribute("banner1",theBanner);
+		System.out.println(theBanner.getId());
+		SeasonBanner sb=new SeasonBanner();
+		sb.setBannerId(theBanner.getId());
+		sb.setSeasonId(1);
+		seasonbannerRepository.save(sb);
 		return "show-banner";
 		//System.out.println(theBanner.getId());
 		//int id = theBanner.getId();
@@ -97,5 +123,15 @@ public class BannerController {
 	
 	}
 	
+	@PostMapping("/uploadImage")
+	public String uploadImage(@RequestParam("imageFile") MultipartFile imageFile) throws Exception
+	{
+		String returnValue = "";
+		String imagePath= "D:/";
+        FileOutputStream output = new FileOutputStream(imagePath+imageFile.getOriginalFilename());
+        output.write(imageFile.getBytes());
+        output.close();
+        return imagePath+imageFile.getOriginalFilename();				
+	}
 	
 }
