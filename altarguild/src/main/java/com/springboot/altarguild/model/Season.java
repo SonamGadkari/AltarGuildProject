@@ -55,5 +55,9 @@ public class Season {
 		}
 		public void setBanners(List<Banner> banners) {
 			this.banners = banners;
-		}		
+		}
+		@Override
+		public String toString() {
+			return "Season [Id=" + Id + ", name=" + name + ", startDate=" + startDate + ", banners=" + banners + "]";
+		}				
 }

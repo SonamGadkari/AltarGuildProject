@@ -15,7 +15,7 @@ import javax.persistence.ManyToMany;
 
 @Entity
 @Table(name="seasonbanner")
-public class SeasonBanner {
+public class SeasonBanner {	
 	@Column(name="season_id")
 	public int seasonId;
 	@Id	

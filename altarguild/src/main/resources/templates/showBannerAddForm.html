@@ -22,15 +22,13 @@
 <input type="text" class="form-control"  th:field="*{pairID}" placeholder="pairID" />
 <label>ImageUrl</label>
 <input type="text" class="form-control"  th:field="*{imageUrl}" placeholder="imageUrl" />
- 
-<!-- <select multiple="multiple" th:field="*{seasons}">
+<select multiple="multiple" th:field="*{seasons}">
  	<option th:value="'Advent'" th:text="Advent"></option>
     <option th:value="'Christmas'" th:text="Christmas"></option>
-    <option th:value="'Epiphany'" th:text="Epiphany"></option>
-    <option th:value="'Lenten'" th:text="Lenten"></option>
-    <option th:value="'Easter'" th:text="Easter"></option>    
+    <option th:value="'Easter'" th:text="Easter"></option>
+    <option th:value="'GoodFriday'" th:text="GoodFriday"></option>     
 </select>
--->
+
 
 <!-- <select id="multiSelectElementsSelected"
             name="multiSelectElementsSelected"
@@ -43,12 +41,12 @@
 </select> -->
 <table>
 			<tr>
-<td>Seasons :</td>
+<!-- <td>Seasons :</td>
 				<td><form:select path="seasons" items="${seasons}"
 					multiple="true" />
 					</td>
 					</tr>
-					</table>
+					</table> -->
 
 <!-- <select name="seasons" th:field="*{seasons}">
 <option th:each="season : ${seasons}" 

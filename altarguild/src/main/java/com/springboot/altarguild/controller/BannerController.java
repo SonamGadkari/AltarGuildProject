@@ -32,7 +32,6 @@ import com.springboot.altarguild.repository.SeasonRepository;
 
 @Controller
 @RequestMapping("/banner")
-//@ComponentScan(basePackages = "com.springboot.altarguild") 
 public class BannerController {
 
 	@Autowired
@@ -56,12 +55,9 @@ public class BannerController {
 		Banner banner1= new Banner();
 		//get all the seasons from the table 
 		List<Season> seasons = seasonRepository.findAll();		
-		banner1.setSeasons(seasons);
-		System.out.println(banner1.toString());
+		//banner1.setSeasons(seasons);		
 		//Show it in the screen
-		themodel.addAttribute("banner1",banner1);			
-		//themodel.addAttribute("banner1",new Banner());
-		//themodel.addAttribute("banner2",new Banner)
+		themodel.addAttribute("banner1",banner1);					
 		return "showBannerAddForm";
 	}	
 	
@@ -76,19 +72,27 @@ public class BannerController {
 	@PostMapping("/save")
 	public String saveForm(@ModelAttribute("banner") Banner theBanner,Model themodel)
 	{
-		
-		bannerRepository.save(theBanner);
-		//seasonbannerRespository.save()
+	System.out.println("In controller");
+	System.out.println(theBanner);
+	Banner theBanner1=new Banner();
+	theBanner1.setId(theBanner.getId());
+	theBanner1.setType(theBanner.getType());
+	theBanner1.setImageUrl(theBanner.getImageUrl());
+	//theBanner1.setScripture(scripture);
+		bannerRepository.save(theBanner1);		
+	    System.out.println("In controller1");	
 		themodel.addAttribute("banner1",theBanner);
-		System.out.println(theBanner.getId());
+		System.out.println(theBanner1.getId());
+		List<Season> seasons=theBanner.getSeasons();
+		for(Season seas: seasons)
+		{
 		SeasonBanner sb=new SeasonBanner();
-		sb.setBannerId(theBanner.getId());
-		sb.setSeasonId(1);
+		sb.setBannerId(theBanner1.getId());	
+		sb.setSeasonId(seas.getId());
+		System.out.println("saved1");
 		seasonbannerRepository.save(sb);
+		}
 		return "show-banner";
-		//System.out.println(theBanner.getId());
-		//int id = theBanner.getId();
-		//return "redirect:/banner/list/"+id;	
 	}
 	
 	@GetMapping("/showFormUpdateBanner")
@@ -107,22 +111,7 @@ public class BannerController {
 		//here you have to go to the seasons page 
 		return "redirect:/guild/list";
 	}
-	
-	
-	@GetMapping("/allbanners")
-	public String allBanners(Model themodel) {
-		Map <String, Banner[]> map= new HashMap< String,Banner[]>();
-		for (Season season : seasonRepository.findAll()){
-			map.put(season.getName(), new Banner[] {});
-			for (Banner id: season.getBanners()) { 
-				map.get(season.getName())[map.get(season.getName()).length -1]= id; 
-			}
-		}
-		themodel.addAttribute("NAMES",map);	
-		return "allseasons";
-	
-	}
-	
+		
 	@PostMapping("/uploadImage")
 	public String uploadImage(@RequestParam("imageFile") MultipartFile imageFile) throws Exception
 	{
@@ -135,3 +124,18 @@ public class BannerController {
 	}
 	
 }
+/*
+@GetMapping("/allbanners")
+public String allBanners(Model themodel) {
+	Map <String, Banner[]> map= new HashMap< String,Banner[]>();
+	for (Season season : seasonRepository.findAll()){
+		map.put(season.getName(), new Banner[] {});
+		for (Banner id: season.getBanners()) { 
+			map.get(season.getName())[map.get(season.getName()).length -1]= id; 
+		}
+	}
+	themodel.addAttribute("NAMES",map);	
+	return "allseasons";
+
+}
+*/
