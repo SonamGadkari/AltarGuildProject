@@ -37,7 +37,7 @@ font-weight:bold
 <p th:text="${banner1.pairID}"></p>
 <p th:each="season : ${seasons}"></p>
 <p class='highlight'>imageUrl</p>
-<img th:src="@{${banner1.imageUrl}}" />
+<img style="height:400px; width: 400px;" th:src="@{${banner1.imageUrl}}" />
 <p class='highlight'>seasons</p>
 <p th:text="${season}"></p>
 <a class="btn btn-info" th:href="@{/banner/showFormUpdateBanner(bannerId=${banner1.id})}">Update Banner</a>

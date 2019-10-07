@@ -1,6 +1,12 @@
 package com.springboot.altarguild.controller;
 
 
+import java.nio.file.Files;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.nio.file.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,38 +21,48 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.multipart.MultipartFile;
 
 import com.springboot.altarguild.model.Season;
+import com.springboot.altarguild.model.SeasonBanner;
 import com.springboot.altarguild.model.Banner;
 import com.springboot.altarguild.repository.BannerRepository;
+import com.springboot.altarguild.repository.SeasonBannerRepository;
 import com.springboot.altarguild.repository.SeasonRepository;
 
 @Controller
 @RequestMapping("/banner")
-//@ComponentScan(basePackages = "com.springboot.altarguild") 
 public class BannerController {
 
-	private BannerRepository bannerRepository;
-	private SeasonRepository seasonRepository;
-	
 	@Autowired
-	public BannerController(BannerRepository bannerRepository)
+	private BannerRepository bannerRepository;
+	@Autowired
+	private SeasonRepository seasonRepository;	
+	@Autowired
+	private SeasonBannerRepository seasonbannerRepository;
+	
+	@RequestMapping("/listall")
+	public String listAll(Model themodel)
 	{
-		this.bannerRepository=bannerRepository;
+		List<Banner> banners=bannerRepository.findAll();
+		themodel.addAttribute("banners", banners);
+		return "banner";
 	}
 	
 	@GetMapping("/addBanner")
 	public String showForm(Model themodel)
-	{
-		themodel.addAttribute("banner1",new Banner());	
+	{		
+		Banner banner1= new Banner();
+		//get all the seasons from the table 
+		List<Season> seasons = seasonRepository.findAll();		
+		//banner1.setSeasons(seasons);		
+		//Show it in the screen
+		themodel.addAttribute("banner1",banner1);					
 		return "showBannerAddForm";
 	}	
 	
 	@GetMapping("/list/{id}")
-	//@RequestParam("id")
 	public String allStudents(Model themodel,@RequestParam("id") int id)
-			//@PathVariable(value = "id") int id)
 	{	
 		Optional<Banner> banner1=bannerRepository.findById(id);
 		themodel.addAttribute("banner1",banner1);
@@ -55,14 +71,28 @@ public class BannerController {
 	
 	@PostMapping("/save")
 	public String saveForm(@ModelAttribute("banner") Banner theBanner,Model themodel)
-	//,Model themodel)
 	{
-		bannerRepository.save(theBanner);
+	System.out.println("In controller");
+	System.out.println(theBanner);
+	Banner theBanner1=new Banner();
+	theBanner1.setId(theBanner.getId());
+	theBanner1.setType(theBanner.getType());
+	theBanner1.setImageUrl(theBanner.getImageUrl());
+	//theBanner1.setScripture(scripture);
+		bannerRepository.save(theBanner1);		
+	    System.out.println("In controller1");	
 		themodel.addAttribute("banner1",theBanner);
+		System.out.println(theBanner1.getId());
+		List<Season> seasons=theBanner.getSeasons();
+		for(Season seas: seasons)
+		{
+		SeasonBanner sb=new SeasonBanner();
+		sb.setBannerId(theBanner1.getId());	
+		sb.setSeasonId(seas.getId());
+		System.out.println("saved1");
+		seasonbannerRepository.save(sb);
+		}
 		return "show-banner";
-		//System.out.println(theBanner.getId());
-		//int id = theBanner.getId();
-		//return "redirect:/banner/list/"+id;	
 	}
 	
 	@GetMapping("/showFormUpdateBanner")
@@ -81,21 +111,31 @@ public class BannerController {
 		//here you have to go to the seasons page 
 		return "redirect:/guild/list";
 	}
-	
-	
-	@GetMapping("/allbanners")
-	public String allBanners(Model themodel) {
-		Map <String, Banner[]> map= new HashMap< String,Banner[]>();
-		for (Season season : seasonRepository.findAll()){
-			map.put(season.getName(), new Banner[] {});
-			for (Banner id: season.getBanners()) { 
-				map.get(season.getName())[map.get(season.getName()).length -1]= id; 
-			}
-		}
-		themodel.addAttribute("NAMES",map);	
-		return "allseasons";
-	
+		
+	@PostMapping("/uploadImage")
+	public String uploadImage(@RequestParam("imageFile") MultipartFile imageFile) throws Exception
+	{
+		String returnValue = "";
+		String imagePath= "D:/";
+        FileOutputStream output = new FileOutputStream(imagePath+imageFile.getOriginalFilename());
+        output.write(imageFile.getBytes());
+        output.close();
+        return imagePath+imageFile.getOriginalFilename();				
 	}
 	
-	
 }
+/*
+@GetMapping("/allbanners")
+public String allBanners(Model themodel) {
+	Map <String, Banner[]> map= new HashMap< String,Banner[]>();
+	for (Season season : seasonRepository.findAll()){
+		map.put(season.getName(), new Banner[] {});
+		for (Banner id: season.getBanners()) { 
+			map.get(season.getName())[map.get(season.getName()).length -1]= id; 
+		}
+	}
+	themodel.addAttribute("NAMES",map);	
+	return "allseasons";
+
+}
+*/
