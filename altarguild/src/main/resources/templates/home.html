@@ -7,47 +7,43 @@
   <link rel="stylesheet" th:href="@{/css/home.css}" />
   <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
 </head>
-
-<body>
-
-  <!--<p>I am Home page</p>
-<p>Church image</p>
-<a th:href="@{/login/showLoginForm}" class="btn btn-success">"Login" /></a>
-<a th:href="@{/login/showLoginForm}" class="btn btn-success">"cancel</a> 
-<button>Click Me!</button> -->
+<body background="https://ak7.picdn.net/shutterstock/videos/3755297/thumb/1.jpg">
   <div class="container">
-    <div class="row">
-      <div class="col-sm-2"></div>
-      <div class="col-sm-8">
-        <h1>Select Church</h1>
-      </div>
-      <div class="col-sm-2"></div>
-      <div class="col-sm-2"></div>
-      <div class="col-sm-8">
-        <div class="harish">
-          <!-- Button to open the modal login form -->
-          <!--button onclick="document.getElementById('id01').style.display='block'"><img th:src="@{/resources/images/church.png}" /></button-->
+    <div class="row">                     
+      <div class="col-sm-8">      
+        <div class="alignment">
+        <p class="textStyle">Select Church</p>
           <div class="container">
-            <button onclick="document.getElementById('id01').style.display='block'"><img th:src="@{/images/church.png}"
-                style="width:200px;height:200px;" /></button>
+         	 <a th:href="@{/login/showLoginForm}" class="btn btn-success"><img class="imageSize" th:src="@{/images/luthern.png}"/></a>
+            <button th:href="@{/login/showLoginForm}"></button>
+            <p class="textStyle">Hope Lutheran Church</p>                
           </div>
           </br>
-          <div class="container">
-            <button onclick="document.getElementById('id01').style.display='block'"><img th:src="@{/images/church.png}"
-                style="width:200px;height:200px;" /></button>
-          </div>
+        <div class="container">
+             <a th:href="@{/login/showLoginForm}" class="btn btn-danger"><img class="imageSize" th:src="@{/images/luthern.png}"/></a>
+            <button th:href="@{/login/showLoginForm}"></button>
+            <p class="textStyle"> Holy Trinity Lutheran Church </p>
         </div>
-      </div>
-      <div class="col-sm-2"></div>
-      <!-- The Modal -->
+        </div>
+      </div>      
+    </div>
+  </div>
+</body>
+
+</html>
+
+<!--
+<div class="col-sm-2"></div>
+      <!-- The Modal 
       <div id="id01" class="modal">
         <span onclick="document.getElementById('id01').style.display='none'" class="close"
           title="Close Modal">&times;</span>
-
-        <!-- Modal Content -->
+       
+      </div> 
+<!-- Modal Content 
         <form class="modal-content animate" action="/action_page.php"></form>
         <div class="imgcontainer">
-          <img th:src="@{/images/church.png}" style="width:200px;height:200px;" alt="Avatar" class="avatar">
+          <img th:src="@{/images/luthern.png}" style="width:200px;height:200px;" alt="Avatar" class="avatar">
         </div>
 
         <div class="container">
@@ -89,19 +85,6 @@
                   class="cancelbtn">Cancel</button>
               </div>
             </div>
-            <div class="col-sm-2"></div>
           </div>
         </div>
-        </form>
-      </div>
-      </br>
-      </br>
-      </br>
-      </br>
-
-    </div>
-  </div>
-
-</body>
-
-</html>
+        </form> -->

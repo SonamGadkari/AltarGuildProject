@@ -1,49 +1,28 @@
 <html xmlns:th="http://www.thymeleave.org">
-
 <head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" th:href="@{/css/allseasons.css}"/>
-  
-  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-  <!--Navbar-->
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    
-    <ul class="nav navbar-nav">
-            <div class="navbar-header"> 
-                    <a class="navbar-brand" href="#">Altar Guild</a>
-                  </div>
-      <li ><a href="#">HOME</a></li>
-      <li class="active"><a href="#">ALL SEASONS</a></li>
-      <li><a href="#">MEMBER INFORMATION</a></li>
-      <li><a href="#">ADMIN PAGE</a></li>
-    </ul>
+  <!-- <link rel="stylesheet" th:href="@{/css/allseasons.css}"/>-->  
+ </head>
+ <body>
+  <nav class="navbar navbar-inverse navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Altarguild</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" href="#">All Seasons<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Events Home</a>
+      <a class="nav-item nav-link" th:href="@{/guild/list}">Member information</a>
+      <a class="nav-item nav-link" th:href="@{/admin/home}">Admin Page</a>
+      <a class="nav-item nav-link" th:href="@{/login/showLoginForm}">Logout</a>
+    </div>
   </div>
 </nav>
-  <!-- Nav Bar Ends-->
-
-
-</head>
-
-
-
-<!--<table th:each="key: ${map.keySet()}" class="table table-bordered  table-striped">
-<tbody>
-<thead th:text="${key}" >
-</thead>
-<tr th:each = "banner :${map[${key}]}">
-<td th:href = "@{/banner/list} + ${banner.id}"><img src = "${banner.getImage()}"  ></img></td>
-<td>
-</td>
-</tbody>
-</table>-->
-
-
-<body>
   <h3>ADVENT:</h3>
   <div class="scrolling-wrapper">
     <div class="card"><a th:href="@{/resources/templates/show-banner.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
