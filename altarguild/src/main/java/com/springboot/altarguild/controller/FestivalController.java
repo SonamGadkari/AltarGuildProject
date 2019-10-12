@@ -40,8 +40,8 @@ public class FestivalController {
 	@RequestMapping("/listall")
 	public String listAll(Model themodel)
 	{
-		List<Festival> festival=FestivalRepository.findAll();
-		themodel.addAttribute("festivals", festivals);
+		List<Festival> festival=festivalRepository.findAll();
+		themodel.addAttribute("festivals", festival);
 		return "festival";
 	}
 	
