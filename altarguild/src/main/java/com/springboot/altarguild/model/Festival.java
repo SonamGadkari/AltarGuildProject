@@ -20,41 +20,37 @@ public class Festival {
 	@Id	
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
-	public int Id;		
-	/*
+	public int Id;
 	@Column(name="name")
 	public String name;	
-	*/
-	//Type of the banner
-	@Column(name="type")
-	public String type;
+	//date of the festival
+	@Column(name="date")
+	public String date;
 	// Storage of the banner
-	@Column(name="storage")
-	public String storage;
+	@Column(name="first_reading")
+	public String first_reading;
 	//Special Instructions associated with banner
-	@Column(name="specialInstructions")
-	public String specialInstructions;	
+	@Column(name="epistle")
+	public String epistle;	
 	//Scripture: Ex:1 Corinthians 15:55
-	@Column(name="scripture")
-	public String scripture;
+	@Column(name="gospel")
+	public String gospel;
 	//pairId banner ID
-	@Column(name="pairID")	
-	public String pairID;
+	@Column(name="season_id")	
+	public String season_id;
 	//imageURL
-	@Column(name="imageUrl")
-	public String imageUrl;
-	//Every banner is associated with multiple seasons 
-	@ManyToMany(fetch=FetchType.LAZY,
-			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-			 CascadeType.DETACH, CascadeType.REFRESH})
-	@JoinTable(name="seasonfestival",joinColumns=@JoinColumn(name="banner_id"),
-	inverseJoinColumns=@JoinColumn(name="season_id"))	
-	private List<Season> seasons;
+		//Every banner is associated with multiple seasons 
+//	@ManyToMany(fetch=FetchType.LAZY,
+//			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
+//			 CascadeType.DETACH, CascadeType.REFRESH})
+//	@JoinTable(name="seasonfestival",joinColumns=@JoinColumn(name="banner_id"),
+//	inverseJoinColumns=@JoinColumn(name="season_id"))	
+//	//private List<Season> seasons;
 	
-	public void Banner() {
+	public Festival() {
 		
 	}
-
+	/*
 	public int getId() {
 		return Id;
 	}
@@ -110,12 +106,54 @@ public class Festival {
 	public void setImageUrl(String imageUrl) {
 		this.imageUrl = imageUrl;
 	}
+*/
+//	public List<Season> getSeasons() {
+//		return seasons;
+//	}
 
-	public List<Season> getSeasons() {
-		return seasons;
+	public int getId() {
+		return Id;
 	}
-
-	public void setSeasons(List<Season> seasons) {
-		this.seasons = seasons;
-	}			
+	public void setId(int id) {
+		Id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDate() {
+		return date;
+	}
+	public void setDate(String date) {
+		this.date = date;
+	}
+	public String getFirst_reading() {
+		return first_reading;
+	}
+	public void setFirst_reading(String first_reading) {
+		this.first_reading = first_reading;
+	}
+	public String getEpistle() {
+		return epistle;
+	}
+	public void setEpistle(String epistle) {
+		this.epistle = epistle;
+	}
+	public String getGospel() {
+		return gospel;
+	}
+	public void setGospel(String gospel) {
+		this.gospel = gospel;
+	}
+	public String getSeason_id() {
+		return season_id;
+	}
+	public void setSeason_id(String season_id) {
+		this.season_id = season_id;
+	}
+//	public void setSeasons(List<Season> seasons) {
+//		this.seasons = seasons;
+//	}			
 }

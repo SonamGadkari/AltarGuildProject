@@ -36,7 +36,17 @@ public class FestivalController {
 		this.festivalRepository=festivalRepository;
 	}
 	
-	@GetMapping("/addfestival")
+		
+	@RequestMapping("/listall")
+	public String listAll(Model themodel)
+	{
+		List<Festival> festival=festivalRepository.findAll();
+		themodel.addAttribute("festivals", festival);
+		return "festival";
+	}
+	
+	
+	/*@GetMapping("/addfestival")
 	public String showForm(Model themodel)
 	{
 		themodel.addAttribute("festival1",new Festival());	
@@ -80,7 +90,7 @@ public class FestivalController {
 		festivalRepository.deleteById(id);
 		//here you have to go to the seasons page 
 		return "redirect:/guild/list";
-	}
+	}*/
 	
 	/*
 	@GetMapping("/allfestival")
