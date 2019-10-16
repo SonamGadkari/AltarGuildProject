@@ -1,6 +1,8 @@
 package com.springboot.altarguild.controller;
 
 import java.util.List;
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -8,52 +10,61 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springboot.altarguild.model.*;
 import com.springboot.altarguild.repository.GuildRepository;
 import com.springboot.altarguild.repository.ResponsibilitiesRepository;
 
+
 @Controller
 @RequestMapping("/responsibilities")
 public class ResponsibilitiesController {
 	
-	private ResponsibilitiesRepository responsibilitiesRepository;
-	//private GuildRepository guildRepository;
+	private ResponsibilitiesRepository respRepo;
 	
 	@Autowired
-	public ResponsibilitiesController(ResponsibilitiesRepository responsibilitiesRepository)
+	public ResponsibilitiesController(ResponsibilitiesRepository respRepo)
 	{
-		this.responsibilitiesRepository = responsibilitiesRepository;
+		this.respRepo=respRepo;
+	}		
+	
+	@GetMapping("/list")
+	public String allStudents(Model themodel)
+	{	
+		List<Responsibilities> tasks= respRepo.findAll();
+	    themodel.addAttribute("tasks",tasks);
+		return "list-tasks";
+	}
+
+	@GetMapping("/showTasksAdd")
+	public String showForm(Model themodel)
+	{
+		themodel.addAttribute("resp",new Responsibilities());	
+		return "showTaskAddForm";
+	}
+	
+	@PostMapping("/save")
+	public String saveForm(@ModelAttribute("resp") Responsibilities theresp)
+	{
+		respRepo.save(theresp);
+		return "redirect:/responsibilities/list";	
+	}
+	
+	@GetMapping("/showFormForUpdate")
+	public String showFormforUpdate(@RequestParam("respId") int id,Model themodel)
+	{
+		Optional<Responsibilities> resp=respRepo.findById(id);
+		themodel.addAttribute("resp",resp);
+		return "showTaskAddForm";
+	}
+		
+	@GetMapping("/delete")
+	public String deleteStudent(@RequestParam("respId") int id,Model themodel)
+	{
+		Optional<Responsibilities> resp=respRepo.findById(id);
+		respRepo.deleteById(id);
+		return "redirect:/responsibilities/list";
 	}	
-	
-//	@Autowired
-//	public void GuildController(GuildRepository guildRepository)
-//	{
-//		this.guildRepository = guildRepository;
-//	}	
-//	
-	
-@GetMapping("/list")
-public String allStudents(Model themodel)
-{	
-	List<Responsibilities> responsibilitiesList= responsibilitiesRepository.findAll();
-    themodel.addAttribute("responsibilities",responsibilitiesList);
-	return "list-responsibilities";
-}
-
-@GetMapping("/showFormForUpdate")
-public String showForm(Model themodel)
-{
-	//themodel.addAttribute("members",guildRepository.findAll());
-	themodel.addAttribute("responsibilities",responsibilitiesRepository.findAll());	
-	return "updateResponsibilities";
-}
-
-@PostMapping("/save")
-public String saveForm(@ModelAttribute("responsibilities") String Month)
-{
-
-	return "redirect:/responsibilities/list";	
-}
 
 }

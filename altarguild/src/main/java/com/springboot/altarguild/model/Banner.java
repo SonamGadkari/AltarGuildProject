@@ -116,6 +116,8 @@ public class Banner {
 	}
 
 	public List<Season> getSeasons() {
+		//list recursion
+		//
 		return seasons;
 	}
 

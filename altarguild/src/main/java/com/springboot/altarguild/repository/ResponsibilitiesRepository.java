@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
 import com.springboot.altarguild.model.Responsibilities;
 
 @Repository()
-public interface ResponsibilitiesRepository extends JpaRepository<Responsibilities,String> {
+public interface ResponsibilitiesRepository extends JpaRepository<Responsibilities,Integer> {
 }
