@@ -24,11 +24,7 @@ public class Banner {
 	@Id	
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
-	public int Id;		
-	/*
-	@Column(name="name")
-	public String name;	
-	*/
+	public int Id;			
 	//Type of the banner
 	@Column(name="type")
 	public String type;
@@ -47,17 +43,9 @@ public class Banner {
 	//imageURL
 	@Column(name="imageUrl")
 	public String imageUrl;
-	//Every banner is associated with multiple seasons 
-	@ManyToMany(fetch=FetchType.LAZY,
-			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-			CascadeType.DETACH, CascadeType.REFRESH})
-	@JoinTable(name="seasonbanner",joinColumns=@JoinColumn(name="banner_id"),
-	inverseJoinColumns=@JoinColumn(name="season_id"))	
-	private List<Season> seasons;
-	
-	public Banner() {
-		
-	}
+	//Associated Seasons
+	@Column(name="seasons")
+	private String seasons;
 
 	public int getId() {
 		return Id;
@@ -115,55 +103,19 @@ public class Banner {
 		this.imageUrl = imageUrl;
 	}
 
-	public List<Season> getSeasons() {
-		//list recursion
-		//
+	public String getSeasons() {
 		return seasons;
 	}
 
-//	public void setSeasons(List<Season> seasons) {
-//		this.seasons = seasons;
-//	}
 	public void setSeasons(String seasons) {
-		System.out.println(seasons);
-		String[] split = seasons.split(",");
-		List<Season> seasonsList = new ArrayList<>();
-		for(String seas : split) {
-			Season season = new Season();
-			season.setName(seas);
-			season.setStartDate("12-12-2019");
-			switch(seas)
-			{
-				case "Advent":
-					season.setId(1);
-					break;
-				case "Christmas":
-					season.setId(2);
-					break;
-				case "Easter":
-					season.setId(3);
-					break;
-				case "Good Friday":
-					season.setId(4);
-					break;
-			}			
-			seasonsList.add(season);
-		}
-		this.seasons = seasonsList;
-		System.out.println(this.seasons.toString());
+		this.seasons = seasons;
 	}
 
 	@Override
 	public String toString() {
-		String str= "Banner [Id=" + Id + ", type=" + type + ", storage=" + storage + ", specialInstructions="
+		return "Banner [Id=" + Id + ", type=" + type + ", storage=" + storage + ", specialInstructions="
 				+ specialInstructions + ", scripture=" + scripture + ", pairID=" + pairID + ", imageUrl=" + imageUrl
 				+ ", seasons=" + seasons + "]";
-		ListIterator<Season> itr=seasons.listIterator();
-		while(itr.hasNext())
-		{
-			str+=itr.next().toString();
-		}
-		return str;
-	}
-	
+	}	
+			
 }
