@@ -1,11 +1,9 @@
 package com.springboot.altarguild.repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import com.springboot.altarguild.model.Dates;
@@ -14,16 +12,9 @@ import com.springboot.altarguild.model.Dates;
 @Repository()
 public interface DateRepository extends JpaRepository<Dates,Integer> {
 
-	@Query("SELECT t FROM Todo t WHERE " +
-				"t.Id") 
-//            "LOWER(t.title) LIKE LOWER(CONCAT('%',:searchTerm, '%')) OR " +
-//            "LOWER(t.description) LIKE LOWER(CONCAT('%',:searchTerm, '%')) " +
-//            "ORDER BY t.title ASC")
-    List<Dates> findBySearchTerm(@Param("searchTerm") String searchTerm);
- 
-    Optional<Dates> findOne(int id);
-    
-    void flush();
- 
+					//select * from Dates where date >191013 and date < 191013+10000; 
+	  @Query(value = "SELECT * FROM Dates WHERE date > ?1 and date<?1+10000 ORDER by date ASC LIMIT 3", nativeQuery = true)
+	  public List<Dates> findNextEvents(int d);
+	
 
 }
