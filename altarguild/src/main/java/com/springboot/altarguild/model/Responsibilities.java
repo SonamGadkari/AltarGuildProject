@@ -9,19 +9,27 @@ import javax.persistence.Id;
 
 
 @Entity
-@Table(name="Responsibilities")
+@Table(name="responsibilities")
 public class Responsibilities {
 	@Id
+	@Column(name="id")
+	public int Id;	
 	@Column(name="month")
-	public String month;	
-	@Column(name="names")
-	public String names;
+	public String month;
+	@Column(name="season")
+	public String season;
+	@Column(name="members")
+	public String members;
 	
 	public Responsibilities() {
 	}
 
-	public String getNames() {
-		return names;
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
 	}
 
 	public String getMonth() {
@@ -32,8 +40,24 @@ public class Responsibilities {
 		this.month = month;
 	}
 
-	public void setNames(String names) {
-		this.names = names;
+	public String getSeason() {
+		return season;
 	}
 
+	public void setSeason(String season) {
+		this.season = season;
+	}
+
+	public String getMembers() {
+		return members;
+	}
+
+	public void setMembers(String members) {
+		this.members = members;
+	}
+
+	@Override
+	public String toString() {
+		return "Responsibilities [Id=" + Id + ", month=" + month + ", season=" + season + ", members=" + members + "]";
+	}
 }

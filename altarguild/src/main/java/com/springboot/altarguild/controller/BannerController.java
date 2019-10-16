@@ -70,18 +70,17 @@ public class BannerController {
 	}
 	
 	@PostMapping("/save")
-	public String saveForm(@ModelAttribute("banner") Banner theBanner,Model themodel)
+	public String saveForm(@ModelAttribute("banner1") Banner theBanner,Model themodel)
 	{
-	System.out.println("In controller");
-	System.out.println(theBanner);
-	Banner theBanner1=new Banner();
-	theBanner1.setId(theBanner.getId());
-	theBanner1.setType(theBanner.getType());
-	theBanner1.setImageUrl(theBanner.getImageUrl());
-	//theBanner1.setScripture(scripture);
+		
+		Banner theBanner1=new Banner();
+		theBanner1.setId(theBanner.getId());
+		theBanner1.setType(theBanner.getType());
+		theBanner1.setImageUrl(theBanner.getImageUrl());
+		theBanner1.setScripture(theBanner.getScripture());
 		bannerRepository.save(theBanner1);		
 	    System.out.println("In controller1");	
-		themodel.addAttribute("banner1",theBanner);
+		themodel.addAttribute("banner1",theBanner1);
 		System.out.println(theBanner1.getId());
 		List<Season> seasons=theBanner.getSeasons();
 		for(Season seas: seasons)
@@ -99,8 +98,9 @@ public class BannerController {
 	public String showFormforUpdate(@RequestParam("bannerId") int id,Model themodel)
 	{
 		Optional<Banner> banner1=bannerRepository.findById(id);
+		//System.out.println(banner1.toString());
 		themodel.addAttribute("banner1",banner1);
-		return "show-banner";
+		return "showBannerUpdateForm";
 	}
 
 	@GetMapping("/delete")
@@ -109,33 +109,7 @@ public class BannerController {
 		Optional<Banner> banner1=bannerRepository.findById(id);
 		bannerRepository.deleteById(id);
 		//here you have to go to the seasons page 
-		return "redirect:/guild/list";
-	}
-		
-	@PostMapping("/uploadImage")
-	public String uploadImage(@RequestParam("imageFile") MultipartFile imageFile) throws Exception
-	{
-		String returnValue = "";
-		String imagePath= "D:/";
-        FileOutputStream output = new FileOutputStream(imagePath+imageFile.getOriginalFilename());
-        output.write(imageFile.getBytes());
-        output.close();
-        return imagePath+imageFile.getOriginalFilename();				
-	}
-	
+		return "redirect:/seasons/list";
+	}		
 }
-/*
-@GetMapping("/allbanners")
-public String allBanners(Model themodel) {
-	Map <String, Banner[]> map= new HashMap< String,Banner[]>();
-	for (Season season : seasonRepository.findAll()){
-		map.put(season.getName(), new Banner[] {});
-		for (Banner id: season.getBanners()) { 
-			map.get(season.getName())[map.get(season.getName()).length -1]= id; 
-		}
-	}
-	themodel.addAttribute("NAMES",map);	
-	return "allseasons";
 
-}
-*/
