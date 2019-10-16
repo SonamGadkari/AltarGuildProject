@@ -20,10 +20,10 @@ import com.springboot.altarguild.repository.DateRepository;
 
 @Controller
 public class HomeController {
-//	 @RequestMapping("/")
-//	    public String home() {
-//	        return "home1";
-//	    }
+	 @RequestMapping("/")
+	    public String home() {
+	        return "home";
+	    }
 	
 	private String[]  prettyString(List<Dates> dates) {
 		String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
