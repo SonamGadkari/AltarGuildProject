@@ -20,15 +20,15 @@ GRANT ALL PRIVILEGES ON * . * TO 'springstudent'@'localhost';
 
 CREATE TABLE `season` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) DEFAULT NULL,
-  `startDate` varchar(45) DEFAULT NULL,
+  `seasonId` int(11) NOT NULL,
+  `bannerId` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 );
 
-INSERT INTO `season` values(1,'Advent','02/03/2018');
-INSERT INTO `season` values(2,'Christmas','02/03/2018');
-INSERT INTO `season` values(3,'Easter','02/03/2019');
-INSERT INTO `season` values(4,'Good Friday','02/03/2019');
+INSERT INTO `season` values(1,1,1);
+INSERT INTO `season` values(2,1,2);
+INSERT INTO `season` values(3,2,3);
+INSERT INTO `season` values(4,2,2);
 
 CREATE TABLE `banner` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -38,9 +38,14 @@ CREATE TABLE `banner` (
   `scripture` varchar(45) DEFAULT NULL,
   `pairID`  varchar(45) DEFAULT NULL,
   `imageUrl`  varchar(200) DEFAULT NULL,
+  `seasons`  varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
 );
-
+INSERT INTO `banner` VALUES(1,'Side banner','Box','Girl Scout Banner',null,'3','https://raw.githubusercontent.com/SonamGadkari/AltarGuildProject/master/altarguild/src/main/resources/static/images/1.jpeg','1,2');
+INSERT INTO `banner` VALUES(2,'Side banner','Box','Girl Scout Banner',null,'3','https://raw.githubusercontent.com/SonamGadkari/AltarGuildProject/master/altarguild/src/main/resources/static/images/1.jpeg','2,3');
+INSERT INTO `banner` VALUES(3,'Front banner','Drawer','Unknown',null,'4','https://raw.githubusercontent.com/SonamGadkari/AltarGuildProject/master/altarguild/src/main/resources/static/images/2.jpeg','3,4');
+INSERT INTO `banner` VALUES(4,'Aisle banner','Closet','Unknown',null,'4','https://raw.githubusercontent.com/SonamGadkari/AltarGuildProject/master/altarguild/src/main/resources/static/images/3.jpeg','1,2');
+select * from `banner`;
 select * from banner;
 select * from season;
 
@@ -71,12 +76,18 @@ drop table `season`;
 drop table `seasonbanner`;
 delete from `seasonbanner`;
 
-INSERT INTO `banner` VALUES(0,'Side banner','Box','Girl Scout Banner',null,'3','https://raw.githubusercontent.com/SonamGadkari/AltarGuildProject/master/altarguild/src/main/resources/static/images/1.jpeg');
-INSERT INTO `banner` VALUES(1,'Side banner','Box','Girl Scout Banner',null,'3','https://raw.githubusercontent.com/SonamGadkari/AltarGuildProject/master/altarguild/src/main/resources/static/images/1.jpeg');
-INSERT INTO `banner` VALUES(2,'Front banner','Drawer','Unknown',null,'4','https://raw.githubusercontent.com/SonamGadkari/AltarGuildProject/master/altarguild/src/main/resources/static/images/2.jpeg');
-INSERT INTO `banner` VALUES(3,'Aisle banner','Closet','Unknown',null,'4','https://raw.githubusercontent.com/SonamGadkari/AltarGuildProject/master/altarguild/src/main/resources/static/images/3.jpeg');
 INSERT INTO `seasonbanner` VALUES(1,1);
 select * from `banner`;
 select * from `seasonbanner`;
 select * from `seasonbanner`;
 select * from `season`;
+
+CREATE TABLE `responsibilities` (
+  `id` int(11) NOT NULL,
+  `month` varchar(45) DEFAULT NULL,
+  `season` varchar(45) DEFAULT NULL,
+  `members` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`id`) );
+  
+  select * from `responsibilities`;
+  Insert into `responsibilities` values(1,'January','Advent,Christmas','Beth,Jean');
