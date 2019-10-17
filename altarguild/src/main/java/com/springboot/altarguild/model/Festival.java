@@ -38,78 +38,7 @@ public class Festival {
 	//pairId banner ID
 	@Column(name="season_id")	
 	public String season_id;
-	//imageURL
-		//Every banner is associated with multiple seasons 
-//	@ManyToMany(fetch=FetchType.LAZY,
-//			cascade= {CascadeType.PERSIST, CascadeType.MERGE,
-//			 CascadeType.DETACH, CascadeType.REFRESH})
-//	@JoinTable(name="seasonfestival",joinColumns=@JoinColumn(name="banner_id"),
-//	inverseJoinColumns=@JoinColumn(name="season_id"))	
-//	//private List<Season> seasons;
-	
-	public Festival() {
-		
-	}
-	/*
-	public int getId() {
-		return Id;
-	}
 
-	public void setId(int id) {
-		Id = id;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public void setType(String type) {
-		this.type = type;
-	}
-
-	public String getStorage() {
-		return storage;
-	}
-
-	public void setStorage(String storage) {
-		this.storage = storage;
-	}
-
-	public String getSpecialInstructions() {
-		return specialInstructions;
-	}
-
-	public void setSpecialInstructions(String specialInstructions) {
-		this.specialInstructions = specialInstructions;
-	}
-
-	public String getScripture() {
-		return scripture;
-	}
-
-	public void setScripture(String scripture) {
-		this.scripture = scripture;
-	}
-
-	public String getPairID() {
-		return pairID;
-	}
-
-	public void setPairID(String pairID) {
-		this.pairID = pairID;
-	}
-
-	public String getImageUrl() {
-		return imageUrl;
-	}
-
-	public void setImageUrl(String imageUrl) {
-		this.imageUrl = imageUrl;
-	}
-*/
-//	public List<Season> getSeasons() {
-//		return seasons;
-//	}
 
 	public int getId() {
 		return Id;
