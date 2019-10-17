@@ -3,9 +3,86 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 <title>Insert title here</title>
 </head>
 <body>
-
+<div class="container">
+<a th:href="@{/banner/addBanner}" class="btn btn-success">Add Banner</a>
+<br />
+<br />
+<table class="table table-bordered  table-striped">
+<tbody>
+<thead>
+<tr class="table-danger">
+<th>Type</th>
+<th>Storage</th>
+<th>Special Instructions</th>
+<th>Scripture</th>
+<th>pairID</th>
+<th>imageUrl</th>
+<th>Seasons</th>
+</tr>
+</thead>
+<tr th:each="banner : ${banners}">
+<td th:text="${banner.type}">
+<td th:text="${banner.storage}">
+<td th:text="${banner.specialInstructions}">
+<td th:text="${banner.scripture}">
+<td th:text="${banner.pairID}">
+<td><img style="height:200px; width: 200px;" th:src="@{${banner.imageUrl}}" /></td>
+<!-- <td th:text="${banner.seasons}"> -->
+<td th:if="${banner.seasons} != null"  th:each="word1 : ${#strings.arraySplit(banner.seasons, ',')}">
+	<div th:switch="${word1}"> 
+		<p th:case="1">Advent</p>
+		<p th:case="2">Christmas</p>
+		<p th:case="3">Epiphany-1</p> 
+		<p th:case="4">Epiphany-2</p> 
+		<p th:case="5">Epiphany-3</p> 
+		<p th:case="6">Ash Wednesday</p> 
+		<p th:case="7">Lent</p> 
+		<p th:case="8">Palm Sunday</p> 
+		<p th:case="9">Holy Thursday</p>
+		<p th:case="10">Good Friday</p> 
+		<p th:case="11">Easter</p>
+		<p th:case="12">Pentecost-1</p>
+		<p th:case="13">Trinity</p>
+		<p th:case="14">Pentecost-2</p>
+		<p th:case="15">St.Micheal</p>
+		<p th:case="16">Reformation</p>
+		<p th:case="17">All Saints Day</p>
+		<p th:case="18">Pentecost-3</p>
+		<p th:case="19">ThanksGiving</p>
+	</div>    
+</td> 
+<td>
+<a class="btn btn-info" th:href="@{/banner/showFormUpdateBanner(bannerId=${banner.id})}">Update</a>
+<a class="btn btn-danger" th:href="@{/banner/delete(bannerId=${banner.id})}" 
+   onclick="if(!(confirm('Confirm to delete'))) return true">Delete</a>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div>
+    <!-- Wrapper for slides -->
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+     <div th:each="banner, iterstat : ${banners}" th:class="${iterstat.index}== 0  ? 'carousel-item':'carousel-item active'">
+        <img class="w-100" style="height:200px; width: 200px;"  th:src="@{${banner.imageUrl}}" />
+     </div>
+    </div>	
+    
+ 	<!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+    </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+  </div>
+</div>
 </body>
 </html>

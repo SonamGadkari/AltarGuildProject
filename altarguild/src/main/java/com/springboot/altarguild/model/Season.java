@@ -20,44 +20,35 @@ public class Season {
 		@GeneratedValue(strategy=GenerationType.IDENTITY)
 		@Column(name="id")
 		public int Id;	
-		@Column(name="name")
-		public String name;	
-		@Column(name="startDate")
-		public String startDate;
-		@ManyToMany(fetch=FetchType.LAZY,cascade= {CascadeType.PERSIST, 
-		CascadeType.MERGE,CascadeType.DETACH, CascadeType.REFRESH})
-		@JoinTable(name="seasonbanner",
-		joinColumns=@JoinColumn(name="season_id"),
-		inverseJoinColumns=@JoinColumn(name="banner_id"))		
-		private List<Banner> banners;
-		public Season() {
-		}
+		
+		@Column(name="season_id")
+		public int seasonId;
+		
+		@Column(name="banner_id")
+		public int bannerId;
+
 		public int getId() {
 			return Id;
 		}
+
 		public void setId(int id) {
 			Id = id;
 		}
-		public String getName() {
-			return name;
+
+		public int getSeasonId() {
+			return seasonId;
 		}
-		public void setName(String name) {
-			this.name = name;
+
+		public void setSeasonId(int seasonId) {
+			this.seasonId = seasonId;
 		}
-		public String getStartDate() {
-			return startDate;
+
+		public int getBannerId() {
+			return bannerId;
 		}
-		public void setStartDate(String startDate) {
-			this.startDate = startDate;
-		}
-		public List<Banner> getBanners() {
-			return banners;
-		}
-		public void setBanners(List<Banner> banners) {
-			this.banners = banners;
-		}
-		@Override
-		public String toString() {
-			return "Season [Id=" + Id + ", name=" + name + ", startDate=" + startDate + ", banners=" + banners + "]";
-		}				
+
+		public void setBannerId(int bannerId) {
+			this.bannerId = bannerId;
+		}	
+				
 }

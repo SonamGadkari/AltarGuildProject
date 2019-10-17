@@ -105,7 +105,5 @@ public class FestivalController {
 		themodel.addAttribute("NAMES",map);	
 		return "allseasons";
 	
-	}*/
-	
-	
+	}*/	
 }
