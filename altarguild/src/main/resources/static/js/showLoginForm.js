@@ -3,7 +3,7 @@ var username = document.getElementById("username").value;
 var password = document.getElementById("password").value;
 if ( username == "username" && password == "password"){
 alert ("Login successfully");
-window.location = "/seasons/list"; 
+window.location = "/banner/listall"; 
 return false;
 }
 else{

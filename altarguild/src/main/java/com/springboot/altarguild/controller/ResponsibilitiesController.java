@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.springboot.altarguild.model.*;
-import com.springboot.altarguild.repository.GuildRepository;
 import com.springboot.altarguild.repository.ResponsibilitiesRepository;
 
 

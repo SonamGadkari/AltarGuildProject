@@ -9,7 +9,7 @@
 </head>
 <body>
 <nav class="navbar navbar-inverse navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#">Altarguild</a>
+  <a class="navbar-brand" th:href="@{/banner/listall}">Altarguild</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -17,7 +17,8 @@
     <div class="navbar-nav">
       <a class="nav-item nav-link active" href="@{/guild/list}">Member information<span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="#">Events Home</a>
-      <a class="nav-item nav-link" th:href="@{/seasons/list}">All Seasons</a>
+      <a class="nav-item nav-link" th:href="@{/banner/listall}">All Seasons</a>
+      <a class="nav-item nav-link" th:href="@{/responsibilities/list}">Responsibilites</a>
       <a class="nav-item nav-link" th:href="@{/admin/home}">Admin Page</a>
       <a class="nav-item nav-link" th:href="@{/login/showLoginForm}">Logout</a>
     </div>

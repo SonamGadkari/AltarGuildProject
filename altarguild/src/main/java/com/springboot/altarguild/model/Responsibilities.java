@@ -12,6 +12,7 @@ import javax.persistence.Id;
 @Table(name="responsibilities")
 public class Responsibilities {
 	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	public int Id;	
 	@Column(name="month")

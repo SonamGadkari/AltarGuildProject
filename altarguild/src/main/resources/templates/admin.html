@@ -1,45 +1,33 @@
-
 <!Doctype html>
 <html xmlns:th="http://www.thymeleave.org" lang="eng">
-<head>
-        <meta charset="utf-8">
-        
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-        
-<!--
+<head>  
+  <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
 <body>
-<a th:href="@{/guild/showFormForAdd}" class="btn btn-success">Add Guild Member</a>
-</body> -->
 <!--Navbar-->
-<nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-          <div class="navbar-header"> 
-            <a class="navbar-brand" href="#">Altar Guild</a>
-          </div>
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#">All Seasons</a></li>
-            <li><a href="#">Member Information</a></li>
-            <li><a href="#">Admin Page</a></li>
-          </ul>
-        </div>
-      </nav>
-        <!-- Nav Bar Ends-->
-
+<nav class="navbar navbar-inverse navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" th:href="@{/banner/listall}">Altarguild</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" th:href="#">Admin Page<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Events Home</a>
+      <a class="nav-item nav-link" href="#">Events Home</a>
+      <a class="nav-item nav-link" th:href="@{/guild/list}">Member information</a>
+      <a class="nav-item nav-link" th:href="@{/responsibilities/list}">Responsibilities</a>
+      <a class="nav-item nav-link" th:href="@{/banner/listall}">All Seasons</a>
+      <a class="nav-item nav-link" th:href="@{/login/showLoginForm}">Logout</a>
+    </div>
+  </div>
+</nav>
 </head>
-<body>
 <form id="AdminPage" th:action="@{/hot-deal-step-1}">
-    <div class="col-xs-12 col-sm-6 col-md-6">
-    
-
+    <div class="col-xs-12 col-sm-6 col-md-6">    
         <a  class="btn btn-success" onClick="addGuildMember()">Add Guild Member</a>
          <a  class="btn btn-success" onClick="addBanner()">Add Banner</a>
     </div>
-
-
 </form>
 <script th:inline="javascript">
   function addGuildMember() {

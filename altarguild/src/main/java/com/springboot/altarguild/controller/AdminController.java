@@ -12,13 +12,7 @@ public class AdminController {
 	{
 		return "admin";
 	}
-	
-	/*@RequestMapping("/addBanner")
-	public void addBanner()
-	{
-		return "redirect:/guild/list";	
-	}
-	*/
+		
 	@RequestMapping("/addGuildmember")
 	public String addGuildmember()
 	{
