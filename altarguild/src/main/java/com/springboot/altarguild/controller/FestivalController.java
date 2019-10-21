@@ -1,9 +1,8 @@
 package com.springboot.altarguild.controller;
 
 
-import java.util.HashMap;
+
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,14 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
-import com.springboot.altarguild.model.Season;
-import com.springboot.altarguild.model.Festival;
+import com.springboot.altarguild.model.*;
+import com.springboot.altarguild.repository.BannerRepository;
 import com.springboot.altarguild.repository.FestivalRepository;
 import com.springboot.altarguild.repository.SeasonRepository;
 
@@ -26,44 +22,49 @@ import com.springboot.altarguild.repository.SeasonRepository;
 @RequestMapping("/festival")
 //@ComponentScan(basePackages = "com.springboot.altarguild") 
 public class FestivalController {
-
-	private FestivalRepository festivalRepository;
-	private SeasonRepository seasonRepository;
-	
 	@Autowired
-	public FestivalController(FestivalRepository FestivalRepository)
-	{
-		this.festivalRepository=festivalRepository;
-	}
-	
-		
-	@RequestMapping("/listall")
-	public String listAll(Model themodel)
-	{
-		List<Festival> festivals=festivalRepository.findAll();
-		themodel.addAttribute("festivals", festivals);
-		return "show-festivals";
-	}
-	
-	
-	/*@GetMapping("/addfestival")
-	public String showForm(Model themodel)
-	{
-		themodel.addAttribute("festival1",new Festival());	
-		return "showFestivalAddForm";
-	}	
-	
-	@GetMapping("/list/{id}")
+	private FestivalRepository festivalRepository;
+	@Autowired
+	private BannerRepository bannerRepository;
+	@Autowired
+	private SeasonRepository seasonRepository;	
+//	
+//	public FestivalController(FestivalRepository FestivalRepository)
+//	{
+//		this.festivalRepository =festivalRepository;
+//	}
+//	
+//		
+//	@RequestMapping("/listall")
+//	public String listAll(Model themodel)
+//	{
+//		List<Festival> festivals=festivalRepository.findAll();
+//		themodel.addAttribute("festivals", festivals);
+//		return "list-festivalpage";
+//	}
+//	
+//	
+//	@GetMapping("/addfestival")
+//	public String showForm(Model themodel)
+//	{
+//		themodel.addAttribute("festival1",new Festival());	
+//		return "showFestivalAddForm";
+//	}	
+////	
+	@GetMapping("/list")
 	//@RequestParam("id")
 	public String allStudents(Model themodel,@RequestParam("id") int id)
-			//@PathVariable(value = "id") int id)
 	{	
 		Optional<Festival> festival1=festivalRepository.findById(id);
-		themodel.addAttribute("festival1",festival1);
-		return "show-festival";
+//		System.out.print(festival1.get().name);
+//		Optional<Season> season = seasonRepository.findById(Integer.parseInt(festival1.get().getSeason_id()));
+//		Optional<Banner> banner = bannerRepository.findById(season.get().getBannerId());
+		themodel.addAttribute("festival",festival1.get());
+		return "show-festivalpage";
 	}
-	
-	@PostMapping("/save")
+
+
+	/*@PostMapping("/save")
 	public String saveForm(@ModelAttribute("festival") Festival theFestival,Model themodel)
 	//,Model themodel)
 	{

@@ -56,10 +56,13 @@ public class HomeController {
 	    	int month = Arrays.asList(months).indexOf(currentTime[1])+1;
 	        String currentDate = (currentTime[5].replace("20", "")+month+currentTime[2]);
 	        int currentInt = Integer.parseInt(currentDate);
-	  
+	  try {
 	    	themodel.addAttribute("nextThreeColors", dateRepository.findNextEvents(currentInt));
 	    	themodel.addAttribute("nextThreeDates", prettyString(dateRepository.findNextEvents(currentInt)));
-	        return "home1";
+	        return "home1";}
+	  finally{
+		  return "home1";
+	  }
 	    }
 	 
 
