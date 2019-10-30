@@ -15,11 +15,16 @@ public class Dates {
 		public int Date;	
 		@Column(name="color")
 		public String color;
+		@Column(name="FestivalID")
+		public int FestivalID;
 		
 		public Dates() {
 		}
 		public int getDate() {
 			return Date;
+		}
+		public int getFestivalID() {
+			return FestivalID;
 		}
 		public String getColor() {
 			return color;

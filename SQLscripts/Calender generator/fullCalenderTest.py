@@ -16,7 +16,9 @@ from mysql import connector
 
 
 def leapYear(year):
-    return not((year % 100) %4 == 0 or (((year % 1000) - (year % 100)) % 4 == 0) and (year % 100) ==0)
+    return not((year % 100) %4 == 0 or 
+               (((year % 1000) - (year % 100)) % 4 == 0) and 
+               (year % 100) ==0)
 
 
 """
@@ -78,29 +80,16 @@ def relativeDate(numberOfDays , month = 0 ,day = 0,year = 0, date = ()): #-> int
         month= date[0]
         day = date[1]
         year = date[2]
-    temp = numDayToMDY((MDYToNumDay(month,day,year)+numberOfDays),year)
-    if temp[1]<0:
-        month = 12-(temp[0]-1)
-        day = monthDays[temp[0]]+temp[1]
-        if month ==12 or (temp[0]-1)>2:
-            year-=1
+    dateNew = numDayToMDY((MDYToNumDay(month,day,year)+numberOfDays),year)
+    if dateNew[1]<0:
+        dateNew[2] -=1 
+        dateNew[0] = 13 - dateNew[0]
+        i = date[1]
+        i += 31
+        dateNew[1] += monthDays[dateNew[0]-1]
         
-    return numDayToMDY((MDYToNumDay(month,day,year)+numberOfDays),year)
+    return dateNew#numDayToMDY((MDYToNumDay(month,day,year)+numberOfDays),year)
 
-#def relativeDate(numberOfDays, date):#-> date
-#   #console.log(date)
-#   year = date[2]
-#   monthDays =  [31,28+leapYear(date[2]),31,30,31,30,31,31,30,31,30,31]
-#   dateDayNumber = MDYToNumDay(date)
-#   dateDayNumber += numberOfDays
-#   dateNew = numDayToMDY(dateDayNumber,year)
-#   if (dateNew[1] < 0):
-#       dateNew[2] -=1 
-#       dateNew[0] = 13 - dateNew[0]
-#       i = date[1]
-#       i += 31
-#       dateNew[1] += monthDays[dateNew[0]-1]
-#   return dateNew
 
 
 
@@ -122,7 +111,7 @@ def weekDay(month = 0 ,day = 0,year = 0, date = ()): # - >int
         month= date[0]
         day = date[1]
         year = date[2]
-    if month<3:
+    if month < 3:
         month+=10
         d = (year%100)-1
     else:
@@ -132,7 +121,7 @@ def weekDay(month = 0 ,day = 0,year = 0, date = ()): # - >int
     f = (day + ((13*month)-1)//5 + d + (d//4) + (c//4) - (2*c))%7
     return f
 
-weekDay(date = (7,27,2019))
+print(weekDay(date = (10,20,2019)))
 """
 This funciton will take an input of a year.
 It will output the date of easter for the year entered.
@@ -150,24 +139,47 @@ def calcEaster( year):#->[int]
     return  month,day,year
 
 
+def nextSunday(month = 0 ,day = 0,year = 0, date = ()): # - >int
+    if len(date)>0:
+        month = date[0]
+        day   = date[1]
+        year  = date[2]
+    return  relativeDate(7-(weekDay(month,day,year)),(month,day,year))
+
+def closestSunday(month = 0 ,day = 0,year = 0, date = ()): # - >int
+    if len(date)>0:
+        month = date[0]
+        day   = date[1]
+        year  = date[2]
+    if weekDay(month,day,year)>3:
+        relativeDate(7-(weekDay(month,day,year)),(month,day,year))
+    else:
+        relativeDate(-1*(weekDay(month,day,year)),(month,day,year))
+        
+
+
+
 """
 This function will take an int and a year. 
 It will output all the date that are sundays.
 (2019 -> [(1,6,2019),...(12/30/2019)] ) 
 """
 def allSundays(year): # - >[ [int,int,int,string,string] ]
-    leap = not((year % 100) %4 == 0 or ((year % 1000) - (year % 100)) % 4 == 0) 
+    leap = leapYear(2019)
     calender = []
-    for i in range(1-weekDay(1,1,year),366+leap,7):
+    for i in range(2-weekDay(1,1,year),366+leap,7):
         if i>0:
             month,day, year = numDayToMDY(i,year)
             calender.append((month,day,year))
     return calender
 
+
+
+
 cal = []
 allFixedDates =[]
 finalCal = []
-for year in range(2019,2029,1):
+for year in range(2014,2030,1):
     easter = calcEaster(year)
     epiphanyA = relativeDate(7-(weekDay(date=(1,6,year))),date = (1,6,year))
     epiphanyB = relativeDate(7,date = epiphanyA)
@@ -194,6 +206,11 @@ for year in range(2019,2029,1):
     allFixedDates+= yearFixedDates
     cal += sorted(set(yearFixedDates+sundays), key = lambda x: (x[0], x[1]))
     colors =["white","green","white","black","purple","red","white","black","white","red","white","green","red","white","green","white","blue","white"]
+#    file = open("fest2.csv","r") 
+#    contents = file.read().split(";")
+    
+    
+          
     #print(yearFixedDates)
     #print(sundays[2]==yearFixedDates[1])
     colorIndex = 0
@@ -218,9 +235,9 @@ for year in range(2019,2029,1):
 #output
 #print(finalCal)
 
-csv = False
+csv =  False
 json = False
-db = True
+db =  True
 
 
 if csv:
@@ -278,18 +295,22 @@ if db:
     colors =["white","white","green","white","black","purple","red","white","black","white","red","white","green","red","white","green","white","blue","white"]
     colorIndex = 0
 
-        
+    x = 0    
     for date in cal:
+        if x == 197:
+            x=0
+        x+=1
         if date in allFixedDates and len(finalCalDB):
             if colorIndex == len(colors)-1:
                 colorIndex = 0
             else:
                 colorIndex+=1
          
-        finalCalDB.append((str(date[2])[2:]+"{:02d}".format(date[0])+""+"{:02d}".format(date[1]),colors[colorIndex]))
+        finalCalDB.append((str(date[2])[2:]+"{:02d}".format(date[0])+""+"{:02d}".format(date[1]),colors[colorIndex], x))
     print(finalCalDB)
-    insertDate =  "INSERT INTO Dates (Date, color) VALUES (%s, %s)"
+    insertDate =  "INSERT INTO Date (Date, color, FestivalID) VALUES (%s, %s,%s)"
     c = conection.cursor()
+    print(insertDate,finalCalDB)
     c.executemany(insertDate,finalCalDB)
     conection.commit()
     
