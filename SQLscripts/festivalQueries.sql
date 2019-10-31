@@ -292,3 +292,4 @@ INSERT INTO festival (name, Date, first_reading, epistle, gospel, season_id) VAL
 
 INSERT INTO festival (name, Date, first_reading, epistle, gospel, season_id) VALUES 
 ('Last S. of the Church Year','Nov. 26(Proper 29)','Ezek. 34:11–16, 20–24','I Cor. 15:20–28','Matt. 25:31–46','39');
+

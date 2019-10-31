@@ -1,5 +1,6 @@
 package com.springboot.altarguild.controller;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -14,8 +15,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.springboot.altarguild.model.Dates;
-import com.springboot.altarguild.repository.DateRepository;
+import com.springboot.altarguild.model.*;
+import com.springboot.altarguild.repository.*;
 
 
 @Controller
@@ -41,12 +42,19 @@ public class HomeController {
 	}
 
 	 private DateRepository dateRepository;
+	 private FestivalRepository festivalRepository;
 		
 		@Autowired
-		public HomeController(DateRepository DateRepository)
+		public HomeController(DateRepository DateRepository, FestivalRepository FestivalRepository)
 		{
 			this.dateRepository = DateRepository;
+			this.festivalRepository = FestivalRepository;
 		}	
+		
+
+			
+				
+		
 		
 	 @RequestMapping(value="/home", method=RequestMethod.GET)
 	    public String index(HttpServletRequest request,Model themodel) {
@@ -56,14 +64,19 @@ public class HomeController {
 	    	int month = Arrays.asList(months).indexOf(currentTime[1])+1;
 	        String currentDate = (currentTime[5].replace("20", "")+month+currentTime[2]);
 	        int currentInt = Integer.parseInt(currentDate);
-	  try {
-	    	themodel.addAttribute("nextThreeColors", dateRepository.findNextEvents(currentInt));
+	        List<Dates> listOfDates = dateRepository.findNextEvents(currentInt);
+	       
+	        Festival[] fest = new   Festival[]  {festivalRepository.findById(listOfDates.get(0).getFestivalID()+9).get(),
+	        									 festivalRepository.findById(listOfDates.get(1).getFestivalID()+9).get(),
+	        									 festivalRepository.findById(listOfDates.get(2).getFestivalID()+9).get()
+	        				  };
+	        themodel.addAttribute("nextThreeFestivals",fest);
+	      
+	    	themodel.addAttribute("nextThreeColors",listOfDates);
 	    	themodel.addAttribute("nextThreeDates", prettyString(dateRepository.findNextEvents(currentInt)));
-	        return "home1";}
-	  finally{
-		  return "home1";
-	  }
-	    }
+	        return "home1";
+	 }
+	    
 	 
 
 		
