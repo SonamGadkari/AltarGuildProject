@@ -16,6 +16,7 @@ INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_
 ('Third S. in Advent ', 'C','Zeph. 3:14-20  ', 'Phil. 4:4-7', 'Luke 7:18-28(29-35)', '1');
 INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
 (' Third S. in Advent ', 'C','Mic. 5:2-5a  ', 'Heb. 10:5-10  ', 'Luke 1:39-45(46-56)', '1');
+
 INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
 ('The Nativity of Our Lord- Christmas Day ', 'C','Is. 52:7-10 ', 'Heb. 1:1-6 (7-12) ', 'John 1:1-14 (15-18)', '2');
 INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
@@ -157,7 +158,7 @@ INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_
 INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
 ('Christmas Eve','A','Is. 7:10–14, Is. 9:2–7','1 John 4:7–16, 1 John 4:7–16','Matt. 1:18–25, Matt. 1:18–25','2');
 INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
-('The Nativity of Our Lord','A','Is. 52:7–10','Heb.1:1–6(7–12)','John 1:1–14(15–18)','2');
+('The Nativity of Our Lord - Christmas Day','A','Is. 52:7–10','Heb.1:1–6(7–12)','John 1:1–14(15–18)','2');
 INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
 ('Eve of the Circumcision and Name of Jesus','A','Is. 30:(8–14)15–17','Rom. 8:31b–39','Luke 12:35–40','2');
 INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
@@ -287,3 +288,181 @@ INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_
 
 INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
 ('Last S. of the Church Year','A','Ezek. 34:11–16, 20–24','I Cor. 15:20–28','Matt. 25:31–46','19');
+
+
+
+
+
+
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('First S. in Advent','B','Is. 64:1–9','1 Cor. 1:3–9','Mark 11:1–10 or Mark 13:24–37','1');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Second S. in Advent','B','Is. 40:1–11','2 Peter 3:8–14','Mark 1:1–8','1');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Third S. in Advent','B','Is. 61:1–4, 8–11','1 Thess. 5: 16–24','John 1:6–8,19–28','1');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Fourth S. in Advent','B','2 Sam. 7:1–11, 16','Rom. 16:25–27','Luke 1:26–38','1');
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Christmas Eve','B','Is. 7:10–14, Is. 9:2–7','1 John 4:7–16, Titus 2:11–14','Matt. 1:18–25, Luke 2:1–14 (15–20)','2');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('The Nativity of Our Lord - Christmas Day','B','Is. 62:10–12, Is. 52:7–10','Titus 3:4–7, Heb. 1:1–6 (7–12)','Luke 2:(1–14) 15–20, John 1:1–14 (15–18)','2');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Christmas 1','B','Is. 61:10—62:3','Gal. 4:4–7','Luke 2:22–40','2');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Eve of the Circ. and Name of Jesus','B','Is. 30:(8–14) 15–17','Rom. 8:31b–39','Luke 12:35–40','2');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Circumcision and Name of Jesus','B','Num. 6:22–27','Gal. 3:23–29','Luke 12:35–40','2');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Christmas 2','B','1 Kings 3:4–15','Eph. 1:3–14','Luke 2:40–52','2');
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Epiphany','B','Is. 60:1–6','Eph. 3:1–12','Matt. 2:1–12','3');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('The Baptism of Our Lord','B','Gen. 1:1–5','Rom. 6:1–11','Mark 1:4–11','3');
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Second S. a. the Epiphany','B','1 Sam. 3:1–10 (11–20)','1 Cor. 6:12–20','John 1:43–51','4');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Third S. a. the Epiphany','B','Jonah 3:1–5, 10','1 Cor. 6:12–20','Mark 1:14–20','4');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Fourth S. a. the Epiphany','B','Deut. 18:15–20','1 Cor. 8:1–13','Mark 1:21–28','4');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Fifth S. a. the Epiphany','B','Is. 40:21–31','1 Cor. 9:16–27','Mark 1:29–39','4');
+    
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('The Transfiguration of Our Lord','B','2 Kings 2:1–12 or Ex. 34:29–35','2 Cor. 3:12–13 (14–18); 4:1–6','Mark 9:2–9','5');
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('The Transfiguration of Our Lord','B','2 Kings 2:1–12 or Ex. 34:29–35','2 Cor. 3:12–13 (14–18); 4:1–6','Mark 9:2–9','6');
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('First S. in Lent','B','Gen. 22:1–18','James 1:12–18','Mark 1:9–15','7');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Second S. in Lent','B','Gen. 17:1–7, 15–16','Rom. 5:1–11','Mark 8:27–38','7');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Third S. in Lent','B','Ex. 20:1–17','1 Cor. 1:18–31','John 2:13–22 (23–25)','7');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Fourth S. in Lent','B','Num. 21:4–9','Eph. 2:1–10','John 3:14–21','7');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Fifth S. in Lent','B','Jer. 31:31–34','Heb. 5:1–10','Mark 10:(32–34) 35–45','7');
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Palm Sunday-Sunday of the Passion','B','Zech. 9:9–12','Phil. 2:5–11','Mark 14:1—15:47 or Mark 15:1–47 or John 12:20–43','8');
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Holy Thursday','B','Ex. 24:3–11','1 Cor. 10:16–17','Mark 14:12–26','9');
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Good Friday','B','Is. 52:13—53:12','Heb. 4:14–16; 5:7–9','John 18:1—19:42 or John 19:17–30','10');
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('The Resurrection of Our Lord Easter Sunrise','B','Ex. 15:1–11, Is. 25:6–9','1 Cor. 5:6b–8, 1 Cor. 15:1–11','John 20:1–18, Mark 16:1–8','11');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Second S. of Easter','B','Acts 4:32–35','1 John 1:1—2:2','John 20:19–31','11');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Third S. of Easter','B','Acts 3:11–21','1 John 3:1–7','Luke 24:36–49','11');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Fourth S. of Easter','B','Acts 4:1–12','1 John 3:16–24','John 10:11–18','11');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Fifth S. of Easter','B','Acts 8:26–40','1 John 4:1–11 (12–21)','John 15:1–8','11');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Sixth S. of Easter','B','Acts 10:34–48','1 John 5:1–8','John 15:9–17','11');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('The Ascension of Our Lord','B','Acts 1:1–11','Eph. 1:15–23','Luke 24:44–53','11');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Seventh S. of Easter','B','Acts 1:12–26','1 John 5:9–15','John 17:11b–19','11');
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('The Day of Pentecost','B','Ezek. 37:1–14','Acts 2:1–21','John 15:26–27; 16:4b–15','12');
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('The Holy Trinity','B','Is. 6:1–8','Acts 2:14a, 22–36','John 3:1–17','13');
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Second S. a. Pentecost','B','Gen. 3:8–15','2 Cor. 4:13—5:1','Mark 3:20–35','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Third S. a. Pentecost','B','Ezek. 17:22–24','2 Cor. 5:1–10 (11–17)','Mark 4:26–34','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Fourth S. a. Pentecost','B','Job 38:1–11','2 Cor. 6:1–13','Mark 4:35–41','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Fifth S. a. Pentecost','B','Lam. 3:22–33','2 Cor. 8:1–9, 13–15','Mark 5:21–43','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Sixth S. a. Pentecost','B','Ezek. 2:1–5','2 Cor. 12:1–10','Mark 6:1–13','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Seventh S. a. Pentecost','B','Amos 7:7–15','Eph. 1:3–14','Mark 6:14–29','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Eighth S. a. Pentecost','B','Jer. 23:1–6','Eph. 2:11–22','Mark 6:30–44','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Ninth S. a. Pentecost','B','Gen. 9:8–17','Eph. 3:14–21','Mark 6:45–56','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Tenth S. a. Pentecost','B','Ex. 16:2–15','Eph. 4:1–16','John 6:22–35','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Eleventh S. a. Pentecost','B','1 Kings 19:1–8','Eph. 4:17—5:2','John 6:35–51','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Twelfth S. a. Pentecost','B','Prov. 9:1–10 or Josh. 24:1–2a, 14–18','Eph. 5:6–21','John 6:51–69','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Thirteenth S. a. Pentecost','B','Is. 29:11–19','Eph. 5:22–33','Mark 7:1–13','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Fourteenth S. a. Pentecost','B','Deut. 4:1–2, 6–9','Eph. 6:10–20','Mark 7:14–23','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Fifteenth S. a. Pentecost','B','Is. 35:4–7a','James 2:1–10, 14–18','Mark 7:(24–30) 31–37','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Sixteenth S. a. Pentecost','B','Is. 50:4–10','James 3:1–12','Mark 9:14–29','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Seventeenth S. a. Pentecost','B','Jer. 11:18–20','James 3:13—4:10','Mark 9:30–37','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Eighteenth S. a. Pentecost','B','Num. 11:4–6, 10–16, 24–29','James 5:(1–12) 13–20','Mark 9:38–50','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Nineteenth S. a. Pentecost','B','Gen. 2:18–25','Heb. 2:1–13 (14–18)','Mark 10:2–16','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Twentieth S. a. Pentecost','B','Amos 5:6–7, 10–15','Heb. 3:12–19','Mark 10:17–22','14');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Twenty–first S. a. Pentecost','B','Eccl. 5:10–20','Heb. 4:1–13 (14–16)','Mark 10:23–31','14');
+
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Reformation Day','B','Rev. 14:6–7','Rom. 3:19–28','John 8:31–36 or Matt. 11:12–19','15');
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('All Saints Day','B','Rev. 7:(2–8)9–17','1 John 3:1–3','Matt. 5:1–12','16');
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Twenty–fourth S. a. Pentecost','B','1 Kings 17:8–16','Heb. 9:24–28','Mark 12:38–44','17');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Twenty–fifth S. a. Pentecost','B','Dan. 12:1–3','Heb. 10:11–25','Mark 13:1–13','17');
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Last S. of the Church Year','B','Is. 51:4–6 or Dan. 7:9–10, 13–14','Jude 20–25 or Rev. 1:4b–8','Mark 13:24–37 or John 18:33–37','17');
+
+INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
+('Thanksgiving Day','B','Deut. 8:1–10','Phil. 4:6–20 or 1 Tim. 2:1–4','Luke 17:11–19','18');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
