@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
 import javax.persistence.Id;
 
 
@@ -19,6 +21,8 @@ public class Guild {
 	public String name;	
 	@Column(name="phone")
 	public String phone;
+	@NotEmpty(message = "{validation.mail.notEmpty}")
+    @Email
 	@Column(name="email")
 	public String email;
 	public Guild() {

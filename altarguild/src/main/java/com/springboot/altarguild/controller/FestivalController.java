@@ -35,12 +35,12 @@ public class FestivalController {
 	{	
 		Optional<Festival> festival1=festivalRepository.findById(id);
 		//System.out.print(festival1.get().name);
-		//Season season = seasonRepository.findById(Integer.parseInt(festival1.get().getSeason_id())).get();
+		//Season season = seasonRepository.findById(2).get();//Integer.parseInt(festival1.get().getSeason_id())).get();
 	//	Optional<Banner> banner = bannerRepository.findById(season.get().getBannerId());
 		System.out.print(festival1.get().name);
 		themodel.addAttribute("festivals",festivalRepository.findFestivalByName(festival1.get().name));
 		themodel.addAttribute("fest",festival1.get());
-		//themodel.addAttribute("season",season);
+		//themodel.addAttribute("seasonName",season);
 	
 		return "show-festivalpage";
 	}
