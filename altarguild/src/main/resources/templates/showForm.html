@@ -18,24 +18,23 @@
 <input type="text" class="form-control" id="myphone" th:field="*{phone}" placeholder="Phone" />
 <label>Email</label>
 <input type="text" class="form-control" id="myemail" th:field="*{email}" placeholder="Email" />
+
+
+
+
 <br />
 <button type="submit" class="btn btn-success" onclick="validate()">Save</button>
 </div>
 </form>
+<div th:if="${emailError}">
+    <h3>error:</h3><h3 th:text="${emailError}"></h3></div>
+    
+    
+<p>here</p>
 </div>
+<div th:if="${phoneError}">
+    <h3>error:</h3><h3 th:text="${phoneError}"></h3></div>
 </div>
 
-<script>
-function validate(){
-var x = document.getElementById("myname").value;
-var y = document.getElementById("myphone").value;
-var z = document.getElementById("myemail").value;
-if(x === "" |  y === "" | z === ""){
-	console.log('Testing if condition');
-	alert("please fill entire form");
-	return false;
-}
-}
-</script>
 </body>
 </html>

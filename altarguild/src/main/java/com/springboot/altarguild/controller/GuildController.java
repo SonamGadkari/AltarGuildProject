@@ -1,16 +1,23 @@
 package com.springboot.altarguild.controller;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
+import org.hibernate.mapping.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springboot.altarguild.model.Guild;
 import com.springboot.altarguild.repository.GuildRepository;
@@ -43,9 +50,19 @@ public String showForm(Model themodel)
 }
 
 @PostMapping("/save")
-public String saveForm(@ModelAttribute("member") Guild theMember)
+public String saveForm(@Valid Guild member,  BindingResult bindingResult,RedirectAttributes redirectAttributes, Model themodel)
 {
-	guildRepository.save(theMember);
+	if (bindingResult.hasErrors()) {
+		System.out.print("\nhere________________________________________________________________\n");
+		System.out.print(bindingResult.getAllErrors());
+		HashMap<String,Integer> x = new HashMap<String, Integer>();
+		x.put("guildId", member.Id);
+		redirectAttributes.addAllAttributes(x);
+		redirectAttributes.addFlashAttribute("emailError", bindingResult.getFieldError("email").getDefaultMessage());	
+		redirectAttributes.addFlashAttribute("phoneError", bindingResult.getFieldError("phone").getDefaultMessage());
+		return "redirect:/guild/showFormForUpdate";
+       }
+	guildRepository.save(member);
 	return "redirect:/guild/list";	
 }
 

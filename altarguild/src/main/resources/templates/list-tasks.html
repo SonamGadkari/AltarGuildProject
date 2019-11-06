@@ -22,7 +22,7 @@
   </div>
 </nav>
 <br/>
-<a th:href="@{/responsibilities/showTasksAdd}" class="btn btn-success">Assign responsibilities</a>
+<a  class="btn btn-success" onclick = "myFunction()">Assign responsibilities</a>
 <br/>
 <table class="table table-bordered  table-striped">
 <tbody>
@@ -39,11 +39,34 @@
 <td th:text="${x.season}"></td>
 <td th:text="${x.members}"></td>
 <td>
-<a class="btn btn-info" th:href="@{/responsibilities/showFormForUpdate(respId=${x.id})}">Update</a>
-<a class="btn btn-danger" th:href="@{/responsibilities/delete(respId=${x.id})}" onclick="if(!(confirm('Confirm to delete'))) return true" >Delete</a>
+<a class="btn btn-info" th:href="@{/responsibilities/showFormForUpdate(respId=${x.id})}" onclick="return deleteFunction()">Update</a>
+<a class="btn btn-danger" th:href="@{/responsibilities/delete(respId=${x.id})}" onclick="return deleteFunction()" >Delete</a>
 </td>
 </tr>
 </tbody>
 </table>
+<script th:inline="javascript">
+  function myFunction() {
+    var password = prompt("Please enter valid password");
+    if (password == "12345") {
+    window.location = "/responsibilities/showTasksAdd";
+    }
+    else{
+    alert("please enter correct password");
+    }
+    }
+    function deleteFunction(){
+    var password = prompt("Please enter valid password");
+    
+    if (password == "12345") {
+     alert("Correct!");
+     return true;
+    }
+    else{  
+    alert("please enter correct password");
+    return false;
+    }
+    }
+  </script>
 </body>
 </html>
