@@ -48,18 +48,29 @@ public String showForm(Model themodel)
 	themodel.addAttribute("member",new Guild());	
 	return "showForm";
 }
+public void print(String st) {
+	System.out.println(st);
+}
 
 @PostMapping("/save")
 public String saveForm(@Valid Guild member,  BindingResult bindingResult,RedirectAttributes redirectAttributes, Model themodel)
 {
 	if (bindingResult.hasErrors()) {
-		System.out.print("\nhere________________________________________________________________\n");
-		System.out.print(bindingResult.getAllErrors());
 		HashMap<String,Integer> x = new HashMap<String, Integer>();
 		x.put("guildId", member.Id);
 		redirectAttributes.addAllAttributes(x);
-		redirectAttributes.addFlashAttribute("emailError", bindingResult.getFieldError("email").getDefaultMessage());	
+		if (bindingResult.getFieldError("email")!=null) {
+		redirectAttributes.addFlashAttribute("emailError", bindingResult.getFieldError("email").getDefaultMessage());
+		print("emailError________________________________________________________________");	
+		}
+		print("befor phone___________________________________________");
+		
+		if (bindingResult.getFieldError("phone")!=null) {
 		redirectAttributes.addFlashAttribute("phoneError", bindingResult.getFieldError("phone").getDefaultMessage());
+		print("Error________________________________________________________________");
+		}
+		//bindingResult.
+		print("redirect___________________________________________");
 		return "redirect:/guild/showFormForUpdate";
        }
 	guildRepository.save(member);
