@@ -53,14 +53,13 @@ public String showForm(Model themodel)
 public String saveForm(@Valid Guild member,  BindingResult bindingResult,RedirectAttributes redirectAttributes, Model themodel)
 {
 	if (bindingResult.hasErrors()) {
-		System.out.print("\nin save########################################--------------------------------------------------------------------------------");
+		System.out.print("\nhere________________________________________________________________\n");
+		System.out.print(bindingResult.getAllErrors());
 		HashMap<String,Integer> x = new HashMap<String, Integer>();
 		x.put("guildId", member.Id);
 		redirectAttributes.addAllAttributes(x);
-//		themodel.addAttribute(member);
-	String error ="email";
-//		themodel.addAttribute("error",error);
-		redirectAttributes.addFlashAttribute("error", bindingResult.getFieldError().getDefaultMessage());		
+		redirectAttributes.addFlashAttribute("emailError", bindingResult.getFieldError("email").getDefaultMessage());	
+		redirectAttributes.addFlashAttribute("phoneError", bindingResult.getFieldError("phone").getDefaultMessage());
 		return "redirect:/guild/showFormForUpdate";
        }
 	guildRepository.save(member);

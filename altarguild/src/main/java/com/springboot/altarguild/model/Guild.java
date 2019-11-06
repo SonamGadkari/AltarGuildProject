@@ -19,6 +19,7 @@ public class Guild {
 	public int Id;	
 	@Column(name="name")
 	public String name;	
+	@NotEmpty(message = "{validation.phone.notEmpty}")
 	@Column(name="phone")
 	public String phone;
 	@NotEmpty(message = "{validation.mail.notEmpty}")
