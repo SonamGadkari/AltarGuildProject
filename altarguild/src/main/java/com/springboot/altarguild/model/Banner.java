@@ -115,7 +115,8 @@ public class Banner {
 	public String toString() {
 		return "Banner [Id=" + Id + ", type=" + type + ", storage=" + storage + ", specialInstructions="
 				+ specialInstructions + ", scripture=" + scripture + ", pairID=" + pairID + ", imageUrl=" + imageUrl
-				+ ", seasons=" + seasons + "]";
+				+ ", seasons=" + seasons 
+				+ "]";
 	}	
 			
 }

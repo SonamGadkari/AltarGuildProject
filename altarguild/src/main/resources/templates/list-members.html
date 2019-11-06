@@ -44,7 +44,7 @@
 <td th:text="${mem.phone}">
 <td th:text="${mem.email}">
 <td>
-<a class="btn btn-info" th:href="@{/guild/showFormForUpdate(guildId=${mem.id})}" onclick="myFunction()">Update</a>
+<a class="btn btn-info" th:href="@{/guild/showFormForUpdate(guildId=${mem.id})}" onclick="return deleteFunction()">Update</a>
 
 <a class="btn btn-danger" th:href="@{/guild/delete(guildId=${mem.id})}" 
 onclick="return deleteFunction()">Delete</a>

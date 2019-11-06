@@ -24,7 +24,7 @@
   </div>
 </nav>
 <div class="container">
-<a th:href="@{/banner/addBanner}" class="btn btn-success">Add Banner</a>
+<a  class="btn btn-success" onclick = "myFunction()">Add Banner</a>
 <br />
 <br />
 <table class="table table-bordered  table-striped">
@@ -74,9 +74,9 @@
 	</div>    
 </td> 
 <td>
-<a class="btn btn-info" th:href="@{/banner/showFormUpdateBanner(bannerId=${banner.id})}">Update</a>
+<a class="btn btn-info" th:href="@{/banner/showFormUpdateBanner(bannerId=${banner.id})}" onclick="return deleteFunction()">Update</a>
 <a class="btn btn-danger" th:href="@{/banner/delete(bannerId=${banner.id})}" 
-   onclick="if(!(confirm('Confirm to delete'))) return true">Delete</a>
+onclick="return deleteFunction()">Delete</a>
 </td>
 </tr>
 </tbody>
@@ -102,5 +102,28 @@
   </a>
   </div>
 </div>
+<script th:inline="javascript">
+  function myFunction() {
+    var password = prompt("Please enter valid password");
+    if (password == "12345") {
+    window.location = "/banner/addBanner";
+    }
+    else{
+    alert("please enter correct password");
+    }
+    }
+    function deleteFunction(){
+    var password = prompt("Please enter valid password");
+    
+    if (password == "12345") {
+     alert("Correct!");
+     return true;
+    }
+    else{  
+    alert("please enter correct password");
+    return false;
+    }
+    }
+  </script>
 </body>
 </html>
