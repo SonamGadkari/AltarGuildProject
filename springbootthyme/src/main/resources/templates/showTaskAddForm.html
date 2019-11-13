@@ -1,0 +1,31 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleave.org">
+<head>
+<title>Add Form</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+</head>
+<body>
+<div class="row">
+<div class="col-sm-2">
+</div>
+<div class="col-sm-4">
+<form th:action="@{save}" name="myform" th:object="${resp}" method="POST" >
+<div class="form-group">
+<p> Enter the Guild member information below</p>
+<label>Month</label>
+<input type="hidden" th:field="*{id}" />
+<input type="text" class="form-control" id="myname" th:field="*{month}" placeholder="Month" />
+<label>Season</label>
+<input type="text" class="form-control" id="myphone" th:field="*{season}" placeholder="Season" />
+<label>Members</label>
+<input type="text" class="form-control" id="myemail" th:field="*{members}" placeholder="Members" />
+<label>Responsibilities</label>
+<input type="text" class="form-control" id="myemail" th:field="*{tasks}" placeholder="Responsibilities" />
+<br />
+<button type="submit" class="btn btn-success">Save</button>
+</div>
+</form>
+</div>
+</div>
+</body>
+</html>

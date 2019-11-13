@@ -1,0 +1,79 @@
+<html xmlns:th="http://www.thymeleave.org">
+
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <link th:href="@{/css/home1.css}" rel="stylesheet"/>
+
+</head>
+<!--Navbar-->
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+            <div class="navbar-header"> 
+                    <a class="navbar-brand" href="#">Altar Guild</a>
+                  </div>
+      <li class="active"><a href="#">HOME</a></li>
+      <li><a th:href="@{/banner/listall}">ALL SEASONS</a></li>
+      <li><a th:href="@{/guild/list}">MEMBER INFORMATION</a></li>
+      <li><a th:href="@{/admin/home}">ADMIN PAGE</a></li>
+    </ul>
+  </div>
+</nav>
+  <!-- Nav Bar Ends-->
+<body>
+    <h3>CURRENT FESTIVAL :</h3>
+    
+<div class="flex-container">
+
+            <div style="flex-grow: 2"> <a th:href="@{/festival/list/?id={id}(id = ${nextThreeFestivals[0].id})}"> [[${nextThreeFestivals[0].name}]] </a></div>
+            <div style="flex-grow: 1" th:inline="text" >[[${nextThreeDates[0]}]] </div>
+            <div style="flex-grow: 1"th:inline="text" >[[${nextThreeColors[0].color}]]</div>
+             
+          </div>
+
+    <h3>NEXT FESTIVALS :</h3>
+    <div class="flex-container">
+            <div style="flex-grow: 2"> <a th:href="@{/festival/list/?id={id}(id=${nextThreeFestivals[1].id})}"> [[${nextThreeFestivals[1].name}]]</a></div>
+            <div style="flex-grow: 1" th:inline="text" >[[${nextThreeDates[1]}]]  </div>
+            <div style="flex-grow: 1"th:inline="text" >[[${nextThreeColors[1].color}]]</div>
+             
+          </div>
+
+          <div class="flex-container">
+                <div style="flex-grow: 2"><a th:href="@{/festival/list/?id={id}(id=${nextThreeFestivals[2].id})}">  [[${nextThreeFestivals[2].name}]]</a></div>
+                <div style="flex-grow: 1" th:inline="text" >[[${nextThreeDates[2]}]]  </div>
+                <div style="flex-grow: 1"th:inline="text" >[[${nextThreeColors[2].color}]]</div>
+                 
+              </div>
+   
+    
+    <h3>FESTIVALS :</h3>
+        <div class="scrolling-wrapper">
+                <div class="card"><a th:href="@{/resources/templates/show-festival.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+                <div class="card"><a th:href="@{/resources/templates/show-festival.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+                <div class="card"><a th:href="@{/resources/templates/show-festival.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+                <div class="card"><a th:href="@{/resources/templates/show-festival.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+                <div class="card"><a th:href="@{/resources/templates/show-festival.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+                <div class="card"><a th:href="@{/resources/templates/show-festival.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+                <div class="card"><a th:href="@{/resources/templates/show-festival.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+                <div class="card"><a th:href="@{/resources/templates/show-festival.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+                <div class="card"><a th:href="@{/resources/templates/show-festival.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+                <div class="card"><a th:href="@{/resources/templates/show-festival.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+                <div class="card"><a th:href="@{/resources/templates/show-festival.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+                <div class="card"><a th:href="@{/resources/templates/show-festival.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+        </div>
+    <h3>RESPONSIBILITIES :</h3>
+        <div class="scrolling-wrapper">
+            
+          <div class="card"><a th:href="@{/resources/templates/festivalinfo.html}"><img th:src="@{/images/church.png}" style="width:200px;height:200px;"/></a></div>
+        </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!Doctype html>
+<html xmlns:th="http://www.thymeleave.org">
+<head>
+<title>Guild Members page</title>
+<link rel="stylesheet" th:href="@{/css/member.css}" />
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" th:href="@{/banner/listall}">Altarguild</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" th:href="@{/guild/list}">Member information<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" th:href="@{/eventhome}">Events Home</a>
+      <a class="nav-item nav-link" th:href="@{/banner/listall}">All Seasons</a>  
+      <a class="nav-item nav-link" th:href="@{/responsibilities/list}">Responsibilities</a>
+      <a class="nav-item nav-link" th:href="@{/admin/home}">Admin Page</a>
+      <a class="nav-item nav-link" th:href="@{/login/showLoginForm}">Logout</a>
+    </div>
+  </div>
+</nav>
+<div class="container">
+<a th:href="@{/students/showFormForAdd}" class="btn btn-success">Add Guild Member</a>
+<br />
+<br />
+<table class="table table-bordered  table-striped">
+<tbody>
+<thead>
+<tr class="table-danger">
+<th>Name</th>
+<th>Phone</th>
+<th>Email</th>
+<th>Action</th>
+</tr>
+</thead>
+<tr th:each="mem : ${members}">
+<td th:text="${mem.name}">
+<td th:text="${mem.phone}">
+<td th:text="${mem.email}">
+<td>
+<a class="btn btn-info" th:href="@{/guild/showFormForUpdate(guildId=${mem.id})}" onclick="return deleteFunction()">Update</a>
+<a class="btn btn-danger" th:href="@{/guild/delete(guildId=${mem.id})}" 
+onclick="return deleteFunction()">Delete</a>
+</td>
+</tbody>
+</table>
+</div>
+<script th:inline="javascript">
+  function deleteFunction(){
+  var password = prompt("Please enter valid password");
+  
+  if (password == "12345") {
+   alert("Correct!");
+   return true;
+  }
+  else{  
+  alert("please enter correct password");
+  return false;
+  }
+  }
+</script>
+</body>
+</html>

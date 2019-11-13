@@ -72,7 +72,7 @@ public class HomeController {
 	        int currentInt = Integer.parseInt(currentDate);
 	        //System.out.print(dateString);
 	        List<Dates> listOfDates = dateRepository.findNextEvents(currentInt);
-	       
+	        System.out.print((listOfDates.get(0).getFestivalID()*10)+11);
 	        Festival[] fest = new   Festival[]  {festivalRepository.findById(listOfDates.get(0).getFestivalID()+9).get(),
 	        									 festivalRepository.findById(listOfDates.get(1).getFestivalID()+9).get(),
 	        									 festivalRepository.findById(listOfDates.get(2).getFestivalID()+9).get()

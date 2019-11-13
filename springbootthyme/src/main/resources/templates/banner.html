@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<title>Insert title here</title>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" th:href="@{/banner/listall}">Altarguild</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" th:href="@{banner/listall}">All Seasons<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" th:href="@{/eventhome}">Events Home</a>
+      <a class="nav-item nav-link" th:href="@{/guild/list}">Member information</a>
+      <a class="nav-item nav-link" th:href="@{/responsibilities/list}">Responsibilites</a>
+      <a class="nav-item nav-link" th:href="@{/admin/home}">Admin Page</a>
+      <a class="nav-item nav-link" th:href="@{/login/showLoginForm}">Logout</a>
+    </div>
+  </div>
+</nav>
+<div class="container">
+<div>
+<a th:href="@{/banner/addBanner}" class="btn btn-success">Add Banner</a>
+<form th:action="@{/banner/search}">
+   <label>Season Name:</label>
+   <select multiple="single" name="name1">  
+ 	<option th:value="'1'" th:text="Advent"></option>
+    <option th:value="'2'" th:text="Christmas"></option>
+    <option th:value="'3'" th:text="Epiphany-1"></option>
+    <option th:value="'4'" th:text="Epiphany-2"></option>
+    <option th:value="'5'" th:text="Epiphany-3"></option>
+    <option th:value="'6'" th:text="AshWednesday"></option>  
+    <option th:value="'7'" th:text="Lent"></option>  
+    <option th:value="'8'" th:text="PalmSunday"></option>
+    <option th:value="'9'" th:text="HolyThursday"></option>
+    <option th:value="'10'" th:text="GoodFriday"></option>
+    <option th:value="'11'" th:text="Easter"></option>
+    <option th:value="'12'" th:text="Pentecost-1"></option>
+    <option th:value="'13'" th:text="Trinity"></option>
+    <option th:value="'14'" th:text="Pentecost-2"></option>
+    <option th:value="'15'" th:text="St.Micheal"></option>
+    <option th:value="'16'" th:text="Reformation"></option>
+    <option th:value="'17'" th:text="AllSaintsDay"></option>
+    <option th:value="'18'" th:text="Pentecost-3"></option>
+    <option th:value="'19'" th:text="ThanksGiving"></option>
+</select>
+    <button type="submit">Search</button>
+</form>
+</div>
+<br />
+<br />
+<table class="table table-bordered  table-striped">
+<tbody>
+<thead>
+<tr class="table-danger">
+<th>Type</th>
+<th>Storage</th>
+<th>Special Instructions</th>
+<th>Scripture</th>
+<th>pairID</th>
+<th>imageUrl</th>
+<th>Seasons</th>
+<th>Action</th>
+</tr>
+</thead>
+<tr th:each="banner : ${banners}">
+<td th:text="${banner.type}">
+<td th:text="${banner.storage}">
+<td th:text="${banner.specialInstructions}">
+<td th:text="${banner.scripture}">
+<td th:text="${banner.pairID}">
+<td><img style="height:200px; width: 200px;" th:src="@{${banner.imageUrl}}" /></td>
+<td>
+<th:block th:if="${banner.seasons} != null"  th:each="word1 : ${#strings.arraySplit(banner.seasons, ',')}">
+	<div th:switch="${word1}"> 
+		<p th:case="1">Advent</p>
+		<p th:case="2">Christmas</p>
+		<p th:case="3">Epiphany-1</p> 
+		<p th:case="4">Epiphany-2</p> 
+		<p th:case="5">Epiphany-3</p> 
+		<p th:case="6">Ash Wednesday</p> 
+		<p th:case="7">Lent</p>
+		<p th:case="8">Palm Sunday</p> 
+		<p th:case="9">Holy Thursday</p>
+		<p th:case="10">Good Friday</p> 
+		<p th:case="11">Easter</p>
+		<p th:case="12">Pentecost-1</p>
+		<p th:case="13">Trinity</p>
+		<p th:case="14">Pentecost-2</p>
+		<p th:case="15">St.Micheal</p>
+		<p th:case="16">Reformation</p>
+		<p th:case="17">All Saints Day</p>
+		<p th:case="18">Pentecost-3</p>
+		<p th:case="19">ThanksGiving</p>
+		<p th:case="20">Anytime</p>
+		<p th:case="21">LWML</p>
+		<p th:case="22">Fourth of July</p>
+		<p th:case="23">Confirmation</p>
+		<p th:case="24">Patriotic Holidays</p>
+		<p th:case="25">Valentines day</p>
+		<p th:case="26">Weddings</p>		
+	</div>    	
+</td> 
+<td>
+<a class="btn btn-info" th:href="@{/banner/showFormUpdateBanner(bannerId=${banner.id})}" onclick="return deleteFunction()">Update</a>
+<a class="btn btn-danger" th:href="@{/banner/delete(bannerId=${banner.id})}" onclick="return deleteFunction()">Delete</a>
+</td>
+</tr>
+</th:block>
+</tbody>
+</table>
+</div>
+<script th:inline="javascript">
+  function deleteFunction(){
+  var password = prompt("Please enter valid password");
+  
+  if (password == "12345") {
+   alert("Correct!");
+   return true;
+  }
+  else{  
+  alert("please enter correct password");
+  return false;
+  }
+  }
+</script>
+</body>
+</html>
