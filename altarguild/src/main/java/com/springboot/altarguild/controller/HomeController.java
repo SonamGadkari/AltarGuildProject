@@ -10,8 +10,10 @@ import java.util.Optional;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -55,17 +57,22 @@ public class HomeController {
 			
 				
 		
-		
 	 @RequestMapping(value="/home", method=RequestMethod.GET)
 	    public String index(HttpServletRequest request,Model themodel) {
+		 
 		 	String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
-	    	Calendar calendar = new GregorianCalendar(request.getLocale());
+		 
+		 	
+		 	Calendar calendar = new GregorianCalendar(request.getLocale());
+		 	System.out.print(calendar.getTimeZone());
+	    	
 	    	String[] currentTime = calendar.getTime().toString().split(" ");
 	    	int month = Arrays.asList(months).indexOf(currentTime[1])+1;
 	        String currentDate = (currentTime[5].replace("20", "")+month+currentTime[2]);
 	        int currentInt = Integer.parseInt(currentDate);
+	        //System.out.print(dateString);
 	        List<Dates> listOfDates = dateRepository.findNextEvents(currentInt);
-	       
+	        System.out.print((listOfDates.get(0).getFestivalID()*10)+11);
 	        Festival[] fest = new   Festival[]  {festivalRepository.findById(listOfDates.get(0).getFestivalID()+9).get(),
 	        									 festivalRepository.findById(listOfDates.get(1).getFestivalID()+9).get(),
 	        									 festivalRepository.findById(listOfDates.get(2).getFestivalID()+9).get()

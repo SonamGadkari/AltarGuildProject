@@ -1,0 +1,9 @@
+After Testing:
+
+- Back ground for every page 
+- Show login form and every logi of admin when logged in do we need to have pop up for login successful?
+- 'Add banner' button can be kept at the right side of the page.
+- Add banner page orientation - can be moved to the middle.
+- Delete banner - ask for confirmation.
+- Cancel the admin password doesnot need pop up message.
+- Admin page orientation and adding of other buttons.

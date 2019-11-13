@@ -1,0 +1,64 @@
+<!Doctype html>
+<html xmlns:th="http://www.thymeleave.org">
+<head>
+<title>Assign responsibilities</title>
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Altarguild</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link active" th:href="@{/guild/list}">Member information<span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" th:href="@{/eventhome}">Events Home</a>
+      <a class="nav-item nav-link" th:href="@{/banner/listall}">All Seasons</a>
+      <a class="nav-item nav-link" th:href="@{/admin/home}">Admin Page</a>
+      <a class="nav-item nav-link" th:href="@{/login/showLoginForm}">Logout</a>
+    </div>
+  </div>
+</nav>
+<br/>
+<a th:href="@{/responsibilities/showTasksAdd}" class="btn btn-success">Assign responsibilities</a>
+<br/>
+<table class="table table-bordered table-striped">
+<tbody>
+<thead>
+<br/>
+<tr class="table-danger">
+<th>Month</th>
+<th>Season</th>
+<th>Members</th>
+<th>Action</th>
+<th>Responsibilities</th>
+</tr>
+</thead>
+<tr th:each="x : ${tasks}">
+<td th:text="${x.month}"></td>
+<td th:text="${x.season}"></td>
+<td th:text="${x.members}"></td>
+<td th:text="${x.tasks}"></td>
+<td>
+<a class="btn btn-info" th:href="@{/responsibilities/showFormForUpdate(respId=${x.id})}" onclick="return myFunction()">Update</a>
+<a class="btn btn-danger" th:href="@{/responsibilities/delete(respId=${x.id})}" onclick="return myFunction()">Delete</a>
+</td>
+</tr>
+</tbody>
+</table>
+<script th:inline="javascript">
+function myFunction() {
+  var password = prompt("Please enter valid password");
+  if (password == "12345") {
+  return true;
+  }
+  else{
+  alert("please enter correct password");
+  return false;
+  }
+  } 
+</script>
+</body>
+</html>

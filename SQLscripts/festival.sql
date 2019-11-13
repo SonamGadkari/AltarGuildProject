@@ -7,7 +7,8 @@ CREATE TABLE `festival` (
 `gospel` varchar(200) DEFAULT NULL,
 `season_id` varchar(45) DEFAULT NULL,
 PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
+)
+ALTER TABLE 'festival' AUTO_INCREMENT = 1;
 INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
 ('First S. in Advent', 'C','Jer. 33:14-16', '1 Thess. 3:9-13', 'Luke 19:28-40 or Luke 21:25-36', '1');
 INSERT INTO festival (name, Calendar_Id, first_reading, epistle, gospel, season_id) VALUES 
