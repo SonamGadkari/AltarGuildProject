@@ -22,10 +22,17 @@
 <button type="submit" class="btn btn-success" onclick="validate()">Save</button>
 </div>
 </form>
-</div>
+
+
+<div th:if="${emailError}">
+    <h3>error:</h3><h3 th:text="${emailError}"></h3></div>
+<p>here</p>
+<div th:if="${phoneError}">
+    <h3>error:</h3><h3 th:text="${phoneError}"></h3></div>
+<p>here</p>
 </div>
 
-<script>
+<!-- <script>
 function validate(){
 var x = document.getElementById("myname").value;
 var y = document.getElementById("myphone").value;
@@ -36,6 +43,6 @@ if(x === "" |  y === "" | z === ""){
 	return false;
 }
 }
-</script>
+</script> -->
 </body>
 </html>
