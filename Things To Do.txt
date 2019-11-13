@@ -7,3 +7,22 @@ After Testing:
 - Delete banner - ask for confirmation.
 - Cancel the admin password doesnot need pop up message.
 - Admin page orientation and adding of other buttons.
+
+
+
+As of 11/13/2019
+
+
+1. Events Home is completed but not deployed
+2. Nav Bar is not completed(Dont Know what all pages are we using)
+		Font of nav bar is not same on all the images.
+3. Add Form Change - done
+4.Removal of Scroll bar in the events home
+5. In All seasons page nav bar when user clicks on all seasons page again then it is showing ERROR.
+6. Nav Bar is not even in all pages.
+7. Add guild members form in member information is not mapped
+8. Phone heading in add guild member form in admin page
+9. Password hiding with "*****"
+10. Nav bar in the festival information is totally different format
+11. Add banner form in all seasons page is not mapped.
+12. Add Banner form in admin page is not mapped 
