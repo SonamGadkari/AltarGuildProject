@@ -26,7 +26,7 @@
   </div>
 </nav>
 <div class="container">
-<a th:href="@{/guild/showFormForAdd}" class="btn btn-success">Add Guild Member</a>
+<a  class="btn btn-success" onclick="myFunction()">Add Guild Member</a>
 <br />
 <br />
 <table class="table table-bordered  table-striped">
@@ -52,6 +52,15 @@ onclick="return deleteFunction()">Delete</a>
 </table>
 </div>
 <script th:inline="javascript">
+function myFunction() {
+  var password = prompt("Please enter valid password");
+  if (password == "12345") {
+  window.location = "/guild/showFormForAdd";
+  }
+  else{
+  alert("please enter correct password");
+  }
+  }
   function deleteFunction(){
   var password = prompt("Please enter valid password");
   

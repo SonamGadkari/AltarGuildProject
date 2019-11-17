@@ -57,6 +57,11 @@ public class GuildController {
 				redirectAttributes.addFlashAttribute("member",member);
 				
 			}
+			if (bindingResult.getFieldError("name") != null) {
+				redirectAttributes.addFlashAttribute("nameError",
+						bindingResult.getFieldError("name").getDefaultMessage());
+
+			}
 			if (bindingResult.getFieldError("email") != null) {
 				redirectAttributes.addFlashAttribute("emailError",
 						bindingResult.getFieldError("email").getDefaultMessage());
