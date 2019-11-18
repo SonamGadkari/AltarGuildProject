@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Table;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import javax.persistence.Id;
 
 
@@ -17,6 +18,7 @@ public class Guild {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="id")
 	public int Id;	
+	@NotEmpty(message = "{validation.name.notEmpty}")
 	@Column(name="name")
 	public String name;	
 	@NotEmpty(message = "{validation.phone.notEmpty}")

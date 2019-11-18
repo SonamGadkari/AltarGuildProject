@@ -33,6 +33,7 @@ public String gethomepage()
         bean.setValidationMessageSource(messageSource());
         return bean;
     }
+    
 	public static void main(String[] args) {
 		SpringApplication.run(ThymeprjApplication.class, args);
 	}
