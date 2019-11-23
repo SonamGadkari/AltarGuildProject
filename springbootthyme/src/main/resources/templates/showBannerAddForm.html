@@ -3,6 +3,11 @@
 <head>
 <title>Add Banner</title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+<style>
+#red{
+color: red;
+}
+</style>
 </head>
 <body>
 <div class="row">
@@ -13,15 +18,29 @@
 <label>Name</label>
 <input type="hidden" th:field="*{id}" />
 <input type="text" class="form-control"  th:field="*{type}" placeholder="Type" />
+<div th:if="${typeError}">
+    <h3 id="red">*</h3><h5 th:text="${typeError}"></h5></div>
+<label>Storage</label>
 <input type="text" class="form-control"  th:field="*{storage}" placeholder="Storage" />
+<div th:if="${storageError}">
+    <h3 id="red">*</h3><h5 th:text="${storageError}"></h5></div>
 <label>Special Instructions</label>
 <input type="text" class="form-control"  th:field="*{specialInstructions}" placeholder="specialInstructions" />
+<div th:if="${specialInstructionsError}">
+    <h3 id="red">*</h3><h5 th:text="${specialInstructionsError}"></h5></div>
 <label>Scripture</label>
+
 <input type="text" class="form-control"  th:field="*{scripture}" placeholder="scripture" />
+<div th:if="${scriptureError}">
+    <h3 id="red">*</h3><h5 th:text="${scriptureError}"></h5></div>
 <label>PairID (if any)</label>
 <input type="text" class="form-control"  th:field="*{pairID}" placeholder="pairID" />
+<div th:if="${pairIDError}">
+    <h3 id="red">*</h3><h5 th:text="${pairIDError}"></h5></div>
 <label>ImageUrl</label>
 <input type="text" class="form-control"  th:field="*{imageUrl}" placeholder="imageUrl" />
+<div th:if="${imageUrlError}">
+    <h3 id="red">*</h3><h5 th:text="${imageUrlError}"></h5></div>
 <select multiple="multiple" th:field="*{seasons}">
  	<option th:value="'1'" th:text="Advent"></option>
     <option th:value="'2'" th:text="Christmas"></option>
@@ -44,10 +63,10 @@
     <option th:value="'19'" th:text="ThanksGiving"></option>
     <option th:value="'20'" th:text="Anytime"></option>
     <option th:value="'21'" th:text="LWML"></option>
-    <option th:value="'22'" th:text="Fourth of July"></option>
+    <option th:value="'22'" th:text="FourthofJuly"></option>
 	<option th:value="'23'" th:text="Confirmation"></option>
-	<option th:value="'24'" th:text="Patriotic Holidays"></option>
-	<option th:value="'25'" th:text="Valentines day"></option>		
+	<option th:value="'24'" th:text="PatrioticHolidays"></option>
+	<option th:value="'25'" th:text="Valentinesday"></option>		
 	<option th:value="'26'" th:text="Weddings"></option>		
 	
 </select>
@@ -55,7 +74,6 @@
             name="multiSelectElementsSelected"
             multiple="multiple"
             th:field="*{seasons}">
-
         <option th:each="season : ${seasons}"
                 th:value="${season.getId()}"
                 th:text="${season.getname()}"></option>

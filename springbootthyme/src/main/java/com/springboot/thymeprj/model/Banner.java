@@ -15,6 +15,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Pattern;
 
 import javassist.bytecode.Descriptor.Iterator;
 
@@ -26,21 +29,28 @@ public class Banner {
 	@Column(name="id")
 	public int Id;			
 	//Type of the banner
+	@NotEmpty(message = "{validation.type.notEmpty}")
 	@Column(name="type")
 	public String type;
 	// Storage of the banner
+	@NotEmpty(message = "{validation.storage.notEmpty}")
 	@Column(name="storage")
 	public String storage;
 	//Special Instructions associated with banner
+	@NotEmpty(message = "{validation.specialInstructions.notEmpty}")
 	@Column(name="special_instructions")
 	public String specialInstructions;	
 	//Scripture: Ex:1 Corinthians 15:55
+	@NotEmpty(message = "{validation.scripture.notEmpty}")
 	@Column(name="scripture")
 	public String scripture;
 	//pairId banner ID
+	@Pattern(regexp="^[0-9]*$",message="{validation.pairID.format}")
 	@Column(name="pair_id")	
 	public String pairID;
 	//imageURL
+	@NotEmpty(message="{validation.imageUrl.notEmpty}")
+	@Pattern(regexp="https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)",message="{validation.imageUrl.format}")
 	@Column(name="image_url")
 	public String imageUrl;
 	//Associated Seasons
