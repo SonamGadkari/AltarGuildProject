@@ -24,6 +24,9 @@ CREATE TABLE `banner` (
 
 );
 
+Insert into `banner` values (1,'Side banner','Box','Girl Scout Banner',null,null,'https://github.com/altarguild/images/blob/master/20.jpeg?raw=true','Made by Phillis Abbott','https://github.com/altarguild/images/blob/master/1.jpeg?raw=true','20');
+Insert into `banner` values (2,'Front banner','Box','Can be paired with 3','1 Corinthians 15:55','Easter, 2019','https://github.com/altarguild/images/blob/master/3.jpeg?raw=true',null,'https://github.com/altarguild/images/blob/master/2.jpeg?raw=true','11');
+Insert into `banner` values (3,'Front banner','Box','Lilies and cross to be attached','1 Corinthians 15:55','Easter, 2019',null,null,'https://github.com/altarguild/images/blob/master/3.jpeg?raw=true','11');
 Insert into `banner` values (4,'Aisle banner','Closet',null','Psalm 100:2','October, 2018',null','LWML Banners to be used on LWML Sunday and other LWML Functions like rallys or workshops','https://github.com/altarguild/images/blob/master/4.jpeg?raw=true','11');
 Insert into `banner` values (5,'side banner','Box',null',null',null',null',null','https://github.com/altarguild/images/blob/master/5A.jpeg?raw=true','2');
 Insert into `banner` values (6,'Aisle banner','Drawer','4 Identical Banners','Psalm 66:1-2',null',null','Donated by Rev. Carl & Marcia Droegemueller in memory of their grandson, Ryan Pappert','https://github.com/altarguild/images/blob/master/6.jpeg?raw=true','20');
