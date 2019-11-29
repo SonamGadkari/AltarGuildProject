@@ -19,16 +19,17 @@ color: red;
 <p> Enter the Guild member information below</p>
 <label>Name</label>
 <input type="hidden" th:field="*{id}" />
-<input type="text" class="form-control" id="myname" th:field="*{name}" placeholder="First Name" />
+<input type="text" class="form-control" id="myname" th:field="*{name}" placeholder="FirstName LastName" />
 <div th:if="${nameError}">
-    <h3 id="red">*</h3><h5 th:text="${nameError}"></h5></div>
+<h3 id="red">*</h3><h5 th:text="${nameError}"></h5></div>
+<label>Phone</label>
 <input type="text" class="form-control" id="myphone" th:field="*{phone}" placeholder="Phone" />
 <div th:if="${phoneError}">
-    <h3 id="red">*</h3><h5 th:text="${phoneError}"></h5></div>
+<h3 id="red">*</h3><h5 th:text="${phoneError}"></h5></div>
 <label>Email</label>
 <input type="text" class="form-control" id="myemail" th:field="*{email}" placeholder="Email" />
 <div th:if="${emailError}">
-    <h3 id="red">*</h3><h5 th:text="${emailError}"></h5></div>
+<h3 id="red">*</h3><h5 th:text="${emailError}"></h5></div>
 <br />
 <button type="submit" class="btn btn-success" onclick="validate()">Save</button>
 </div>

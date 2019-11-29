@@ -17,10 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.springboot.thymeprj.model.Guild;
-//import com.springboot.altarguild.model.Guild;
-//import com.springboot.altarguild.repository.GuildRepository;
 import com.springboot.thymeprj.service.GuildService;
-import com.springboot.thymeprj.service.GuildServiceImpl;;
 
 @Controller
 @RequestMapping("/guild")

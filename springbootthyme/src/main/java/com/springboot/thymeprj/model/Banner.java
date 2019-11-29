@@ -37,17 +37,20 @@ public class Banner {
 	@Column(name="storage")
 	public String storage;
 	//Special Instructions associated with banner
-	@NotEmpty(message = "{validation.specialInstructions.notEmpty}")
 	@Column(name="special_instructions")
 	public String specialInstructions;	
 	//Scripture: Ex:1 Corinthians 15:55
-	@NotEmpty(message = "{validation.scripture.notEmpty}")
 	@Column(name="scripture")
 	public String scripture;
+	//Last used 
+	@Column(name="last_used")
+	public String lastUsed;
 	//pairId banner ID
-	@Pattern(regexp="^[0-9]*$",message="{validation.pairID.format}")
 	@Column(name="pair_id")	
 	public String pairID;
+	//History 
+	@Column(name="history")
+	public String history;
 	//imageURL
 	@NotEmpty(message="{validation.imageUrl.notEmpty}")
 	@Pattern(regexp="https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)",message="{validation.imageUrl.format}")
@@ -121,11 +124,27 @@ public class Banner {
 		this.seasons = seasons;
 	}
 
+	public String getLastUsed() {
+		return lastUsed;
+	}
+
+	public void setLastUsed(String lastUsed) {
+		this.lastUsed = lastUsed;
+	}
+
+	public String getHistory() {
+		return history;
+	}
+
+	public void setHistory(String history) {
+		this.history = history;
+	}
+
 	@Override
 	public String toString() {
 		return "Banner [Id=" + Id + ", type=" + type + ", storage=" + storage + ", specialInstructions="
-				+ specialInstructions + ", scripture=" + scripture + ", pairID=" + pairID + ", imageUrl=" + imageUrl
-				+ ", seasons=" + seasons + "]";
+				+ specialInstructions + ", scripture=" + scripture + ", lastUsed=" + lastUsed + ", pairID=" + pairID
+				+ ", history=" + history + ", imageUrl=" + imageUrl + ", seasons=" + seasons + "]";
 	}	
 			
 }

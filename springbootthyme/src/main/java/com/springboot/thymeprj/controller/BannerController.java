@@ -1,6 +1,7 @@
 package com.springboot.thymeprj.controller;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
@@ -26,17 +27,9 @@ import com.springboot.thymeprj.model.Banner;
 import com.springboot.thymeprj.model.Guild;
 import com.springboot.thymeprj.repository.BannerRepository;
 import com.springboot.thymeprj.repository.SeasonRepository;
-//import com.springboot.thymeprj.service.BannerService;
-
 @Controller
 @RequestMapping("/banner")
 public class BannerController {
-//	private BannerService bannerservice;
-//
-//	@Autowired
-//	public BannerController(BannerService bannerservice) {
-//		this.bannerservice = bannerservice;
-//	}
 
 	//@Autowired
 	private BannerRepository bannerRepository;
@@ -67,22 +60,28 @@ public class BannerController {
 		for(Banner b : banners1)
 		{
 			String str=b.getSeasons();
-			if(str.contains(name1))
+			String[] values =str.split(",");
+			List<String> valueList=Arrays.asList(values);
+			System.out.println(str);
+			if(valueList.contains(name1))
 			{
 				banners.add(b);
 			}
-		}
-		
+		}		
 		themodel.addAttribute("banners", banners);
 		return "banner";
 	}	
+	
 	@GetMapping("/addBanner")
-	public String showForm(Model themodel) {
-		
-		themodel.addAttribute("banner1", new Banner());
+	public String showForm(Model themodel)
+	{		
+		Banner banner1= new Banner();		
+		//List<Season> seasons = seasonRepository.findAll();		
+		themodel.addAttribute("banner1",banner1);					
 		return "showBannerAddForm";
-	}
-
+	}	
+		
+	
 	@PostMapping("/save")
 	public String saveForm(@Valid Banner banner1, BindingResult bindingResult, RedirectAttributes redirectAttributes,
 			Model themodel) {
@@ -102,15 +101,8 @@ public class BannerController {
 			if (bindingResult.getFieldError("storage") != null) {
 				redirectAttributes.addFlashAttribute("storageError",
 						bindingResult.getFieldError("storage").getDefaultMessage());
-			}
-			if (bindingResult.getFieldError("specialInstructions") != null) {
-				redirectAttributes.addFlashAttribute("specialInstructionsError",
-						bindingResult.getFieldError("specialInstructions").getDefaultMessage());
-			}
-			if (bindingResult.getFieldError("scripture") != null) {
-				redirectAttributes.addFlashAttribute("scriptureError",
-						bindingResult.getFieldError("scripture").getDefaultMessage());
-			}
+			}			
+			
 			if (bindingResult.getFieldError("pairID") != null) {
 				redirectAttributes.addFlashAttribute("pairIDError",
 						bindingResult.getFieldError("pairID").getDefaultMessage());
@@ -121,21 +113,20 @@ public class BannerController {
 			}
 
 			return "redirect:/banner/showFormUpdateBanner";
-		}
-		bannerRepository.save(banner1);
+		}			
+		bannerRepository.save(banner1);			    	
 		return "redirect:/banner/listall";
 	}
-
+	
+	
 	@GetMapping("/showFormUpdateBanner")
-	public String showFormforUpdate(@RequestParam("bannerId") int id, Model themodel) {
-		if(themodel.containsAttribute("banner1")) {
-			return "showBannerAddForm";
-		}
-		Optional<Banner> banner1=bannerRepository.findById(id);
-		themodel.addAttribute("banner1", banner1);
+	public String showFormforUpdate(@RequestParam("bannerId") int id,Model themodel)
+	{
+		Optional<Banner> banner=bannerRepository.findById(id);
+		//System.out.println(banner1.toString());
+		themodel.addAttribute("banner1",banner);
 		return "showBannerAddForm";
 	}
-	
 
 	@GetMapping("/delete")
 	public String deleteStudent(@RequestParam("bannerId") int id, Model themodel)

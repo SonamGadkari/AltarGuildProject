@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<div class="col-sm-12 col-md-12 col-lg-12">
 <nav class="navbar navbar-inverse navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" th:href="@{/banner/listall}">Altarguild</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -48,6 +49,13 @@
     <option th:value="'17'" th:text="AllSaintsDay"></option>
     <option th:value="'18'" th:text="Pentecost-3"></option>
     <option th:value="'19'" th:text="ThanksGiving"></option>
+    <option th:value="'20'" th:text="Anytime"></option>
+    <option th:value="'21'" th:text="LWML"></option>
+    <option th:value="'22'" th:text="FourthofJuly"></option>
+	<option th:value="'23'" th:text="Confirmation"></option>
+	<option th:value="'24'" th:text="PatrioticHolidays"></option>
+	<option th:value="'25'" th:text="Valentinesday"></option>		
+	<option th:value="'26'" th:text="Weddings"></option>
 </select>
     <button type="submit">Search</button>
 </form>
@@ -58,23 +66,19 @@
 <tbody>
 <thead>
 <tr class="table-danger">
+<th>Seasons</th>
 <th>Type</th>
 <th>Storage</th>
 <th>Special Instructions</th>
 <th>Scripture</th>
-<th>pairID</th>
-<th>imageUrl</th>
-<th>Seasons</th>
+<th>Last Used</th>
+<th>Paired With</th>
+<th>Banner Image</th>
+<th>History</th>
 <th>Action</th>
 </tr>
 </thead>
 <tr th:each="banner : ${banners}">
-<td th:text="${banner.type}">
-<td th:text="${banner.storage}">
-<td th:text="${banner.specialInstructions}">
-<td th:text="${banner.scripture}">
-<td th:text="${banner.pairID}">
-<td><img style="height:200px; width: 200px;" th:src="@{${banner.imageUrl}}" /></td>
 <td>
 <th:block th:if="${banner.seasons} != null"  th:each="word1 : ${#strings.arraySplit(banner.seasons, ',')}">
 	<div th:switch="${word1}"> 
@@ -106,6 +110,14 @@
 		<p th:case="26">Weddings</p>		
 	</div>    	
 </td> 
+<td th:text="${banner.type}">
+<td th:text="${banner.storage}">
+<td th:text="${banner.specialInstructions}">
+<td th:text="${banner.scripture}">
+<td th:text="${banner.lastUsed}">
+<td><img style="height:200px; width: 200px;" th:if="${banner.pairID} != null"  th:src="@{${banner.pairID}}" /></td>
+<td><img style="height:200px; width: 200px;" th:src="@{${banner.imageUrl}}" /></td>
+<td th:text="${banner.history}">
 <td>
 <a class="btn btn-info" th:href="@{/banner/showFormUpdateBanner(bannerId=${banner.id})}" onclick="return deleteFunction()">Update</a>
 <a class="btn btn-danger" th:href="@{/banner/delete(bannerId=${banner.id})}" onclick="return deleteFunction()">Delete</a>
@@ -115,11 +127,12 @@
 </tbody>
 </table>
 </div>
+</div>
 <script th:inline="javascript">
   function deleteFunction(){
   var password = prompt("Please enter valid password");
   
-  if (password == "12345") {
+  if (password == "4789") {
    alert("Correct!");
    return true;
   }

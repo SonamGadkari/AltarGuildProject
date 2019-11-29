@@ -15,32 +15,29 @@ color: red;
 <form th:action="@{save}" th:object="${banner1}" method="POST">
 <div class="form-group">
 <p> Enter the Banner information below</p>
-<label>Name</label>
 <input type="hidden" th:field="*{id}" />
+<label>Banner Type</label>
 <input type="text" class="form-control"  th:field="*{type}" placeholder="Type" />
 <div th:if="${typeError}">
-    <h3 id="red">*</h3><h5 th:text="${typeError}"></h5></div>
-<label>Storage</label>
+<h3 id="red">*</h3><h5 th:text="${typeError}"></h5></div>
+<label>Banner Storage</label>
 <input type="text" class="form-control"  th:field="*{storage}" placeholder="Storage" />
 <div th:if="${storageError}">
-    <h3 id="red">*</h3><h5 th:text="${storageError}"></h5></div>
+<h3 id="red">*</h3><h5 th:text="${storageError}"></h5></div>
 <label>Special Instructions</label>
 <input type="text" class="form-control"  th:field="*{specialInstructions}" placeholder="specialInstructions" />
-<div th:if="${specialInstructionsError}">
-    <h3 id="red">*</h3><h5 th:text="${specialInstructionsError}"></h5></div>
 <label>Scripture</label>
-
 <input type="text" class="form-control"  th:field="*{scripture}" placeholder="scripture" />
-<div th:if="${scriptureError}">
-    <h3 id="red">*</h3><h5 th:text="${scriptureError}"></h5></div>
-<label>PairID (if any)</label>
+<label>Last Used</label>
+<input type="text" class="form-control"  th:field="*{lastUsed}" placeholder="Last Used" />
+<label>BannerPairUrl (if any)</label>
 <input type="text" class="form-control"  th:field="*{pairID}" placeholder="pairID" />
-<div th:if="${pairIDError}">
-    <h3 id="red">*</h3><h5 th:text="${pairIDError}"></h5></div>
+<label>History</label>
+<input type="text" class="form-control"  th:field="*{history}" placeholder="Banner History" />
 <label>ImageUrl</label>
 <input type="text" class="form-control"  th:field="*{imageUrl}" placeholder="imageUrl" />
 <div th:if="${imageUrlError}">
-    <h3 id="red">*</h3><h5 th:text="${imageUrlError}"></h5></div>
+<h3 id="red">*</h3><h5 th:text="${imageUrlError}"></h5></div>
 <select multiple="multiple" th:field="*{seasons}">
  	<option th:value="'1'" th:text="Advent"></option>
     <option th:value="'2'" th:text="Christmas"></option>
@@ -70,35 +67,9 @@ color: red;
 	<option th:value="'26'" th:text="Weddings"></option>		
 	
 </select>
-<!-- <select id="multiSelectElementsSelected"
-            name="multiSelectElementsSelected"
-            multiple="multiple"
-            th:field="*{seasons}">
-        <option th:each="season : ${seasons}"
-                th:value="${season.getId()}"
-                th:text="${season.getname()}"></option>
-</select> -->
-<table>
-			<tr>
-<!-- <td>Seasons :</td>
-				<td><form:select path="seasons" items="${seasons}"
-					multiple="true" />
-					</td>
-					</tr>
-					</table> -->
-
-<!-- <select name="seasons" th:field="*{seasons}">
-<option th:each="season : ${seasons}" 
-th:value="${season.Id}" th:text="${season.name}"></option>
-</select>  -->
-
 <br />
 <button type="submit" class="btn btn-success">Save</button>
 </div>
-</form>
-<form method="post" enctype="multipart/form-data" action="/banner/uploadImage">
-<input type="file" name="imageFile">
-<input type="submit" value="upload" />
 </form>
 </div>
 </div>

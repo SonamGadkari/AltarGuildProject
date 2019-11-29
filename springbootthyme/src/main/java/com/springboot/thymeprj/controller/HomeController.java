@@ -73,9 +73,9 @@ public class HomeController {
 	        //Festival[] fest = new   Festival[]  {festivalRepository.findById(2).get(), festivalRepository.findById(2).get(),festivalRepository.findById(2).get()};
 	        System.out.println("I am here");
 	        System.out.println(listOfDates.get(0).getFestivalNo());
-	        Festival[] fest = new   Festival[]  {festivalRepository.findById((listOfDates.get(0).getFestivalNo())+9).get(),
-	        									 festivalRepository.findById((listOfDates.get(1).getFestivalNo())+9).get(),
-	        									 festivalRepository.findById((listOfDates.get(2).getFestivalNo())+9).get()
+	        Festival[] fest = new   Festival[]  {festivalRepository.findById((listOfDates.get(0).getFestivalNo())+8).get(),
+	        									 festivalRepository.findById((listOfDates.get(1).getFestivalNo())+8).get(),
+	        									 festivalRepository.findById((listOfDates.get(2).getFestivalNo())+8).get()
 	        				  };	        
 	        themodel.addAttribute("nextThreeFestivals",fest);
 	      
