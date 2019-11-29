@@ -14,6 +14,6 @@ https://altarguild.herokuapp.com/
  <li> Zachary Haider</li>
 
 <h2> Introduction to our Project:</h2>
-<p>This is an interactive website to be developed for Hope Lutheran Church. Hope Lutheran Church is a located at 931 S. Main Street, Maryville, Missouri. Church is a congregation of 130 members and also supports 
+<p>This is an interactive website developed for Hope Lutheran Church for guildmembers,banner management,festival tracking, Assigning reponsibilities. Hope Lutheran Church is a located at 931 S. Main Street, Maryville, Missouri. Church is a congregation of 130 members and also supports 
 
 Link to gdp-1 work: https://github.com/harishvavilala/Betterhappo
