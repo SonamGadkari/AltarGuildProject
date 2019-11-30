@@ -104,8 +104,15 @@ public class Banner {
 		return pairID;
 	}
 
-	public void setPairID(String pairID) {
+	public void setPairID(String pairID) {	
+		if(pairID=="") 
+		{
+			this.pairID=null;
+		}
+		else
+		{
 		this.pairID = pairID;
+		}
 	}
 
 	public String getImageUrl() {

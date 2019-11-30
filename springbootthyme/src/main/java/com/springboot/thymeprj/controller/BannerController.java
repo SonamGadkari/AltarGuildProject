@@ -102,17 +102,13 @@ public class BannerController {
 				redirectAttributes.addFlashAttribute("storageError",
 						bindingResult.getFieldError("storage").getDefaultMessage());
 			}			
-			
-			if (bindingResult.getFieldError("pairID") != null) {
-				redirectAttributes.addFlashAttribute("pairIDError",
-						bindingResult.getFieldError("pairID").getDefaultMessage());
-			}
+						
 			if (bindingResult.getFieldError("imageUrl") != null) {
 				redirectAttributes.addFlashAttribute("imageUrlError",
 						bindingResult.getFieldError("imageUrl").getDefaultMessage());
 			}
 
-			return "redirect:/banner/showFormUpdateBanner";
+			return "redirect:/banner/addBanner";
 		}			
 		bannerRepository.save(banner1);			    	
 		return "redirect:/banner/listall";
