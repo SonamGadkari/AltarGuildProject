@@ -1,28 +1,17 @@
 CREATE TABLE `banner` (
-
-  `id` int(11) NOT NULL,
-
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` varchar(45) DEFAULT NULL,
-
   `storage` varchar(45) DEFAULT NULL,
-
-  `special_instructions`  varchar(150) DEFAULT NULL,
-
+  `special_instructions` varchar(150) DEFAULT NULL,
   `scripture` varchar(45) DEFAULT NULL,
-
   `last_used` varchar(100) DEFAULT NULL,
-
-  `pair_id`  varchar(45) DEFAULT NULL,
-
+  `pair_id`  varchar(300) DEFAULT NULL,
   `history`  varchar(100) DEFAULT NULL,
-
   `image_url`  varchar(300) DEFAULT NULL,
-
   `seasons`  varchar(45) DEFAULT NULL,
-
   PRIMARY KEY (`id`)
-
 );
+select * from `banner`;
 
 Insert into `banner` values (1,'Side banner','Box','Girl Scout Banner',null,null,'https://github.com/altarguild/images/blob/master/20.jpeg?raw=true','Made by Phillis Abbott','https://github.com/altarguild/images/blob/master/1.jpeg?raw=true','20');
 Insert into `banner` values (2,'Front banner','Box','Can be paired with 3','1 Corinthians 15:55','Easter, 2019','https://github.com/altarguild/images/blob/master/3.jpeg?raw=true',null,'https://github.com/altarguild/images/blob/master/2.jpeg?raw=true','11');
@@ -32,13 +21,13 @@ Insert into `banner` values (5,'side banner','Box',null,null,null,null,null,'htt
 Insert into `banner` values (6,'Aisle banner','Drawer','4 Identical Banners','Psalm 66:1-2',null,null,'Donated by Rev. Carl & Marcia Droegemueller in memory of their grandson, Ryan Pappert','https://github.com/altarguild/images/blob/master/6.jpeg?raw=true','20');
 Insert into `banner` values (7,'Front banner','Box','Can be paired with 8; delicate','Isaiah 9:6','Christmas, 2018','https://github.com/altarguild/images/blob/master/8.jpeg?raw=true','Made by a NWMSU Art Professor','https://github.com/altarguild/images/blob/master/7.jpeg?raw=true','2');
 Insert into `banner` values (8,'Front banner','Box','Can be paired with 7','Zechariah 9:9','Christmas, 2018','https://github.com/altarguild/images/blob/master/7.jpeg?raw=true','Made by a NWMSU Art Professor','https://github.com/altarguild/images/blob/master/8.jpeg?raw=true','2');
-Insert into `banner` values (9,'Front banner','Box','Bird must be attached',null,'Fourth of July, 2019',null,null,'https://github.com/altarguild/images/blob/master/9.jpeg?raw=true','22');
+Insert into `banner` values (9,'Front banner','Box','Bird must be attached',null,'Fourth of July, 2019',null,null,'https://github.com/altarguild/images/blob/master/9.jpg?raw=true','22');
 Insert into `banner` values (10,'Side banner','Box',null,null,'Confirmation, 2019',null,'Made by Phyllis Abbott for her son Andys confirmation','https://github.com/altarguild/images/blob/master/10.jpeg?raw=true','23');
 Insert into `banner` values (11,'Side banner','Box','Good for Stewardship Sunday',null,null,null,null,'https://github.com/altarguild/images/blob/master/15.jpeg?raw=true','20');
 Insert into `banner` values (12,'Side banner','Box',null,null,null,null,null,'https://github.com/altarguild/images/blob/master/16.jpeg?raw=true','3,4,5');
-Insert into `banner` values (13,'Aisle banner','Box','4 small American flags',null,'Fourth of July, 2019',null,'Made by Phyllis Abbott','https://github.com/altarguild/images/blob/master/19.jpeg?raw=true','24');
+Insert into `banner` values (13,'Aisle banner','Box','4 small American flags',null,'Fourth of July, 2019',null,'Made by Phyllis Abbott','https://github.com/altarguild/images/blob/master/19.jpg?raw=true','24');
 Insert into `banner` values (14,'Side banner','Box',null,'Isaiah 55:1',null,null,null,'https://github.com/altarguild/images/blob/master/20.jpeg?raw=true','20');
-Insert into `banner` values (15,'Front banner','Box','Cord/pole top must be attached',null,'Fourth of July, 2019',null,null,'https://github.com/altarguild/images/blob/master/21.jpeg?raw=true','22');
+Insert into `banner` values (15,'Front banner','Box','Cord/pole top must be attached',null,'Fourth of July, 2019',null,null,'https://github.com/altarguild/images/blob/master/21.jpg?raw=true','22');
 Insert into `banner` values (16,'Side banner','Box',null,null,'Valentines Day, 2019',null,null,'https://github.com/altarguild/images/blob/master/22.jpeg?raw=true','1,25');
 Insert into `banner` values (17,'Front banner','Box','Fragile; Iron on low with press cloth',null,null,null,'Made exclusively for weddings','https://github.com/altarguild/images/blob/master/23A.jpeg?raw=true','26');
 Insert into `banner` values (18,'Front banner','Box','Fragile; Iron on low with press cloth',null,null,null,'Made exclusively for weddings','https://github.com/altarguild/images/blob/master/23B.jpeg?raw=true','26');
@@ -91,5 +80,6 @@ Insert into `banner` values (64,'Front banner','Tube','Pair with 66','Luke 1:31'
 Insert into `banner` values (65,'Front banner','Tube','Pair with 65',null,'Advent, 2018','https://github.com/altarguild/images/blob/master/65.jpeg?raw=true','Made by Jean Memken for Advent, 2018','https://github.com/altarguild/images/blob/master/66.jpeg?raw=true','1');
 Insert into `banner` values (66,'Front banner','Tube','Pair with 68','Luke 23:34',null,'https://github.com/altarguild/images/blob/master/68.jpeg?raw=true','Made by Jean Memken for Good Friday, 2019','https://github.com/altarguild/images/blob/master/67.jpeg?raw=true','10');
 Insert into `banner` values (67,'Front banner','Tube','Pair with 67',null,null,'https://github.com/altarguild/images/blob/master/67.jpeg?raw=true','Made by Jean Memken for Good Friday, 2019','https://github.com/altarguild/images/blob/master/68.jpeg?raw=true','10');
-Insert into `banner` values (68,'Side banner','Box',null,null,null,null,'Made by the Sunday School Children on Easter Sunday, 2013','https://github.com/altarguild/images/blob/master/69.jpeg?raw=true ','11');
-Insert into `banner` values (69,'Side banner','Tube','Can be used for Rally Day/Baptism','Mark 10:14','Rally Day, 2019',null,'Made by Jean Memken, 2019','https://github.com/altarguild/images/blob/master/70.jpeg?raw=true','12,14,18');
+Insert into `banner` values (68,'Side banner','Box',null,null,null,null,'Made by the Sunday School Children on Easter Sunday, 2013','https://github.com/altarguild/images/blob/master/69.jpeg?raw=true','11');
+Insert into `banner` values (69,'Side banner','Tube','Can be used for Rally Day/Baptism','Mark 10:14','Rally Day, 2019',null,'Made by Jean Memken, 2019','https://github.com/altarguild/images/blob/master/70.jpg?raw=true','12,14,18');
+Delete  from `banner` where id=69;
