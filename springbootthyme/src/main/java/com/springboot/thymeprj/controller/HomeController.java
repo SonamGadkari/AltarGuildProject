@@ -71,8 +71,8 @@ public class HomeController {
 	        int currentInt = Integer.parseInt(currentDate);
 	        List<Dates> listOfDates = dateRepository.findNextEvents(currentInt);
 	        //Festival[] fest = new   Festival[]  {festivalRepository.findById(2).get(), festivalRepository.findById(2).get(),festivalRepository.findById(2).get()};
-	        System.out.println("I am here");
-	        System.out.println(listOfDates.get(0).getFestivalNo());
+	     //   System.out.println("I am here");
+	       // System.out.println(listOfDates.get(0).getFestivalNo());
 	        Festival[] fest = new   Festival[]  {festivalRepository.findById((listOfDates.get(0).getFestivalNo())+8).get(),
 	        									 festivalRepository.findById((listOfDates.get(1).getFestivalNo())+8).get(),
 	        									 festivalRepository.findById((listOfDates.get(2).getFestivalNo())+8).get()

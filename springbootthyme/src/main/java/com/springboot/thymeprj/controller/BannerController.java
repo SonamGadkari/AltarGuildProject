@@ -107,8 +107,8 @@ public class BannerController {
 				redirectAttributes.addFlashAttribute("imageUrlError",
 						bindingResult.getFieldError("imageUrl").getDefaultMessage());
 			}
-
-			return "redirect:/banner/addBanner";
+		
+			return "redirect:/banner/showFormUpdateBanner";
 		}			
 		bannerRepository.save(banner1);			    	
 		return "redirect:/banner/listall";
@@ -118,6 +118,9 @@ public class BannerController {
 	@GetMapping("/showFormUpdateBanner")
 	public String showFormforUpdate(@RequestParam("bannerId") int id,Model themodel)
 	{
+		if(themodel.containsAttribute("banner1")) {
+			return "showBannerAddForm";
+		}
 		Optional<Banner> banner=bannerRepository.findById(id);
 		//System.out.println(banner1.toString());
 		themodel.addAttribute("banner1",banner);
