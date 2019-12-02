@@ -21,10 +21,11 @@ https://altarguild.herokuapp.com/
 <p> git add .</p>
 <p> git commit  -m "message"</p>
 <p> git push heroku master</p>
-<h3> Execution messages for refernce</h3>
+<h3> Execution messages for reference</h3>
 
 ![image](https://user-images.githubusercontent.com/43020059/69924036-c1e21a00-146e-11ea-9ab9-ddeff1b04f37.png)
 
 ![image](https://user-images.githubusercontent.com/43020059/69924078-11284a80-146f-11ea-9530-5f87fdffe4f2.png)
 
-Link to GDP-I work: https://github.com/harishvavilala/Betterhappo
+## Graduate Directed Project I (PMBOK) : Altar Guild Project
+https://github.com/harishvavilala/Betterhappo
