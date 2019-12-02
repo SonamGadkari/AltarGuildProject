@@ -1,10 +1,10 @@
-# Graduate Directed Project II : Altar Guild Project
+## Graduate Directed Project II : Altar Guild Project
 
-# Live application Url:
+## Deployed Application URL:
 
 https://altarguild.herokuapp.com/
 
-<h1>Team Name: BetterHappo</h1>
+<h2>Team Name: BetterHappo</h2>
  
 <h2>Team Members:</h2>
  <li> Akshara Gurram</li>
@@ -16,7 +16,7 @@ https://altarguild.herokuapp.com/
 <h2> Introduction to our Project:</h2>
 <p>This is an interactive website developed for Hope Lutheran Church for guildmembers,banner management,festival tracking, Assigning reponsibilities. Hope Lutheran Church is a located at 931 S. Main Street, Maryville, Missouri. Church is a congregation of 130 members and also supports 
 
-<h3> Execution</h3>
+<h3>Commands for Execution</h3>
 <p> heroku login </p>
 <p> git add .</p>
 <p> git commit  -m "message"</p>
