@@ -16,4 +16,9 @@ https://altarguild.herokuapp.com/
 <h2> Introduction to our Project:</h2>
 <p>This is an interactive website developed for Hope Lutheran Church for guildmembers,banner management,festival tracking, Assigning reponsibilities. Hope Lutheran Church is a located at 931 S. Main Street, Maryville, Missouri. Church is a congregation of 130 members and also supports 
 
+<h3> Execution</h3>
+<p> heroku login </p>
+<p> git add .</p>
+<p> git commit  -m "message"</p>
+<p> git push heroku master</p>
 Link to gdp-1 work: https://github.com/harishvavilala/Betterhappo
